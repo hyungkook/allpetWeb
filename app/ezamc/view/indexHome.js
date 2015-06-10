@@ -1,20 +1,37 @@
 /**
  * Created by kook_sub on 2015-06-07.
  */
-angular.module('ezamc.home',['ui.router', 'ui.bootstrap'])
+angular.module('ezamc.home')
     .controller('ezamcHomeController', ezamcHomeController);
 
-function ezamcHomeController($http, $scope) {
+function ezamcHomeController($http, $scope, constant) {
 
+    $scope.slides = [];
+    $scope.mainImageList = [];
     $scope.myInterval = 5000;
-    var slides = $scope.slides = [];
     $scope.addSlide = function() {
-        var newWidth = 600 + slides.length + 1;
-        slides.push({
-            image: 'http://placekitten.com/' + newWidth + '/300'
-        });
+        if( $scope.mainImageList ){
+            for( var i =0; i < $scope.mainImageList.length; i++){
+                $scope.slides.push({
+                    image: constant.imagePath + $scope.mainImageList[i].s_image_path
+                });
+            }
+        }
     };
-    for (var i=0; i<5; i++) {
-        $scope.addSlide();
-    }
+
+    $scope.init = function(){
+        var url_temp = constant.contextPath + 'mainData';
+        var response = $http.get(url_temp);
+        response.success(function (data, status, headers, config) {
+            if( data && data.mainImage ){
+                $scope.mainImageList =  data.mainImage;
+                $scope.addSlide();
+            }
+        })
+        response.error(function (data, status, headers, config) {
+        });
+
+    };
+    $scope.init();
+
 };
