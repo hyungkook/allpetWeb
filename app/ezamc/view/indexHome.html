@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<div class="homeDetail">
+    <div class="detail">
+    <!-- 이미지 슬라이드 -->
+        <div class="appSlide">
+            <div class="asIn">
+                <carousel interval="myInterval">
+                    <slide ng-repeat="slide in slides" active="slide.active">
+                        <img ng-src="{{slide.image}}" style="margin:auto;width:1000px;height:500px;" >
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- //이미지 슬라이드 -->
+    </div>
+
+</div>
+
+
+</body>
+</html>
