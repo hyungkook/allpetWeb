@@ -1,0 +1,82 @@
+
+<div class="clearfix"></div>
+<div ng-repeat="staff in staffList">
+    <img ng-src="{{staff.image_path}}">
+    <ui>
+        <li>이름 : {{staff.s_name}}</li>
+        <li>직위 : {{staff.s_position}}</li>
+        <li>전문분야 : {{staff.s_specialty}}</li>
+    </ui>
+    <div ng-show="staff.workTimeView">
+        <!-- 진료시간-->
+        <div>
+            <table  class="">
+                <colgroup>
+                    <col width="*" /><col width="12%" /><col width="12%" /><col width="12%" />
+                    <col width="12%" /><col width="12%" /><col width="12%" /><col width="12%" />
+                </colgroup>
+                <tr>
+                    <th></th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th class="sat">토</th>
+                    <th class="sun">일</th>
+                </tr>
+                <tr>
+                    <td>오전</td>
+                    <td ng-repeat="wt11 in staff.wt1 track by $index">
+                        <span ng-show="wt11 == 'Y'">Y</span>
+                        <span ng-show="wt11 == 'N'">N</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>오후</td>
+                    <td ng-repeat="wt22 in staff.wt2 track by $index">
+                        <span ng-show="wt22 == 'Y'">Y</span>
+                        <span ng-show="wt22 == 'N'">N</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>야간</td>
+                    <td ng-repeat="wt33 in staff.wt3 track by $index">
+                        <span ng-show="wt33 == 'Y'">Y</span>
+                        <span ng-show="wt33 == 'N'">N</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div ng-show="staff.staffHistoryView">
+        이력사항
+        <div ng-repeat="his in staff.staffHistory">
+            <div ng-show="his.d_start_date || his.d_end_date">
+                <b>{{his.d_start_date}} ~ {{his.d_end_date}}</b>
+            </div>
+            <div class="clearfix"></div>
+            {{his.s_desc}}
+        </div>
+    </div>
+    <div ng-show="staff.staffCareerView">
+        학술활동
+        <div ng-repeat="his in staff.staffHistory">
+            <div ng-show="his.d_start_date || his.d_end_date">
+                <b>{{his.d_start_date}} ~ {{his.d_end_date}}</b>
+            </div>
+            <div class="clearfix"></div>
+            {{his.s_desc}}
+        </div>
+    </div>
+    <div ng-show="staff.staffBooksView">
+        저서
+        <div ng-repeat="his in staff.staffHistory">
+            <div ng-show="his.d_start_date || his.d_end_date">
+                <b>{{his.d_start_date}} ~ {{his.d_end_date}}</b>
+            </div>
+            <div class="clearfix"></div>
+            {{his.s_desc}}
+        </div>
+    </div>
+</div>

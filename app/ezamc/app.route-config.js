@@ -33,7 +33,12 @@
             })
             .state('homeInfo.staff',{
                 templateUrl: 'view/homeInfo/hospitalStaff.html',
-                controller: ezamcHomeController
+                controller: ezamcHomeStaffController
+            })
+            .state('homeInfo.staff.detail',{
+                templateUrl: 'view/homeInfo/hospitalStaffDetail.html',
+                controller: ezamcHomeStaffDetailController,
+                params: {'cmid' : '' }
             })
             .state('homeInfo.equipment',{
                 templateUrl: 'view/homeInfo/hospitalEquipment.html',
