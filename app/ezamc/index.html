@@ -24,6 +24,7 @@
     <script src="js/DataFactory.js"></script>
 
     <script src="view/indexHome.js"></script>
+    <script src="view/homeInfo/homeInfoController.js"></script>
 
 </head>
 <body ng-app="app" ng-controller="HomeController">
@@ -36,12 +37,12 @@
             <nav class="gnb">
                 <ul>
                     <li>
-                        <a href="#">병원 소개</a>
+                        <a href="#" ui-sref="homeInfo">병원 소개</a>
                         <ul>
-                            <li><a href="#">인사말</a></li>
-                            <li><a href="#">의료진 소개</a></li>
-                            <li><a href="#">보유장비 소개</a></li>
-                            <li><a href="#">진료시간 안내</a></li>
+                            <li><a href="#" ui-sref="homeInfo">인사말</a></li>
+                            <li><a href="#" ui-sref="homeInfo.staff">의료진 소개</a></li>
+                            <li><a href="#" ui-sref="homeInfo.equipment">보유장비 소개</a></li>
+                            <li><a href="#" ui-sref="homeInfo.info">진료시간 안내</a></li>
                         </ul>
                     </li>
                     <li>
