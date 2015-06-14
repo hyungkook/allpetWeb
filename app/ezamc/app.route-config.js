@@ -43,6 +43,18 @@
             .state('homeInfo.equipment',{
                 templateUrl: 'view/homeInfo/hospitalEquipment.html',
                 controller: ezamcHomeController
+            })
+            .state('homeMap',{
+                url: '/homeMap',
+                views: {
+                    '': {
+                        templateUrl: 'view/homeMap/main.html',
+                        controller: homeMapController
+                    },
+                    'menu@homeInfo': {
+                        templateUrl: 'view/homeMap/leftMenu.html'
+                    }
+                }
             });
         }
 })();
