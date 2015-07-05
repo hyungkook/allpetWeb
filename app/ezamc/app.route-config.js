@@ -55,6 +55,34 @@
                         templateUrl: 'view/homeMap/leftMenu.html'
                     }
                 }
+            })
+            .state('homeBeauty',{
+                url: '/homeBeauty',
+                views: {
+                    '': {
+                        templateUrl: 'view/homeBeauty/main.html',
+                        controller: homeBeautyController
+                    },
+                    'menu@homeInfo': {
+                        templateUrl: 'view/homeBeauty/leftMenu.html'
+                    }
+                }
+            })
+            .state('homeBoard',{
+                url: '/homeBoard',
+                views: {
+                    '': {
+                        templateUrl: 'view/homeBoard/main.html',
+                        controller: homeBoardController
+                    },
+                    'menu@homeInfo': {
+                        templateUrl: 'view/homeBoard/leftMenu.html'
+                    }
+                }
+            })
+            .state('homeBoard.create',{
+                templateUrl: 'view/homeBoard/homeBoardCreate.html',
+                controller: homeBoardViewController
             });
         }
 })();

@@ -14,6 +14,7 @@
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../components/smarteditor/js/HuskyEZCreator.js"></script>
     <script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=f33808d9e40afa39a34ab96eb0cc61ae"></script>
 
     <script src="js/ui.js"></script>
@@ -26,6 +27,8 @@
     <script src="view/indexHome.js"></script>
     <script src="view/homeInfo/homeInfoController.js"></script>
     <script src="view/homeMap/homeMapController.js"></script>
+    <script src="view/homeBeauty/homeBeautyController.js"></script>
+    <script src="view/homeBoard/homeBoardController.js"></script>
 
 </head>
 <body ng-app="app" ng-controller="HomeController">
@@ -68,6 +71,18 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="#" ui-sref="homeBeauty">미용안내</a>
+                        <ul>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" ui-sref="homeBoard">공지사항</a>
+                        <ul>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="#" ui-sref="homeMap">오시는길</a>
                         <ul>
                             <li><a href="#"></a></li>
@@ -93,7 +108,7 @@
 
         </div>
         <!-- //Contents -->
-
+    </div>
         <footer class="footer">
             <ul>
                 <li>법인(상호)명 : <label>{{hospitalName}}</label></li>
@@ -117,14 +132,12 @@
                 <p class="">
                     <span>Hosting by <a href="http://www.allpethome.com/">ALLPET</a>.</span>
                     <span>Designed by <a href="http://www.allpethome.com/">ALLPET</a>.</span>
+                    <span>Designed by <a href="#"  ui-sref="homeBoard">관리자페이지 가기</a>.</span>
                 </p>
             </div>
         </footer>
 
     </div>
     <!-- //Container -->
-
-</div>
-
 </body>
 </html>
