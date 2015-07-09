@@ -3,7 +3,7 @@
 html,
 html,body{height:100%;}
 body,div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,a,button,select{margin:0;padding:0;}
-body,input,textarea,select,button,table{font-size:13px;color:#454545;}
+body,input,textarea,select,button,table{font-size:14px;color:#454545;line-height:1.6;}
 body{word-break:break-all;}
 img,fieldset,iframe{border:0}
 img{max-width:100%;height:auto;vertical-align:top}
@@ -15,11 +15,54 @@ header,footer,section,article,aside,nav,hgroup,details,menu,figure,figcaption{di
 caption.blind{position:relative !important;}
 
 @font-face{font-family:NG;font-style:normal;font-weight:normal;src: url('fonts/NanumGothic.eot');src: local('?'),url('fonts/NanumGothic.woff') format('woff');}
-@font-face{font-family:NG;font-style:normal;font-weight:bold;src: url('fonts/NanumGothicBold.eot');src: local('?'), url('fonts/NanumGothicBold.woff') format('woff');}
-
+/*@font-face{font-family:NG;font-style:normal;font-weight:bold;src: url('fonts/NanumGothicBold.eot');src: local('?'), url('fonts/NanumGothicBold.woff') format('woff');}*/
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6,
-body,input,textarea,select,button,table,h1{font-family:'나눔 고딕',NanumGothic,NG,'돋움',dotum,AppleGothic,sans-serif;font-weight:normal;}
+body,input,textarea,select,button,table,h1{font-family:'나눔고딕',NanumGothic,NG,'돋움',dotum,AppleGothic,sans-serif;font-weight:normal;}
 
+a, a:link, a:hover, a:active, a:visited{text-decoration:none;}
+
+body{background-color:#382c1c;overflow-y:scroll;}
+.container{width:auto;padding:0;background:url("images/bg_con.png");}
+.container .contents{}
+.container .contents:after{content:"";display:block;clear:both;}
+
+header.header{height:95px;background-color:#ff8651;}
+header.header .inner{width:1100px;margin:0 auto;}
+header.header h1{float:left;}
+header.header h1 a{display:block;width:315px;height:95px;background:url("images/logo.png");text-indent:-9999px;overflow:hidden;s}
+header.header .gnb{float:right;margin-top:30px;}
+header.header .gnb li{float:left;}
+header.header .gnb li a{float:left;padding:5px 15px;font-size:18px;font-weight:bold;color:#a44d22;}
+header.header .gnb li a:hover{color:#382c1c;}
+.home{}
+.sub{width:1100px;margin:0 auto;padding:20px 0;}
+.mainVisual{height:445px;background:url("images/bg_mv.png");}
+.mainVisual .inner{position:relative;width:1100px;margin:0 auto;}
+.mainVisual h2{position:absolute;top:130px;left:560px;font-size:18px;color:#67432c;z-index:20;}
+.mainVisual h2 strong{font-size:25px;font-weight:bold;}
+.mainVisual .mv{position:relative;display:block;z-index:10;}
+.mainCon{height:800px;padding:0 0 70px 0;background:url("images/bg_con.png");}
+.subCon{float:left;margin-left:20px;width:800px;min-height:500px;background-color:#fff;}
+.subCon .subHdr{height:64px;background-color:#f7f7f6;}
+.subCon .subHdr h1{padding:26px 0 0 50px;font-size:20px;color:#d1531c;font-weight:bold;}
+.basicCon{padding:30px 50px;}
+.subTitle{height:22px;padding:2px 0 0 34px;font-size:17px;color:#d1531c;background:url("images/bul_subtitle.png") no-repeat left top;}
+.tCon{margin:15px 0;}
+
+.lnbWrap{float:left;width:280px;}
+.lnb{padding-bottom:40px;background-color:#f4f0ed;}
+.lnb h2{height:64px;padding:28px;font-size:20px;font-weight:bold;color:#382c1c;background:url(images/line_lnb.png) repeat-x left bottom;}
+.lnb ul{margin:15px 0 0 23px;}
+.lnb ul li a{display:block;padding:5px;font-size:16px;color:#382c1c;}
+.lnb ul li a:hover{}
+
+footer.footer{height:200px;}
+footer.footer .inner{width:1100px;margin:0 auto;}
+
+
+/* contents */
+
+/*
 .header{position:relative;min-width:1240px;}
 .header .inner {position:relative;width:1240px;height:120px;margin:0 auto;}
 .header h1{position:absolute;top:30px;left:-10px;}
@@ -41,7 +84,6 @@ body,input,textarea,select,button,table,h1{font-family:'나눔 고딕',NanumGoth
 .container .footer ul li a{float:left;padding:0 13px;line-height:9px;color:#454545;font-size:12px;}
 .container .footer .copy{float:left;margin-left:35px;color:#888;font-size:12px;}
 
-
 .homeDetail .filedown{}
 .homeDetail .detail .appCmt{float:left;width:1000px;height:500px;margin-left:20px;padding:20px;font-size:14px;line-height:180%;border:1px solid #ccc;overflow-y:auto;background-color:#f1f1f1;}
 .homeDetail .detail .appSlide{float:right;width:1000px;margin-bottom:50px;border:1px solid #eee;}
@@ -50,3 +92,4 @@ body,input,textarea,select,button,table,h1{font-family:'나눔 고딕',NanumGoth
 .homeDetail .detail .appSlide .asIn .carousel-indicators{bottom:-40px;}
 .homeDetail .detail .appSlide .asIn .carousel-indicators li{width:14px;height:14px;margin:0 2px;border-color:#000;}
 .homeDetail .detail .appSlide .asIn .carousel-indicators li.active{background-color:#000;}
+*/

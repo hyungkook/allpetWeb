@@ -39,110 +39,62 @@
     <!-- header -->
     <header class="header">
         <div class="inner">
-            <!--
-            <h1><a href="#" ui-sref="home" ui-sref-opts="{reload: true}">>GiGA IoT</a></h1>
-            -->
+            <h1><a href="#" ui-sref="ezamc" ui-sref-opts="{reload: true}">이지동물의료센터</a></h1>
             <nav class="gnb">
                 <ul>
-                    <li>
-                        <a href="#" ui-sref="homeInfo">병원 소개</a>
-                        <ul>
-                            <li><a href="#" ui-sref="homeInfo">인사말</a></li>
-                            <li><a href="#" ui-sref="homeInfo.staff" ui-sref-opts="{reload: true}">의료진 소개</a></li>
-                            <li><a href="#" ui-sref="homeInfo.equipment">보유장비 소개</a></li>
-                            <li><a href="#" ui-sref="homeInfo.info">진료시간 안내</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">특화진료</a>
-                        <ul>
-                            <li><a href="#">외과센터</a></li>
-                            <li><a href="#">심장,신장센터</a></li>
-                            <li><a href="#">종양,항암센터</a></li>
-                            <li><a href="#">신경계센터</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">진료과목</a>
-                        <ul>
-                            <li><a href="#">외과</a></li>
-                            <li><a href="#">내과</a></li>
-                            <li><a href="#">안과</a></li>
-                            <li><a href="#">치과</a></li>
-                            <li><a href="#">산과</a></li>
-                            <li><a href="#">영상진단과</a></li>
-                            <li><a href="#">피부과</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" ui-sref="homeBeauty">미용안내</a>
-                        <ul>
-                            <li><a href="#"></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" ui-sref="homeBoard">공지사항</a>
-                        <ul>
-                            <li><a href="#"></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" ui-sref="homeMap">오시는길</a>
-                        <ul>
-                            <li><a href="#"></a></li>
-                        </ul>
-                    </li>
-                </ul></ul>
+                    <li><a href="#" ui-sref="homeInfo">병원소개</a></li>
+                    <li><a href="#">특화진료</a></li>
+                    <li><a href="#">진료과목</a></li>
+                    <li><a href="#" ui-sref="homeBeauty">미용안내</a></li>
+                    <li><a href="#" ui-sref="homeBoard">공지사항</a> </li>
+                    <li><a href="#" ui-sref="homeMap">오시는길</a></li>
+                </ul>
             </nav>
         </div>
     </header>
-    <div class="container">
+    <!-- //header -->
 
-        <!-- Contents -->
-        <div class="contents">
+    <!-- Container -->
+    <div class="container" ui-view>
 
-            <div id="wrapper">
-                <div id="container">
-
-                    <div id="content" class="clear" ui-view>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-        <!-- //Contents -->
-    </div>
-    <!--
-        <footer class="footer">
-            <ul>
-                <li>법인(상호)명 : <label>{{hospitalName}}</label></li>
-            </ul>
-            <ul>
-                <li>사업자등록번호 :<label>{{corpRegNumber}} </label></li>
-            </ul>
-            <ul>
-                <li>대표자 : <label>{{representStaffName}}</label></li>
-            </ul>
-            <ul>
-                <li>이메일 : <label>{{email}}</label></li>
-            </ul>
-            <ul>
-                <li>FAX : <label>{{fax}}</label></li>
-            </ul>
-            <div class="clearfix"></div>
-            <div class="copy">
-                <p>본 사이트에서 사용된 모든 일러스트, 그래픽 이미지와 내용의 무단 도용을 금합니다.</p>
-                <p class="">copyrightⓒ all rights reserved</p>
-                <p class="">
-                    <span>Hosting by <a href="http://www.allpethome.com/">ALLPET</a>.</span>
-                    <span>Designed by <a href="http://www.allpethome.com/">ALLPET</a>.</span>
-                    <span>Designed by <a href="#"  ui-sref="homeBoard">관리자페이지 가기</a>.</span>
-                </p>
-            </div>
-        </footer>
-    -->
     </div>
     <!-- //Container -->
+
+    <footer class="footer">
+        <div class="inner">
+            footer
+        </div>
+    </footer>
+
+    <!-- footer
+    <footer class="footer">
+        <ul>
+            <li>법인(상호)명 : <label>{{hospitalName}}</label></li>
+        </ul>
+        <ul>
+            <li>사업자등록번호 :<label>{{corpRegNumber}} </label></li>
+        </ul>
+        <ul>
+            <li>대표자 : <label>{{representStaffName}}</label></li>
+        </ul>
+        <ul>
+            <li>이메일 : <label>{{email}}</label></li>
+        </ul>
+        <ul>
+            <li>FAX : <label>{{fax}}</label></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="copy">
+            <p>본 사이트에서 사용된 모든 일러스트, 그래픽 이미지와 내용의 무단 도용을 금합니다.</p>
+            <p class="">copyrightⓒ all rights reserved</p>
+            <p class="">
+                <span>Hosting by <a href="http://www.allpethome.com/">ALLPET</a>.</span>
+                <span>Designed by <a href="http://www.allpethome.com/">ALLPET</a>.</span>
+                <span>Designed by <a href="#"  ui-sref="homeBoard">관리자페이지 가기</a>.</span>
+            </p>
+        </div>
+    </footer>
+    //footer -->
+</div>
 </body>
 </html>
