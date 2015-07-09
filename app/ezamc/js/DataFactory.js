@@ -4,6 +4,8 @@ angular.module('ezamc.home').factory('dataFactory', function() {
 
     var staffInfoList = [];
 
+    dataFactory.ssid = 'sid_7c98b4b46c100d96b57e21cc6bd6b418babb4cc65e37edefe108e7209135';
+
     dataFactory.isStaffInfo = function(cmid) {
         var returnData = false;
         for( var i=0; i <staffInfoList.length; i++){
