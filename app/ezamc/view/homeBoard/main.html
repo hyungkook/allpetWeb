@@ -1,15 +1,31 @@
-<div>
-    <div class="">
-        <div class="">
-
-            <div class="col-xs-3" ui-view="menu">
-            </div>
-            <div class="col-xs-9" ui-view>
-                <button type="button" class="btn btn-primary" ng-click="createBoard()">
-                    글쓰기
-                </button>
-                <div ui-grid="gridOptions" ui-grid-pagination class="grid"></div>
-            </div>
-        </div>
+<div class="contents sub">
+    <div class="lnbWrap" ui-view="menu">
     </div>
+    <section class="subCon" ui-view>
+        <div class="subHdr">
+            <h1>공지사항</h1>
+        </div>
+        <div class="basicCon">
+            <button type="button" class="btn btn-primary" ng-click="createBoard()">
+                글쓰기
+            </button>
+            <table>
+                <tr>
+                    <th>NO</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일자</th>
+                    <th>조회수</th>
+                </tr>
+                <tr ng-repeat="list in boardList">
+                    <td>{{$index + 1}}</td>
+                    <td ng-click="viewBoard(list.boardSeq)">{{list.title}}</td>
+                    <td>{{list.username == null ? '관리자' : list.username}}</td>
+                    <td>{{list.regDate}}</td>
+                    <td>{{list.rcount}}</td>
+                </tr>
+            </table>
+            <div id="page-selection"></div>
+        </div>
+    </section>
 </div>

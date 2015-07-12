@@ -7,13 +7,14 @@
             </tr>
             <tr>
                 <td>내용</td>
-                <td><textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="height:412px;" ng-model="content"></textarea></td>
+                <td id="contents"></td>
             </tr>
             <tr>
                 <td></td>
                 <td>
                     <input type="button" ng-click="cancelBoard()" value="목록" />
-                    <input type="button" ng-click="saveBoard()" value="저장" />
+                    <input type="button" ng-click="deleteBoard()" value="삭제" />
+                    <input type="button" ng-click="editBoard()" value="수정" />
                 </td>
             </tr>
         </table>

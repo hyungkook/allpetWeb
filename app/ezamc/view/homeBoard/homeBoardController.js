@@ -4,88 +4,57 @@ angular.module('ezamc.home')
 
 function homeBoardController($state, $scope, constant, $http, dataFactory) {
 
-
+    $scope.boardList = [];
     $scope.createBoard = function(){
-        $state.go('homeBoard.create', {} , {reload: true});
+        $state.go('homeBoard.create', { viewType : 'create'});
     };
 
-    var paginationOptions = {
-        pageNumber: 1,
-        pageSize: 10,
-        sort: null
+    $scope.viewBoard = function(boardSeq) {
+        $state.go('homeBoard.view', { viewType : 'view', boardSeq : boardSeq});
     };
-
-    $scope.gridOptions = {
-        paginationPageSizes: [10, 20, 30],
-        paginationPageSize: 10,
-        useExternalPagination: true,
-        useExternalSorting: true,
-        columnDefs: [
-            { name: '이벤트 이름', field: 'statEvetNm', width:'200' },
-            { name: '작성자', field: 'amdrId', enableSorting: false },
-            { name: '작성일자', field: 'amdDt', enableSorting: false },
-            { name: 'STATUS', field: 'evetSttusCd', enableSorting: false },
-            { name: 'ACTION',   enableSorting: false,
-                cellTemplate: '<button ng-click="grid.appScope.editRow(row.entity)" class="btn btn-primary">수정</button> ' +
-                '<button ng-click="grid.appScope.removeRow(row.entity)" class="btn btn-warning">삭제</button>'
-            }
-        ],
-        onRegisterApi: function(gridApi) {
-            $scope.gridApi = gridApi;
-            $scope.gridApi.core.on.sortChanged($scope, function(grid, sortColumns) {
-                if (sortColumns.length == 0) {
-                    paginationOptions.sort = null;
-                } else {
-                    paginationOptions.sort = sortColumns[0].sort.direction;
-                }
-                init();
-            });
-            gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-                paginationOptions.pageNumber = newPage;
-                paginationOptions.pageSize = pageSize;
-                init();
-            });
-        }
-    };
-
     $scope.editRow = function(rowEntity) {
 
     };
     $scope.removeRow = function(row) {
-        var url = constant.contextPath + '';
-        $http.put(url).success(function (data) {
-            var index = $scope.gridOptions.data.indexOf(row);
-            $scope.gridOptions.data.splice(index,1);
-        });
 
     };
-    $scope.init = function(){
+    $scope.init = function(pageNum, pageCon){
         var boardType = '01';
-        var url = constant.contextPath + 'board/boardList?boardType=' + boardType + '&ssid=' + dataFactory.ssid;
+        var url = constant.contextPath + 'board/boardList?boardType=' + boardType + '&ssid=' + dataFactory.ssid + '&pageNum=' + pageNum+ '&pageCon=' + pageCon;
         $http.get(url)
             .success(function (data) {
-                //console.log(data.data);
-                if( data && data.data ){
-                    $scope.gridOptions.totalItems = data.data.length;
-                    var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
-                    $scope.gridOptions.data = data.data.slice(firstRow, firstRow + paginationOptions.pageSize);
+                $scope.boardList = [];
+                if( data && data.list && data.list.length > 0) {
+                    var total = ( data.total % pageCon == 0 ) ?  parseInt(data.total / pageCon) : parseInt(data.total / pageCon) + 1 ;
+                    for (var i = 0; i < data.list.length; i++) {
+                        $scope.boardList.push(data.list[i]);
+                    }
+                    $('#page-selection').bootpag({
+                        total: total
+                    }).on("page", function (event,  num) {
+                        $scope.init(num , pageCon);
+                    });
                 }
-
             });
     };
 
-    $scope.init();
+    $scope.init(1, 10);
 };
 
-function homeBoardViewController($state, $scope, $http, constant, dataFactory) {
-
+function homeBoardViewController($state, $stateParams, $scope, $http, constant, dataFactory) {
+    var viewType = $stateParams.viewType;
+    var boardSeq = $stateParams.boardSeq;
+    if( !boardSeq ) boardSeq = 0;
     //전역변수선언
     var editor_object = [];
 
+    $scope.editBoard = function(){
+        $state.go('homeBoard.create', { viewType : 'edit', boardSeq : boardSeq});
+    };
     $scope.saveBoard = function(){
         //id가 smarteditor인 textarea에 에디터에서 대입
         editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-        var url = constant.contextPath + 'board/saveBoard';
+        var url = constant.contextPath + 'board/saveBoard?viewType=' +viewType + '&boardSeq=' + boardSeq;
         var boardType = '01';   // 게시판
         var requestParam = {
             title : $scope.title,
@@ -103,8 +72,17 @@ function homeBoardViewController($state, $scope, $http, constant, dataFactory) {
     $scope.cancelBoard = function(){
         $state.go('homeBoard', {} , {reload: true});
     };
+    $scope.deleteBoard = function(){
+        if( confirm('정말 삭제하시겠습니까? ') ){
+            var url = constant.contextPath + 'board/deleteBoard?boardSeq=' + boardSeq;
+            $http.get(url)
+                .success(function (data) {
+                    $state.go('homeBoard', {} , {reload: true});
+                });
+        }
+    };
 
-    $scope.init = function(){
+    $scope.editorInit = function(){
         nhn.husky.EZCreator.createInIFrame({
             oAppRef: editor_object,
             elPlaceHolder: "smarteditor",
@@ -119,8 +97,32 @@ function homeBoardViewController($state, $scope, $http, constant, dataFactory) {
             }
         });
     };
+    $scope.viewInit = function(){
+        var url = constant.contextPath + 'board/getBoard?boardSeq=' + boardSeq;
+        $http.get(url)
+            .success(function (data) {
+                if( data ){
+                    $scope.title =  data.title;
+                    $scope.content =  data.content;
+                    if( editor_object && editor_object.length != 0 && editor_object.getById["smarteditor"] ){
+                        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+                    }
+                    if( $('#contents') ){
+                        $('#contents').html(data.content);
+                    }
+                }
 
-    $scope.init();
+            });
+    };
+    if( viewType == 'create'){
+        $scope.editorInit();
+    }else if(viewType == 'edit'){
+        $scope.editorInit();
+        $scope.viewInit();
+    }else if(viewType == 'view'){
+        $scope.viewInit();
+    }
+
 
 };
 

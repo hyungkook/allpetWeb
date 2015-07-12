@@ -44,6 +44,39 @@
                 templateUrl: 'view/homeInfo/hospitalEquipment.html',
                 controller: ezamcHomeController
             })
+            .state('homeMedicalParts1',{
+                url: '/homeMedicalParts1',
+                views: {
+                    '': {
+                        templateUrl: 'view/medicalParts1/main.html',
+                        controller: homeBoardController
+                    },
+                    'menu@homeMedicalParts1': {
+                        templateUrl: 'view/medicalParts1/leftMenu.html'
+                    }
+                }
+            })
+            .state('homeMedicalParts1.parts1',{
+                templateUrl: 'view/medicalParts1/medicalParts1_1.html'
+            })
+            .state('homeMedicalParts1.parts2',{
+                templateUrl: 'view/medicalParts1/medicalParts1_2.html'
+            })
+            .state('homeMedicalParts1.parts3',{
+                templateUrl: 'view/medicalParts1/medicalParts1_3.html'
+            })
+            .state('homeMedicalParts2',{
+                url: '/homeMedicalParts2',
+                views: {
+                    '': {
+                        templateUrl: 'view/medicalParts2/main.html',
+                        controller: homeBoardController
+                    },
+                    'menu@homeMedicalParts2': {
+                        templateUrl: 'view/medicalParts2/leftMenu.html'
+                    }
+                }
+            })
             .state('homeMap',{
                 url: '/homeMap',
                 views: {
@@ -51,7 +84,7 @@
                         templateUrl: 'view/homeMap/main.html',
                         controller: homeMapController
                     },
-                    'menu@homeInfo': {
+                    'menu@homeMap': {
                         templateUrl: 'view/homeMap/leftMenu.html'
                     }
                 }
@@ -63,7 +96,7 @@
                         templateUrl: 'view/homeBeauty/main.html',
                         controller: homeBeautyController
                     },
-                    'menu@homeInfo': {
+                    'menu@homeBeauty': {
                         templateUrl: 'view/homeBeauty/leftMenu.html'
                     }
                 }
@@ -75,14 +108,20 @@
                         templateUrl: 'view/homeBoard/main.html',
                         controller: homeBoardController
                     },
-                    'menu@homeInfo': {
+                    'menu@homeBoard': {
                         templateUrl: 'view/homeBoard/leftMenu.html'
                     }
                 }
             })
             .state('homeBoard.create',{
                 templateUrl: 'view/homeBoard/homeBoardCreate.html',
-                controller: homeBoardViewController
+                controller: homeBoardViewController,
+                params : {viewType : 'create', boardSeq : 0}
+            })
+            .state('homeBoard.view',{
+                templateUrl: 'view/homeBoard/homeBoardView.html',
+                controller: homeBoardViewController,
+                params : {viewType : 'view' , boardSeq : 0}
             });
         }
 })();

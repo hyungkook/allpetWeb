@@ -5,18 +5,17 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../bower_components/angular-ui-grid/ui-grid.css">
 
     <link rel="stylesheet" href="app.css">
 
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script src="../bower_components/jquery-ui/ui/minified/i18n/datepicker-ko.min.js"></script>
+    <script src="../bower_components/jquery-bootpag/lib/jquery.bootpag.min.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="../components/smarteditor/js/HuskyEZCreator.js"></script>
-    <script src="../bower_components/angular-ui-grid/ui-grid.js"></script>
     <script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=f33808d9e40afa39a34ab96eb0cc61ae"></script>
 
     <script src="js/ui.js"></script>
@@ -43,10 +42,10 @@
             <nav class="gnb">
                 <ul>
                     <li><a href="#" ui-sref="homeInfo">병원소개</a></li>
-                    <li><a href="#">특화진료</a></li>
-                    <li><a href="#">진료과목</a></li>
+                    <li><a href="#" ui-sref="homeMedicalParts1">특화진료</a></li>
+                    <li><a href="#" ui-sref="homeMedicalParts2">진료과목</a></li>
                     <li><a href="#" ui-sref="homeBeauty">미용안내</a></li>
-                    <li><a href="#" ui-sref="homeBoard">공지사항</a> </li>
+                    <li><a href="#" ui-sref="homeBoard" ui-sref-opts="{reload: true}">공지사항</a> </li>
                     <li><a href="#" ui-sref="homeMap">오시는길</a></li>
                 </ul>
             </nav>

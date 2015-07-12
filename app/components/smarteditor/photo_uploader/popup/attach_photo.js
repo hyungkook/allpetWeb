@@ -335,7 +335,7 @@
     		sUploadURL;
 
 
-    	sUploadURL= 'http://127.0.0.1:8280/allpetapi/v1/' +  'multiplePhotoUpload'; 	//upload URL
+    	sUploadURL= 'http://14.63.174.249:8280/allpetapi/v1/' +  'multiplePhotoUpload'; 	//upload URL
     	
     	//파일을 하나씩 보내고, 결과를 받음.
     	for(var j=0, k=0; j < nImageInfoCnt; j++) {
