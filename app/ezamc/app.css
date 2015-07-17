@@ -20,7 +20,10 @@ caption.blind{position:relative !important;}
 body,input,textarea,select,button,table,h1{font-family:'나눔고딕',NanumGothic,NG,'돋움',dotum,AppleGothic,sans-serif;font-weight:normal;}
 
 a, a:link, a:hover, a:active, a:visited{text-decoration:none;}
-
+/*
+header.header h1{display:none !important;}
+.mainVisual h2 strong{display:none !important;}
+*/
 body{background-color:#382c1c;overflow-y:scroll;}
 .container{width:auto;padding:0;background:url("images/bg_con.png");}
 .container .contents{}
@@ -41,7 +44,9 @@ header.header .gnb li a:hover{color:#382c1c;}
 .mainVisual h2{position:absolute;top:130px;left:560px;font-size:18px;color:#67432c;z-index:20;}
 .mainVisual h2 strong{font-size:25px;font-weight:bold;}
 .mainVisual .mv{position:relative;display:block;z-index:10;}
-.mainCon{height:800px;padding:0 0 70px 0;background:url("images/bg_con.png");}
+.mainCon{padding:0 0 70px 0;background:url("images/bg_con.png");}
+.mainCon .inner{width:1100px;margin:0 auto;padding:22px 0;min-height:800px;}
+
 .subCon{float:left;margin-left:20px;width:800px;min-height:500px;background-color:#fff;}
 .subCon .subHdr{height:64px;background-color:#f7f7f6;}
 .subCon .subHdr h1{padding:26px 0 0 50px;font-size:20px;color:#d1531c;font-weight:bold;}
