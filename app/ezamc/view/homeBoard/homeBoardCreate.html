@@ -1,23 +1,25 @@
-<div>
-    <form>
-        <table width="100%">
-            <tr>
-                <td>제목</td>
-                <td><input type="text" ng-model="title"></td>
-            </tr>
-            <tr>
-                <td>내용</td>
-                <td><textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="height:412px;" ng-model="content"></textarea></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="button" ng-click="cancelBoard()" value="목록" />
-                    <input type="button" ng-click="saveBoard()" value="저장" />
-                </td>
-            </tr>
-        </table>
-            
-            
-    </form>
+<div class="subHdr">
+    <h1>공지사항</h1>
+</div>
+<div class="basicCon">
+
+    <div class="tbWrite">
+        <form>
+            <div class="inTitle form-inline">
+                <label>제목 <input type="text" class="form-control" ng-model="title" style="width:690px;"></label>
+            </div>
+
+            <textarea name="smarteditor" id="smarteditor" rows="10" cols="96" style="height:412px;" ng-model="content"></textarea>
+
+            <div class="btnArea">
+                <div class="btnSub">
+                    <button type="button" class="btn btn-normal" ng-click="cancelBoard()">목록</button>
+                </div>
+                <div class="btnMain">
+                    <button type="button" class="btn btn-confirm" ng-click="saveBoard()">저장</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>

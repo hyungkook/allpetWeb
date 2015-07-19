@@ -8,9 +8,10 @@
         <li>전문분야 : {{staff.s_specialty}}</li>
     </ui>
     <div ng-show="staff.workTimeView">
+        <h2 class="subTitle">진료시간</h2>
         <!-- 진료시간-->
         <div>
-            <table  class="">
+            <table  class="tbNormal">
                 <colgroup>
                     <col width="*" /><col width="12%" /><col width="12%" /><col width="12%" />
                     <col width="12%" /><col width="12%" /><col width="12%" /><col width="12%" />
@@ -50,7 +51,7 @@
         </div>
     </div>
     <div ng-show="staff.staffHistoryView">
-        이력사항
+        <h2 class="subTitle">이력사항</h2>
         <div ng-repeat="his in staff.staffHistory">
             <div ng-show="his.d_start_date || his.d_end_date">
                 <b>{{his.d_start_date}} ~ {{his.d_end_date}}</b>
@@ -60,7 +61,7 @@
         </div>
     </div>
     <div ng-show="staff.staffCareerView">
-        학술활동
+        <h2 class="subTitle">학술활동</h2>
         <div ng-repeat="his in staff.staffHistory">
             <div ng-show="his.d_start_date || his.d_end_date">
                 <b>{{his.d_start_date}} ~ {{his.d_end_date}}</b>
@@ -70,7 +71,7 @@
         </div>
     </div>
     <div ng-show="staff.staffBooksView">
-        저서
+        <h2 class="subTitle">저서</h2>
         <div ng-repeat="his in staff.staffHistory">
             <div ng-show="his.d_start_date || his.d_end_date">
                 <b>{{his.d_start_date}} ~ {{his.d_end_date}}</b>

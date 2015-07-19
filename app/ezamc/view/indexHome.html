@@ -12,7 +12,7 @@
 
             <!-- 건강검진 안내 -->
             <div class="mcBox comp">
-                <p>귀여운 우리들의<br>반려동물을<br>종합 건강검진으로<br>지켜주세요</p>
+                <p>귀여운 우리들의<br><strong>반려동물</strong>을<br><strong>종합 건강검진</strong>으로<br>지켜주세요</p>
             </div>
             <!-- //건강검진 안내 -->
 
@@ -49,36 +49,85 @@
             <!-- //특화진료 -->
 
             <!-- 진료 안내-->
-            <div class="mcBox comp">
+            <div class="mcBox info">
+                <h3 class="mcTit">진료 안내</h3>
                 <div class="cpTime">
                     <dl class="basic">
                         <dt>일반진료</dt><dd>10:00 ~ 21:00</dd>
                         <dt>야간진료</dt><dd>21:00 ~ 00:00</dd>
                         <dt>응급진료</dt><dd>00:00 ~ 10:00</dd>
                     </dl>
-                    <dl>
+                    <dl class="meal">
                         <dt>점심시간</dt><dd>1시~2시</dd>
                         <dt>저녁시간</dt><dd>6시~7시</dd>
+                    </dl>
+                </div>
+
+                <div class="cpTel">
+                    <dl class="hosiptal">
+                        <dt>병원</dt><dd>032-348-7975</dd>
+                    </dl>
+                    <dl class="beauty">
+                        <dt>미용실</dt><dd>032-348-7976</dd>
+                    </dl>
+                </div>
+
+                <div class="cpSNS">
+                    <dl>
+                        <dt>실시간 SNS 상담하기</dt><dd>카카오톡 아이디 <strong>easyanimal</strong></dd>
                     </dl>
                 </div>
 
             </div>
             <!-- //진료 안내 -->
 
+            <!-- 사진 슬라이드 -->
+            <div class="mcBox photo">
+                <carousel interval="myInterval">
+                    <slide ng-repeat="slide in slides" active="slide.active">
+                        <img ng-src="{{slide.image}}" style="margin:auto;width:352px;height:247px;" >
+                    </slide>
+                </carousel>
+            </div>
+            <!-- //사진 슬라이드 -->
+
+            <!-- 데코 이미지 -->
+            <div class="mcBox notice">
+            </div>
+            <!-- //데코 이미지 -->
+
+            <!-- 방문 안내 -->
+            <div class="mcBox parking">
+                <h3 class="mcTit">방문 안내</h3>
+                <p>
+                    <strong>발렛파킹 가능</strong>
+                    병원밖에 주차하시고<br>전화주시면 바로<br>안내해 드리겠습니다.
+                </p>
+            </div>
+            <!-- //방문 안내 -->
+
+            <!-- 블로그 소식 -->
+            <div class="mcBox blog">
+                <h3 class="mcTit">블로그 소식</h3>
+                <ul>
+                    <li>
+                        <a href="#">블로그 제목을 표시1</a>
+                        <span class="con">블로그 내용을 표시합니다.블로그 내용을 표시합니다.</span>
+                    </li>
+                    <li>
+                        <a href="#">블로그 제목을 표시2</a>
+                        <span class="con">블로그 내용을 표시합니다.블로그 내용을 표시합니다.</span>
+                    </li>
+                    <li>
+                        <a href="#">블로그 제목을 표시3</a>
+                        <span class="con">블로그 내용을 표시합니다.블로그 내용을 표시합니다.</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- //블로그 소식 -->
+
         </div>
     </div>
-    <!-- 이미지 슬라이드
-    <div class="appSlide">
-        <div class="asIn">
-            <carousel interval="myInterval">
-                <slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}" style="margin:auto;width:1000px;height:500px;" >
-                </slide>
-            </carousel>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-    //이미지 슬라이드 -->
 
 </div>
 
