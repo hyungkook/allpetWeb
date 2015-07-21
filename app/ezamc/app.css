@@ -51,9 +51,9 @@ header.header .gnb li a:hover{color:#382c1c;}
 .lnbWrap{float:left;width:280px;}
 .lnb{padding-bottom:40px;background-color:#f4f0ed;}
 .lnb h2{height:64px;padding:28px;font-size:20px;font-weight:bold;color:#382c1c;background:url(images/line_lnb.png) repeat-x left bottom;}
-.lnb ul{margin:15px 0 0 23px;}
-.lnb ul li a{display:block;padding:5px;font-size:16px;color:#382c1c;}
-.lnb ul li a:hover{}
+.lnb ul{margin-top:15px;}
+.lnb ul li a{display:block;padding:5px 30px;font-size:16px;color:#382c1c;}
+.lnb ul li a:hover{color:#ad3b01;background-color:#ecd6cb;}
 
 .lnbInfo{}
 .lnbInfo .cpTime{margin-top:20px;padding:0 0 0 120px;height:115px;background:url("images/img_lnbinfo1.png") no-repeat left top;}
