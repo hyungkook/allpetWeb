@@ -16,6 +16,7 @@
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="../components/smarteditor/js/HuskyEZCreator.js"></script>
+    <script src="../components/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=f33808d9e40afa39a34ab96eb0cc61ae"></script>
 
     <script src="js/ui.js"></script>
@@ -41,12 +42,12 @@
             <h1><a href="#" ui-sref="ezamc" ui-sref-opts="{reload: true}">이지동물의료센터</a></h1>
             <nav class="gnb">
                 <ul>
-                    <li><a href="#" ui-sref="homeInfo">병원소개</a></li>
-                    <li><a href="#" ui-sref="homeMedicalParts1">특화진료</a></li>
-                    <li><a href="#" ui-sref="homeMedicalParts2">진료과목</a></li>
-                    <li><a href="#" ui-sref="homeBeauty">미용안내</a></li>
-                    <li><a href="#" ui-sref="homeBoard" ui-sref-opts="{reload: true}">공지사항</a> </li>
-                    <li><a href="#" ui-sref="homeMap">오시는길</a></li>
+                    <li><a role="button" ui-sref="homeInfo">병원소개</a></li>
+                    <li><a role="button" ui-sref="homeMedicalParts1">특화진료</a></li>
+                    <li><a role="button" ui-sref="homeMedicalParts2">진료과목</a></li>
+                    <li><a role="button" ui-sref="homeBeauty">미용안내</a></li>
+                    <li><a role="button" ui-sref="homeBoard" ui-sref-opts="{reload: true}">공지사항</a> </li>
+                    <li><a role="button" ui-sref="homeMap">오시는길</a></li>
                 </ul>
             </nav>
         </div>
@@ -72,7 +73,7 @@
             <p>본 사이트에서 사용된 모든 일러스트, 그래픽 이미지와 내용의 무단 도용을 금합니다.</p>
 
             copyrightⓒ all rights reserved<br>
-            Hosting by <a href="http://www.allpethome.com/">ALLPET</a>. Designed by <a href="http://www.allpethome.com/">ALLPET</a>. <a href="#"  ui-sref="homeBoard">관리자페이지 가기</a>
+            Hosting by <a href="http://www.allpethome.com/">ALLPET</a>. Designed by <a href="http://www.allpethome.com/">ALLPET</a>. <a role="button"  ui-sref="homeBoard">관리자페이지 가기</a>
         </div>
     </footer>
 </div>

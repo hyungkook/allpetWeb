@@ -110,17 +110,9 @@
             <div class="mcBox blog">
                 <h3 class="mcTit">블로그 소식</h3>
                 <ul>
-                    <li>
-                        <a href="#">블로그 제목을 표시1</a>
-                        <span class="con">블로그 내용을 표시합니다.블로그 내용을 표시합니다.</span>
-                    </li>
-                    <li>
-                        <a href="#">블로그 제목을 표시2</a>
-                        <span class="con">블로그 내용을 표시합니다.블로그 내용을 표시합니다.</span>
-                    </li>
-                    <li>
-                        <a href="#">블로그 제목을 표시3</a>
-                        <span class="con">블로그 내용을 표시합니다.블로그 내용을 표시합니다.</span>
+                    <li ng-repeat="list in blogList">
+                        <a href="{{list.link}}" target="_blank">{{list.title}}</a>
+                        <span class="con">{{list.desc}}</span>
                     </li>
                 </ul>
             </div>

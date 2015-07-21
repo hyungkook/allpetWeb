@@ -40,6 +40,10 @@
                 controller: ezamcHomeStaffDetailController,
                 params: {'cmid' : '' }
             })
+            .state('homeInfo.institution',{
+                templateUrl: 'view/homeInfo/hospitalInstitution.html',
+                controller: ezamcHomeController
+            })
             .state('homeInfo.equipment',{
                 templateUrl: 'view/homeInfo/hospitalEquipment.html',
                 controller: ezamcHomeController
@@ -114,11 +118,13 @@
                 }
             })
             .state('homeBoard.create',{
+                url: '/create',
                 templateUrl: 'view/homeBoard/homeBoardCreate.html',
                 controller: homeBoardViewController,
                 params : {viewType : 'create', boardSeq : 0}
             })
             .state('homeBoard.view',{
+                url: '/view',
                 templateUrl: 'view/homeBoard/homeBoardView.html',
                 controller: homeBoardViewController,
                 params : {viewType : 'view' , boardSeq : 0}

@@ -8,6 +8,7 @@ function ezamcHomeController($http, $scope, constant) {
 
     $scope.slides = [];
     $scope.mainImageList = [];
+    $scope.blogList = [];
     $scope.myInterval = 5000;
     $scope.addSlide = function() {
         if( $scope.mainImageList ){
@@ -26,6 +27,29 @@ function ezamcHomeController($http, $scope, constant) {
             if( data && data.mainImage ){
                 $scope.mainImageList =  data.mainImage;
                 $scope.addSlide();
+            }
+            if( data && data.blogList ){
+                $scope.blogList = [];
+                if( data.blogList ){
+                    for(var i=0; i < data.blogList.length; i++){
+                        if( i < 3){
+                            var val = data.blogList[i];
+                            console.log(val);
+                            var title = val.value.title[0];
+                            var link = val.value.link[0];
+                            var descTemp = val.value.description[0];
+                            var desc = descTemp.substring(0, 50) + '...';
+                            var value = {
+                                title : title,
+                                link : link,
+                                desc : desc
+                            }
+                            $scope.blogList.push(value);
+                        }
+                    }
+                }
+
+                //
             }
         })
         response.error(function (data, status, headers, config) {

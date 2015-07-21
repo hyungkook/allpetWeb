@@ -41,12 +41,10 @@ function homeBoardController($state, $scope, constant, $http, dataFactory) {
     $scope.init(1, 10);
 };
 
-function homeBoardViewController($state, $stateParams, $scope, $http, constant, dataFactory) {
+function homeBoardViewController($state, $stateParams, $scope, $http, constant, dataFactory, $q, $timeout) {
     var viewType = $stateParams.viewType;
     var boardSeq = $stateParams.boardSeq;
     if( !boardSeq ) boardSeq = 0;
-    //전역변수선언
-    var editor_object = [];
 
     $scope.editBoard = function(){
         $state.go('homeBoard.create', { viewType : 'edit', boardSeq : boardSeq});
@@ -82,21 +80,6 @@ function homeBoardViewController($state, $stateParams, $scope, $http, constant, 
         }
     };
 
-    $scope.editorInit = function(){
-        nhn.husky.EZCreator.createInIFrame({
-            oAppRef: editor_object,
-            elPlaceHolder: "smarteditor",
-            sSkinURI: "../components/smarteditor/SmartEditor2Skin.html",
-            htParams : {
-                // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-                bUseToolbar : true,
-                // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-                bUseVerticalResizer : true,
-                // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-                bUseModeChanger : true
-            }
-        });
-    };
     $scope.viewInit = function(){
         var url = constant.contextPath + 'board/getBoard?boardSeq=' + boardSeq;
         $http.get(url)
@@ -104,9 +87,9 @@ function homeBoardViewController($state, $stateParams, $scope, $http, constant, 
                 if( data ){
                     $scope.title =  data.title;
                     $scope.content =  data.content;
-                    if( editor_object && editor_object.length != 0 && editor_object.getById["smarteditor"] ){
-                        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-                    }
+                    //if( editor_object && editor_object.length != 0 && editor_object.getById["smarteditor"] ){
+                    //    editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+                    //}
                     if( $('#contents') ){
                         $('#contents').html(data.content);
                     }
@@ -115,9 +98,7 @@ function homeBoardViewController($state, $stateParams, $scope, $http, constant, 
             });
     };
     if( viewType == 'create'){
-        $scope.editorInit();
     }else if(viewType == 'edit'){
-        $scope.editorInit();
         $scope.viewInit();
     }else if(viewType == 'view'){
         $scope.viewInit();
