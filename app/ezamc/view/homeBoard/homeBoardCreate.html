@@ -1,23 +1,64 @@
-<div>
-    <form>
-        <table width="100%">
-            <tr>
-                <td>제목</td>
-                <td><input type="text" ng-model="title"></td>
-            </tr>
-            <tr>
-                <td>내용</td>
-                <td><textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="height:412px;" ng-model="content"></textarea></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="button" ng-click="cancelBoard()" value="목록" />
-                    <input type="button" ng-click="saveBoard()" value="저장" />
-                </td>
-            </tr>
-        </table>
-            
-            
-    </form>
+<div class="subHdr">
+    <h1>공지사항</h1>
+</div>
+<div class="basicCon">
+
+    <div class="tbWrite">
+        <form action="" method="post" id="frm">
+            <div class="inTitle form-inline">
+                <label>제목 <input type="text" class="form-control" ng-model="title" style="width:690px;"></label>
+            </div>
+
+            <textarea name="smarteditor" id="smarteditor" rows="10" cols="96" style="height:412px;" ng-model="content"></textarea>
+
+            <div class="btnArea">
+                <div class="btnSub">
+                    <button type="button" class="btn btn-normal" ng-click="cancelBoard()">목록</button>
+                </div>
+                <div class="btnMain">
+                    <button type="button" class="btn btn-confirm" id="saveButton" ng-click="saveBoard()">저장</button>
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript">
+            var editor_object = [];
+            $(function(){
+                nhn.husky.EZCreator.createInIFrame({
+                    oAppRef: editor_object,
+                    elPlaceHolder: "smarteditor",
+                    sSkinURI: "../components/smarteditor/SmartEditor2Skin.html",
+                    htParams : {
+                        // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                        bUseToolbar : true,
+                        // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                        bUseVerticalResizer : true,
+                        // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                        bUseModeChanger : true
+                    }
+                });
+                /*
+                $("#saveButton").click(function(){
+                    editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+                    var url = 'http://14.63.174.249:8280/allpetapi/v1/' + 'board/saveBoard?viewType=' + viewType + '&boardSeq=' + boardSeq;
+                    var boardType = '01';   // 게시판
+                    var requestParam = {
+                        title : $scope.title,
+                        content : $('#smarteditor').val(),
+                        boardType : boardType,
+                        ssid : 'sid_7c98b4b46c100d96b57e21cc6bd6b418babb4cc65e37edefe108e7209135'
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: requestParam,
+                        dataType: "html",
+                        success: function(msg){
+                            alert( "Data Saved: " + msg );
+                        }
+                    });
+                });
+                */
+            });
+        </script>
+    </div>
 </div>

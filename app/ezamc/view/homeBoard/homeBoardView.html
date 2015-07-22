@@ -1,24 +1,21 @@
-<div>
-    <form>
-        <table width="100%">
-            <tr>
-                <td>제목</td>
-                <td><input type="text" ng-model="title"></td>
-            </tr>
-            <tr>
-                <td>내용</td>
-                <td id="contents"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="button" ng-click="cancelBoard()" value="목록" />
-                    <input type="button" ng-click="deleteBoard()" value="삭제" />
-                    <input type="button" ng-click="editBoard()" value="수정" />
-                </td>
-            </tr>
-        </table>
-            
-            
-    </form>
+<div class="subHdr">
+    <h1>공지사항</h1>
+</div>
+<div class="basicCon">
+
+    <div class="tbViewer">
+        <h2 class="tbvTitle">{{title}}</h2>
+        <div class="tbCon" id="contents"></div>
+    </div>
+
+    <div class="btnArea">
+        <div class="btnSub">
+            <button type="button" class="btn btn-normal" ng-click="cancelBoard()">목록</button>
+        </div>
+        <div class="btnMain">
+            <button type="button" class="btn btn-confirm" ng-click="deleteBoard()">삭제</button>
+            <button type="button" class="btn btn-confirm" ng-click="editBoard()">수정</button>
+        </div>
+    </div>
+
 </div>
