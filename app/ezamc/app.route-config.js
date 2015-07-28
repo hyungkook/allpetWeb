@@ -69,6 +69,15 @@
             .state('homeMedicalParts1.parts3',{
                 templateUrl: 'view/medicalParts1/medicalParts1_3.html'
             })
+            .state('homeMedicalParts1.parts4',{
+                templateUrl: 'view/medicalParts1/medicalParts1_4.html'
+            })
+            .state('homeMedicalParts1.parts5',{
+                templateUrl: 'view/medicalParts1/medicalParts1_5.html'
+            })
+            .state('homeMedicalParts1.parts6',{
+                templateUrl: 'view/medicalParts1/medicalParts1_6.html'
+            })
             .state('homeMedicalParts2',{
                 url: '/homeMedicalParts2',
                 views: {
@@ -106,7 +115,7 @@
                 }
             })
             .state('homeBoard',{
-                url: '/homeBoard',
+                url: '/homeBoard/:boardType',
                 views: {
                     '': {
                         templateUrl: 'view/homeBoard/main.html',
@@ -118,13 +127,13 @@
                 }
             })
             .state('homeBoard.create',{
-                url: '/create',
+                url: '/create/:boardType',
                 templateUrl: 'view/homeBoard/homeBoardCreate.html',
                 controller: homeBoardViewController,
                 params : {viewType : 'create', boardSeq : 0}
             })
             .state('homeBoard.view',{
-                url: '/view',
+                url: '/view/:boardType',
                 templateUrl: 'view/homeBoard/homeBoardView.html',
                 controller: homeBoardViewController,
                 params : {viewType : 'view' , boardSeq : 0}

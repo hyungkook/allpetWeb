@@ -2,7 +2,12 @@ angular.module('ezamc.home')
     .controller('homeBoardController', homeBoardController)
     .controller('homeBoardViewController', homeBoardViewController);
 
-function homeBoardController($state, $scope, constant, $http, dataFactory) {
+function homeBoardController($state, $stateParams, $scope, constant, $http, dataFactory) {
+
+    var boardType = $stateParams.boardType;
+    if( !boardType ) boardType = '01';
+
+    $scope.boardType = boardType;
 
     $scope.boardList = [];
     $scope.createBoard = function(){
@@ -19,7 +24,6 @@ function homeBoardController($state, $scope, constant, $http, dataFactory) {
 
     };
     $scope.init = function(pageNum, pageCon){
-        var boardType = '01';
         var url = constant.contextPath + 'board/boardList?boardType=' + boardType + '&ssid=' + dataFactory.ssid + '&pageNum=' + pageNum+ '&pageCon=' + pageCon;
         $http.get(url)
             .success(function (data) {
@@ -41,10 +45,14 @@ function homeBoardController($state, $scope, constant, $http, dataFactory) {
     $scope.init(1, 10);
 };
 
-function homeBoardViewController($state, $stateParams, $scope, $http, constant, dataFactory, $q, $timeout) {
+function homeBoardViewController($state, $stateParams, $scope, $http, constant, dataFactory) {
     var viewType = $stateParams.viewType;
     var boardSeq = $stateParams.boardSeq;
+    var boardType = $stateParams.boardType;
     if( !boardSeq ) boardSeq = 0;
+    if( !boardType ) boardType = '01';
+
+    $scope.boardType = boardType;
 
     $scope.editBoard = function(){
         $state.go('homeBoard.create', { viewType : 'edit', boardSeq : boardSeq});
@@ -53,7 +61,6 @@ function homeBoardViewController($state, $stateParams, $scope, $http, constant, 
         //id가 smarteditor인 textarea에 에디터에서 대입
         editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
         var url = constant.contextPath + 'board/saveBoard?viewType=' +viewType + '&boardSeq=' + boardSeq;
-        var boardType = '01';   // 게시판
         var requestParam = {
             title : $scope.title,
             content : $('#smarteditor').val(),
