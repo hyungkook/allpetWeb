@@ -26,6 +26,7 @@ header.header h1{display:none !important;}
 .mainVisual h2 strong{display:none !important;}
 */
 body{background-color:#382c1c;overflow-y:scroll;}
+.totalWrap{min-width:1100px;}
 .container{width:auto;padding:0;background:url("images/bg_con.png");}
 .container .contents{}
 .container .contents:after{content:"";display:block;clear:both;}
@@ -45,8 +46,18 @@ header.header .gnb li a:hover{color:#382c1c;}
 .subCon .subHdr{height:64px;background-color:#f7f7f6;}
 .subCon .subHdr h1{padding:24px 0 0 50px;font-size:20px;color:#d1531c;font-weight:bold;}
 .basicCon{padding:30px 50px 80px;}
-.subTitle{height:22px;padding:2px 0 0 34px;font-size:17px;color:#d1531c;background:url("images/bul_subtitle.png") no-repeat left top;}
+.basicCon h2.subTitle{height:22px;margin-top:50px;padding:2px 0 0 34px;font-size:17px;font-weight:bold;color:#d1531c;background:url("images/bul_subtitle.png") no-repeat left top;}
+.basicCon h3.subTitle{height:22px;margin-top:50px;padding:2px 0 0 0px;font-size:15px;font-weight:bold;color:#d1531c;}
+.basicCon h4.subTitle{height:22px;margin-top:50px;padding:2px 0 0 0px;font-size:14px;font-weight:bold;color:#000;}
+.basicCon h2.subTitle:first-child,
+.basicCon h3.subTitle:first-child{margin:0;}
 .tCon{margin:15px 0;}
+.imgCon{display:block;margin:15px 0;border:1px solid #ccc;padding:10px;overflow:hidden;}
+.imgCon>img+img{margin-top:10px;}
+.imgCon img{min-width:100%;}
+.imgCon.static img{min-width:initial;}
+.imgCon.pic2 img{float:left;width:49%;min-width:initial;margin:0 0 0 2%;}
+.imgCon.pic2 img:first-child{margin:0;}
 
 .lnbWrap{float:left;width:280px;}
 .lnb{min-height:200px;padding-bottom:150px;background-color:#f4f0ed;background-repeat:no-repeat;background-position:right bottom;}
@@ -196,8 +207,8 @@ footer.footer p{margin-bottom:15px;}
 /* 병원소개 : 의료진소개*/
 .staff{}
 .staff .stfIn{padding:30px 22px;}
-.staff .subTitle{margin:20px 0 20px;padding-left:0;color:#8B4F00;background:none;}
-.staff .subTitle:before{position:relative;top:1px;left:0;margin-right:9px;content:"";display:inline-block;width:4px;height:14px;border-radius:2px;background-color: #8b4f00;}
+.staff h2.subTitle{margin:20px 0 20px;padding-left:0;color:#8B4F00;background:none;}
+.staff h2.subTitle:before{position:relative;top:1px;left:0;margin-right:9px;content:"";display:inline-block;width:4px;height:14px;border-radius:2px;background-color: #8b4f00;}
 .staff .stfTitle{margin-top:40px;padding:10px 20px;font-weight:bold;font-size:16px;color:#8b4f00;background-color:#fde9bc;}
 .staff .profile{}
 .staff .profile:after{content:"";display:block;clear:both;}
