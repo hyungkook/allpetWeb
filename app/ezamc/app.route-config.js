@@ -90,6 +90,30 @@
                     }
                 }
             })
+            .state('homeMedicalParts2.parts1',{
+                templateUrl: 'view/medicalParts2/medicalParts2_1.html'
+            })
+            .state('homeMedicalParts2.parts2',{
+                templateUrl: 'view/medicalParts2/medicalParts2_2.html'
+            })
+            .state('homeMedicalParts2.parts3',{
+                templateUrl: 'view/medicalParts2/medicalParts2_3.html'
+            })
+            .state('homeMedicalParts2.parts4',{
+                templateUrl: 'view/medicalParts2/medicalParts2_4.html'
+            })
+            .state('homeMedicalParts2.parts5',{
+                templateUrl: 'view/medicalParts2/medicalParts2_5.html'
+            })
+            .state('homeMedicalParts2.parts6',{
+                templateUrl: 'view/medicalParts2/medicalParts2_6.html'
+            })
+            .state('homeMedicalParts2.parts7',{
+                templateUrl: 'view/medicalParts2/medicalParts2_7.html'
+            })
+            .state('homeMedicalParts2.parts8',{
+                templateUrl: 'view/medicalParts2/medicalParts2_8.html'
+            })
             .state('homeMap',{
                 url: '/homeMap',
                 views: {
