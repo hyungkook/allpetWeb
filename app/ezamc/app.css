@@ -52,6 +52,7 @@ header.header .gnb li a:hover{color:#382c1c;}
 .basicCon h2.subTitle:first-child,
 .basicCon h3.subTitle:first-child{margin:0;}
 .tCon{margin:15px 0;}
+.basicCon .tCon:first-child{margin:0;}
 .imgCon{display:block;margin:15px 0;border:1px solid #ccc;padding:10px;overflow:hidden;}
 .imgCon>img+img{margin-top:10px;}
 .imgCon img{min-width:100%;}
@@ -172,6 +173,16 @@ footer.footer p{margin-bottom:15px;}
 .tbNormal td.left{text-align:left;padding-left:20px;}
 .tbNormal td a.tLink{font-weight:bold;}
 .tbNormal td a.tLink:hover{text-decoration:underline;}
+
+.tbData{width:100%;}
+.tbData th,
+.tbData td{padding:8px 5px;font-size:13px;border:1px solid #ddd;text-align:center;}
+.tbData td{}
+.tbData thead th{color:#666;background-color:#efefef;}
+.tbData td.left{text-align:left;padding-left:20px;}
+.tbData td a.tLink{font-weight:bold;}
+.tbData td a.tLink:hover{text-decoration:underline;}
+
 .btnArea{margin-top:20px;overflow:hidden;}
 .btnArea .btnSub{float:left;}
 .btnArea .btnMain{float:right;}
