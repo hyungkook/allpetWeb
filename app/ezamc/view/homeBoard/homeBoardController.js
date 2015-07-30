@@ -33,9 +33,11 @@ function homeBoardController($state, $stateParams, $scope, constant, $http, data
                     for (var i = 0; i < data.list.length; i++) {
                         $scope.boardList.push(data.list[i]);
                     }
+                    $('#page-selection').unbind("page");
                     $('#page-selection').bootpag({
                         total: total
                     }).on("page", function (event,  num) {
+                        $scope.currentPage = num;
                         $scope.init(num , pageCon);
                     });
                 }
