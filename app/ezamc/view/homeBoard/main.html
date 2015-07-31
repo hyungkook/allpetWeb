@@ -3,31 +3,32 @@
     </div>
     <section class="subCon" ui-view>
         <div class="subHdr">
-            <h1>공지사항</h1>
+            <h1 ng-show="boardType == '01'">공지사항</h1>
+            <h1 ng-show="boardType == '02'">병원소식</h1>
+            <h1 ng-show="boardType == '03'">대외학술</h1>
+            <h1 ng-show="boardType == '04'">지역봉사</h1>
+            <h1 ng-show="boardType == '05'">방송출연</h1>
         </div>
         <div class="basicCon">
             <table class="tbNormal">
                 <colgroup>
-                    <col>
-                    <col>
+                    <col style="width:8%;">
                     <col>
                     <col style="width:20%;">
-                    <col style="width:15%;">
+                    <col style="width:10%;">
                 </colgroup>
                 <thead>
                 <tr>
                     <th>NO</th>
                     <th>제목</th>
-                    <th>작성자</th>
                     <th>작성일자</th>
-                    <th>조회수</th>
+                    <th>조회수{{currentPage}}</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="list in boardList">
-                    <td>{{$index + 1}}</td>
+                    <td>{{ (currentPage && (currentPage -1) != 0) ? ( $index == 9 && currentPage > 1) ? currentPage : currentPage -1 : ''}}{{ ( $index == 9 && currentPage > 1) ? '0' : $index + 1}}</td>
                     <td class="left"><a role="button" class="tLink" ng-click="viewBoard(list.boardSeq)">{{list.title}}</a></td>
-                    <td>{{list.username == null ? '관리자' : list.username}}</td>
                     <td>{{list.regDate}}</td>
                     <td>{{list.rcount}}</td>
                 </tr>
@@ -37,7 +38,7 @@
 
             <div class="btnArea">
                 <div class="btnMain">
-                    <button type="button" class="btn btn-confirm" ng-click="createBoard()">글쓰기</button>
+                    <button type="button" class="btn btn-confirm" ng-click="createBoard()" ng-show="isAdmin">글쓰기</button>
                 </div>
             </div>
 

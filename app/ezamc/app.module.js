@@ -3,6 +3,7 @@
 angular
     .module('app', [
         'ezamc.home',
+        'angular-storage',
         'ui.router'
     ])
     .constant("constant", {

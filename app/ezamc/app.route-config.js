@@ -46,7 +46,7 @@
             })
             .state('homeInfo.equipment',{
                 templateUrl: 'view/homeInfo/hospitalEquipment.html',
-                controller: ezamcHomeController
+                controller: homeEquipmentController
             })
             .state('homeMedicalParts1',{
                 url: '/homeMedicalParts1',
@@ -69,6 +69,15 @@
             .state('homeMedicalParts1.parts3',{
                 templateUrl: 'view/medicalParts1/medicalParts1_3.html'
             })
+            .state('homeMedicalParts1.parts4',{
+                templateUrl: 'view/medicalParts1/medicalParts1_4.html'
+            })
+            .state('homeMedicalParts1.parts5',{
+                templateUrl: 'view/medicalParts1/medicalParts1_5.html'
+            })
+            .state('homeMedicalParts1.parts6',{
+                templateUrl: 'view/medicalParts1/medicalParts1_6.html'
+            })
             .state('homeMedicalParts2',{
                 url: '/homeMedicalParts2',
                 views: {
@@ -80,6 +89,30 @@
                         templateUrl: 'view/medicalParts2/leftMenu.html'
                     }
                 }
+            })
+            .state('homeMedicalParts2.parts1',{
+                templateUrl: 'view/medicalParts2/medicalParts2_1.html'
+            })
+            .state('homeMedicalParts2.parts2',{
+                templateUrl: 'view/medicalParts2/medicalParts2_2.html'
+            })
+            .state('homeMedicalParts2.parts3',{
+                templateUrl: 'view/medicalParts2/medicalParts2_3.html'
+            })
+            .state('homeMedicalParts2.parts4',{
+                templateUrl: 'view/medicalParts2/medicalParts2_4.html'
+            })
+            .state('homeMedicalParts2.parts5',{
+                templateUrl: 'view/medicalParts2/medicalParts2_5.html'
+            })
+            .state('homeMedicalParts2.parts6',{
+                templateUrl: 'view/medicalParts2/medicalParts2_6.html'
+            })
+            .state('homeMedicalParts2.parts7',{
+                templateUrl: 'view/medicalParts2/medicalParts2_7.html'
+            })
+            .state('homeMedicalParts2.parts8',{
+                templateUrl: 'view/medicalParts2/medicalParts2_8.html'
             })
             .state('homeMap',{
                 url: '/homeMap',
@@ -106,7 +139,7 @@
                 }
             })
             .state('homeBoard',{
-                url: '/homeBoard',
+                url: '/homeBoard/:boardType',
                 views: {
                     '': {
                         templateUrl: 'view/homeBoard/main.html',
@@ -118,13 +151,13 @@
                 }
             })
             .state('homeBoard.create',{
-                url: '/create',
+                url: '/create/:boardType',
                 templateUrl: 'view/homeBoard/homeBoardCreate.html',
                 controller: homeBoardViewController,
                 params : {viewType : 'create', boardSeq : 0}
             })
             .state('homeBoard.view',{
-                url: '/view',
+                url: '/view/:boardType',
                 templateUrl: 'view/homeBoard/homeBoardView.html',
                 controller: homeBoardViewController,
                 params : {viewType : 'view' , boardSeq : 0}

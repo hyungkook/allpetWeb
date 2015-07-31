@@ -5,18 +5,22 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/swiper/dist/css/swiper.min.css">
 
     <link rel="stylesheet" href="app.css">
 
     <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script src="../bower_components/jquery-ui/ui/minified/i18n/datepicker-ko.min.js"></script>
     <script src="../bower_components/jquery-bootpag/lib/jquery.bootpag.min.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/swiper/dist/js/swiper.min.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/a0-angular-storage/dist/angular-storage.js"></script>
     <script src="../components/smarteditor/js/HuskyEZCreator.js"></script>
-    <!-- 로컬용 앱 키
+    <!-- 로컬 개발용
     <script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=f33808d9e40afa39a34ab96eb0cc61ae"></script>
     -->
     <script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=4b92ba5007a036987b71f100c6f11add"></script>
@@ -48,7 +52,7 @@
                     <li><a role="button" ui-sref="homeMedicalParts1">특화진료</a></li>
                     <li><a role="button" ui-sref="homeMedicalParts2">진료과목</a></li>
                     <li><a role="button" ui-sref="homeBeauty">미용안내</a></li>
-                    <li><a role="button" ui-sref="homeBoard" ui-sref-opts="{reload: true}">공지사항</a> </li>
+                    <li><a role="button" ui-sref="homeBoard" ui-sref-opts="{reload: true}">알림마당</a> </li>
                     <li><a role="button" ui-sref="homeMap">오시는길</a></li>
                 </ul>
             </nav>
@@ -75,7 +79,9 @@
             <p>본 사이트에서 사용된 모든 일러스트, 그래픽 이미지와 내용의 무단 도용을 금합니다.</p>
 
             copyrightⓒ all rights reserved<br>
-            Hosting by <a href="http://www.allpethome.com/">ALLPET</a>. Designed by <a href="http://www.allpethome.com/">ALLPET</a>. <a role="button"  ui-sref="homeBoard">관리자페이지 가기</a>
+            Hosting by <a href="http://www.allpethome.com/">ALLPET</a>. Designed by <a href="http://www.allpethome.com/">ALLPET</a>.
+            <a role="button" ng-click="adminLogout()" ng-show="isAdmin">로그아웃</a>
+            <a role="button" ng-click="adminLogin()" ng-hide="isAdmin">관리자로그인</a>
         </div>
     </footer>
 </div>

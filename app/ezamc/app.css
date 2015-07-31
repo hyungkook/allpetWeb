@@ -26,6 +26,7 @@ header.header h1{display:none !important;}
 .mainVisual h2 strong{display:none !important;}
 */
 body{background-color:#382c1c;overflow-y:scroll;}
+.totalWrap{min-width:1100px;}
 .container{width:auto;padding:0;background:url("images/bg_con.png");}
 .container .contents{}
 .container .contents:after{content:"";display:block;clear:both;}
@@ -43,17 +44,36 @@ header.header .gnb li a:hover{color:#382c1c;}
 
 .subCon{float:left;margin-left:20px;width:800px;min-height:700px;background-color:#fff;}
 .subCon .subHdr{height:64px;background-color:#f7f7f6;}
-.subCon .subHdr h1{padding:26px 0 0 50px;font-size:20px;color:#d1531c;font-weight:bold;}
+.subCon .subHdr h1{padding:24px 0 0 50px;font-size:20px;color:#d1531c;font-weight:bold;}
 .basicCon{padding:30px 50px 80px;}
-.subTitle{height:22px;padding:2px 0 0 34px;font-size:17px;color:#d1531c;background:url("images/bul_subtitle.png") no-repeat left top;}
+.basicCon h2.subTitle{height:22px;margin-top:40px;padding:2px 0 0 34px;font-size:17px;font-weight:bold;color:#d1531c;background:url("images/bul_subtitle.png") no-repeat left top;}
+.basicCon h3.subTitle{height:22px;margin-top:40px;padding:2px 0 0 0px;font-size:15px;font-weight:bold;color:#d1531c;}
+.basicCon h4.subTitle{height:22px;margin-top:40px;padding:2px 0 0 0px;font-size:14px;font-weight:bold;color:#000;}
+.basicCon h2.subTitle:first-child,
+.basicCon h3.subTitle:first-child{margin:0;}
 .tCon{margin:15px 0;}
+.tCon.intro{color:#A94800;}
+.basicCon .tCon:first-child{margin:0;}
+.imgCon{display:block;margin:15px 0;border:1px solid #ccc;padding:10px;overflow:hidden;}
+.imgCon>img+img{margin-top:10px;}
+.imgCon img{min-width:100%;}
+.imgCon.static img{min-width:initial;}
+.imgCon.pic2 img{float:left;width:49%;min-width:initial;margin:0 0 0 2%;}
+.imgCon.pic2 img:first-child{margin:0;}
 
 .lnbWrap{float:left;width:280px;}
-.lnb{padding-bottom:40px;background-color:#f4f0ed;}
-.lnb h2{height:64px;padding:28px;font-size:20px;font-weight:bold;color:#382c1c;background:url(images/line_lnb.png) repeat-x left bottom;}
+.lnb{min-height:200px;padding-bottom:150px;background-color:#f4f0ed;background-repeat:no-repeat;background-position:right bottom;}
+.lnb h2{height:64px;padding:24px 28px;font-size:20px;font-weight:bold;color:#a94800;background:url(images/line_lnb.png) repeat-x left bottom;}
 .lnb ul{margin-top:15px;}
-.lnb ul li a{display:block;padding:5px 30px;font-size:16px;color:#382c1c;}
+.lnb ul li a{display:block;padding:5px 30px;font-size:16px;color:#382c1c;font-weight:bold;}
 .lnb ul li a:hover{color:#ad3b01;background-color:#ecd6cb;}
+
+.lnb.bg1{background-image:url("images/bg_lnb1.png");}
+.lnb.bg2{background-image:url("images/bg_lnb2.png");}
+.lnb.bg3{background-image:url("images/bg_lnb3.png");}
+.lnb.bg4{background-image:url("images/bg_lnb4.png");}
+.lnb.bg5{background-image:url("images/bg_lnb5.png");}
+.lnb.bg6{background-image:url("images/bg_lnb6.png");}
 
 .lnbInfo{}
 .lnbInfo .cpTime{margin-top:20px;padding:0 0 0 120px;height:115px;background:url("images/img_lnbinfo1.png") no-repeat left top;}
@@ -132,7 +152,7 @@ footer.footer p{margin-bottom:15px;}
 .mainCon .notice{background:url("images/img_notice.png");}
 
 .mainCon .parking{background:url("images/img_parking.png") no-repeat 13% 60% #fff;}
-.mainCon .parking p{padding:40px 0 0 185px;color:#d0440f;font-size:14px;}
+.mainCon .parking p{padding:35px 0 0 185px;color:#d0440f;font-size:14px;}
 .mainCon .parking p strong{display:block;font-size:20px;margin-bottom:10px;}
 .mainCon .parking .mcTit{color:#d0440f;background-color:#ffeabc;}
 
@@ -154,6 +174,16 @@ footer.footer p{margin-bottom:15px;}
 .tbNormal td.left{text-align:left;padding-left:20px;}
 .tbNormal td a.tLink{font-weight:bold;}
 .tbNormal td a.tLink:hover{text-decoration:underline;}
+
+.tbData{width:100%;}
+.tbData th,
+.tbData td{padding:8px 5px;font-size:13px;border:1px solid #ddd;text-align:center;}
+.tbData td{}
+.tbData thead th{color:#666;background-color:#efefef;}
+.tbData td.left{text-align:left;padding-left:20px;}
+.tbData td a.tLink{font-weight:bold;}
+.tbData td a.tLink:hover{text-decoration:underline;}
+
 .btnArea{margin-top:20px;overflow:hidden;}
 .btnArea .btnSub{float:left;}
 .btnArea .btnMain{float:right;}
@@ -189,8 +219,8 @@ footer.footer p{margin-bottom:15px;}
 /* 병원소개 : 의료진소개*/
 .staff{}
 .staff .stfIn{padding:30px 22px;}
-.staff .subTitle{margin:20px 0 20px;padding-left:0;color:#8B4F00;background:none;}
-.staff .subTitle:before{position:relative;top:1px;left:0;margin-right:9px;content:"";display:inline-block;width:4px;height:14px;border-radius:2px;background-color: #8b4f00;}
+.staff h2.subTitle{margin:20px 0 20px;padding-left:0;color:#8B4F00;background:none;}
+.staff h2.subTitle:before{position:relative;top:1px;left:0;margin-right:9px;content:"";display:inline-block;width:4px;height:14px;border-radius:2px;background-color: #8b4f00;}
 .staff .stfTitle{margin-top:40px;padding:10px 20px;font-weight:bold;font-size:16px;color:#8b4f00;background-color:#fde9bc;}
 .staff .profile{}
 .staff .profile:after{content:"";display:block;clear:both;}
