@@ -46,12 +46,13 @@ header.header .gnb li a:hover{color:#382c1c;}
 .subCon .subHdr{height:64px;background-color:#f7f7f6;}
 .subCon .subHdr h1{padding:24px 0 0 50px;font-size:20px;color:#d1531c;font-weight:bold;}
 .basicCon{padding:30px 50px 80px;}
-.basicCon h2.subTitle{height:22px;margin-top:50px;padding:2px 0 0 34px;font-size:17px;font-weight:bold;color:#d1531c;background:url("images/bul_subtitle.png") no-repeat left top;}
-.basicCon h3.subTitle{height:22px;margin-top:50px;padding:2px 0 0 0px;font-size:15px;font-weight:bold;color:#d1531c;}
-.basicCon h4.subTitle{height:22px;margin-top:50px;padding:2px 0 0 0px;font-size:14px;font-weight:bold;color:#000;}
+.basicCon h2.subTitle{height:22px;margin-top:40px;padding:2px 0 0 34px;font-size:17px;font-weight:bold;color:#d1531c;background:url("images/bul_subtitle.png") no-repeat left top;}
+.basicCon h3.subTitle{height:22px;margin-top:40px;padding:2px 0 0 0px;font-size:15px;font-weight:bold;color:#d1531c;}
+.basicCon h4.subTitle{height:22px;margin-top:40px;padding:2px 0 0 0px;font-size:14px;font-weight:bold;color:#000;}
 .basicCon h2.subTitle:first-child,
 .basicCon h3.subTitle:first-child{margin:0;}
 .tCon{margin:15px 0;}
+.tCon.intro{color:#A94800;}
 .basicCon .tCon:first-child{margin:0;}
 .imgCon{display:block;margin:15px 0;border:1px solid #ccc;padding:10px;overflow:hidden;}
 .imgCon>img+img{margin-top:10px;}
@@ -151,7 +152,7 @@ footer.footer p{margin-bottom:15px;}
 .mainCon .notice{background:url("images/img_notice.png");}
 
 .mainCon .parking{background:url("images/img_parking.png") no-repeat 13% 60% #fff;}
-.mainCon .parking p{padding:40px 0 0 185px;color:#d0440f;font-size:14px;}
+.mainCon .parking p{padding:35px 0 0 185px;color:#d0440f;font-size:14px;}
 .mainCon .parking p strong{display:block;font-size:20px;margin-bottom:10px;}
 .mainCon .parking .mcTit{color:#d0440f;background-color:#ffeabc;}
 
