@@ -2,7 +2,9 @@ angular.module('ezamc.home')
     .controller('homeBoardController', homeBoardController)
     .controller('homeBoardViewController', homeBoardViewController);
 
-function homeBoardController($state, $stateParams, $scope, constant, $http, dataFactory) {
+function homeBoardController($state, $stateParams, $scope, constant, $http, dataFactory, store) {
+
+    $scope.isAdmin = store.get('isAdmin');
 
     var boardType = $stateParams.boardType;
     if( !boardType ) boardType = '01';
@@ -47,7 +49,9 @@ function homeBoardController($state, $stateParams, $scope, constant, $http, data
     $scope.init(1, 10);
 };
 
-function homeBoardViewController($state, $stateParams, $scope, $http, constant, dataFactory) {
+function homeBoardViewController($state, $stateParams, $scope, $http, constant, dataFactory, store) {
+    $scope.isAdmin = store.get('isAdmin');
+
     var viewType = $stateParams.viewType;
     var boardSeq = $stateParams.boardSeq;
     var boardType = $stateParams.boardType;

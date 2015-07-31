@@ -2,7 +2,7 @@
     <h1 ng-show="boardType == '01'">공지사항</h1>
     <h1 ng-show="boardType == '02'">병원소식</h1>
     <h1 ng-show="boardType == '03'">대외학술</h1>
-    <h1 ng-show="boardType == '04'">지역봉사</h1>
+    <h1 ng-show="boardType == '04'">봉사활동</h1>
     <h1 ng-show="boardType == '05'">방송출연</h1>
 </div>
 <div class="basicCon">
@@ -16,7 +16,7 @@
         <div class="btnSub">
             <button type="button" class="btn btn-normal" ng-click="cancelBoard()">목록</button>
         </div>
-        <div class="btnMain">
+        <div class="btnMain" ng-show="isAdmin">
             <button type="button" class="btn btn-confirm" ng-click="deleteBoard()">삭제</button>
             <button type="button" class="btn btn-confirm" ng-click="editBoard()">수정</button>
         </div>

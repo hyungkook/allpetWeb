@@ -46,7 +46,7 @@
             })
             .state('homeInfo.equipment',{
                 templateUrl: 'view/homeInfo/hospitalEquipment.html',
-                controller: ezamcHomeController
+                controller: homeEquipmentController
             })
             .state('homeMedicalParts1',{
                 url: '/homeMedicalParts1',

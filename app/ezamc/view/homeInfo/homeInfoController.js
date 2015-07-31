@@ -1,9 +1,13 @@
 angular.module('ezamc.home')
     .controller('homeInfoController', homeInfoController)
+    .controller('homeEquipmentController', homeEquipmentController)
     .controller('ezamcHomeStaffController', ezamcHomeStaffController)
     .controller('ezamcHomeStaffDetailController', ezamcHomeStaffDetailController);
 
 function homeInfoController($http, $scope, constant) {
+
+};
+function homeEquipmentController($http, $scope, constant) {
 
 };
 
