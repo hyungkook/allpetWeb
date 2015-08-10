@@ -22,7 +22,6 @@ function HomeController($http, $scope, constant, $modal, store) {
             controller: 'loginCtrl',
             scope: $scope,
             windowClass: 'app-modal-window',
-            size: 'lg',
             resolve: {
             }
         });
@@ -33,7 +32,7 @@ function HomeController($http, $scope, constant, $modal, store) {
             }else{
                 store.set('isAdmin', false);
                 $scope.isAdmin = false;
-                alert('ë¡œê·¸ì¸ì— ì‹¤íŒ¨í•˜ì…¨ìŠµë‹ˆë‹¤');
+                alert('ë¡œê·¸?¸?— ?‹¤?Œ¨?•˜?…¨?Šµ?‹ˆ?‹¤');
                 return;
             }
         }, function () {

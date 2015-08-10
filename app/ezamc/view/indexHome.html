@@ -2,8 +2,33 @@
 
     <div class="mainVisual">
         <div class="inner">
-            <h2>사람과 반려동물이 더불어 행복한 <strong>이지동물의료센터</strong></h2>
-            <img src="images/img_mv1.png" class="mv">
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/img_mv1.png" alt=""></div>
+                    <div class="swiper-slide"><img src="images/img_mv2.png" alt=""></div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Swiper JS -->
+            <script src="../dist/js/swiper.min.js"></script>
+
+            <!-- Initialize Swiper -->
+            <script>
+                var swiper = new Swiper('.swiper-container', {
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    slidesPerView: 1,
+                    paginationClickable: true,
+                    autoplay: 5000,
+                    spaceBetween: 30,
+                    loop: true
+                });
+            </script>
+
         </div>
     </div>
 
@@ -22,27 +47,31 @@
                 <ul>
                      <li class="s1">
                         <a href="#">심장/신장센터</a>
-                        <span class="con">센터 소개글을 삽입합니다.</span>
+                        <span class="con">심부전, 고혈압, 판막질환, 심근질환...</span>
                     </li>
                     <li class="s2">
                         <a href="#">신경계 센터</a>
-                        <span class="con">센터 소개글을 삽입합니다.</span>
+                        <span class="con">발작, 경련등의 신경질환</span>
                     </li>
                     <li class="s3">
                         <a href="#">종양/항암센터</a>
-                        <span class="con">센터 소개글을 삽입합니다.</span>
+                        <span class="con">림포마, 유선종양, 비만세포종, 혈관육종...</span>
                     </li>
                     <li class="s4">
                         <a href="#">외과 센터</a>
-                        <span class="con">센터 소개글을 삽입합니다.</span>
+                        <span class="con">골절, 디스크, 피부질환, 비뇨기...</span>
                     </li>
                     <li class="s5">
                         <a href="#">난치질환센터</a>
-                        <span class="con">센터 소개글을 삽입합니다.</span>
+                        <span class="con">PRP, 줄기세포</span>
                     </li>
                     <li class="s6">
                         <a href="#">건강검진센터</a>
-                        <span class="con">센터 소개글을 삽입합니다.</span>
+                        <span class="con">각 연력에 맞게 특화된 시스템</span>
+                    </li>
+                    <li class="s7">
+                        <a href="#">내분비센터</a>
+                        <span class="con">갑상선,부신,췌장등 호르몬 관련...</span>
                     </li>
                 </ul>
             </div>
@@ -98,7 +127,10 @@
 
             <!-- 방문 안내 -->
             <div class="mcBox parking">
-                <h3 class="mcTit">주차 안내</h3>
+                <h3 class="mcTit"><strong>주차 안내</strong></h3>
+                <address>
+                    <a href="#" ui-sref="homeMap">부천시 원미구 역곡2동 49-5 조양시티프라자 지하 주차장 이용</a>
+                </address>
                 <p>
                     <strong>발렛파킹 가능</strong>
                     병원밖에 주차하시고<br>전화주시면 바로<br>안내해 드리겠습니다.<br>(오후 12시~6시)
@@ -108,7 +140,7 @@
 
             <!-- 블로그 소식 -->
             <div class="mcBox blog">
-                <h3 class="mcTit">블로그 소식</h3>
+                <h3 class="mcTit"><strong>블로그 소식</strong></h3>
                 <ul>
                     <li ng-repeat="list in blogList">
                         <a href="{{list.link}}" target="_blank">{{list.title}}</a>
