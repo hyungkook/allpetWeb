@@ -32,7 +32,7 @@ function HomeController($http, $scope, constant, $modal, store) {
             }else{
                 store.set('isAdmin', false);
                 $scope.isAdmin = false;
-                alert('Î°úÍ∑∏?ù∏?óê ?ã§?å®?ïò?Ö®?äµ?ãà?ã§');
+                alert('Î°úÍ∑∏Ïù∏ Ï†ïÎ≥¥Î•º ÌôïÏù∏ÌïòÏó¨ Ï£ºÏÑ∏Ïöî.');
                 return;
             }
         }, function () {
@@ -63,7 +63,14 @@ function loginCtrl($http, $scope, constant, $modalInstance) {
         $modalInstance.dismiss('cancel');
     };
     $scope.login = function(){
-        $modalInstance.close('true');
+        console.log($scope.id);
+        console.log($scope.pw);
+        if('ezamc' == $scope.id && 'ezamc' == $scope.id){
+            $modalInstance.close('true');
+        }else{
+            $modalInstance.close('false');
+        }
+
         /*
         var url_temp = constant.contextPath + 'adminLogin';
         var response = $http.get(url_temp);

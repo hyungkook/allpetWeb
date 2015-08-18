@@ -34,7 +34,6 @@ function ezamcHomeController($http, $scope, constant) {
                     for(var i=0; i < data.blogList.length; i++){
                         if( i < 3){
                             var val = data.blogList[i];
-                            console.log(val);
                             var title = val.value.title[0];
                             var link = val.value.link[0];
                             var descTemp = val.value.description[0];
