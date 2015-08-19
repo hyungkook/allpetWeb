@@ -279,3 +279,6 @@ footer.footer p{margin-bottom:15px;}
 .eqList .cont{float:left;width:440px;}
 .eqList .cont h3{padding-bottom:10px;border-bottom:2px solid #8b4f00;font-size:16px;color:#8b4f00;font-weight:bold;}
 .eqList .cont p{margin-top:20px;max-height:110px;font-size:13px;overflow-y:auto;}
+
+/*특화진료*/
+.mpHead h2.subTitle{color:#e565a4;background-image:url("images/bul_subtitle2.png");}
