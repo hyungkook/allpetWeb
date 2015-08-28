@@ -77,14 +77,14 @@ header.header .gnb li a:hover{color:#382c1c;}
 
 .lnbInfo{}
 .lnbInfo .cpTime{margin-top:20px;padding:0 0 0 120px;height:115px;background:url("images/img_lnbinfo1.png") no-repeat left top;}
-.lnbInfo .cpTime .basic{padding-top:7px;font-size:14px;color: #6f3822;}
+.lnbInfo .cpTime .basic{padding-top:7px;font-size:14px;color: #ffd1a1;}
 .lnbInfo .cpTime .basic dt{float:left;font-weight:bold;margin-right:8px;}
-.lnbInfo .cpTime .meal{margin-top:12px;font-size:12px;color: #6f3822;}
+.lnbInfo .cpTime .meal{margin-top:12px;font-size:12px;color: #ffd1a1;}
 .lnbInfo .cpTime .meal dt{float:left;font-weight:normal;margin-right:8px;}
 .lnbInfo .cpTel{margin-top:20px;padding:0 0 0 120px;height:95px;background:url("images/img_lnbinfo2.png") no-repeat 5px top;}
-.lnbInfo .cpTel dl{color: #6f3822;}
+.lnbInfo .cpTel dl{color: #ffd1a1;}
 .lnbInfo .cpTel dl dt{float:left;margin-right:8px;}
-.lnbInfo .cpTel .hosiptal{padding-top:22px;font-size:24px;}
+.lnbInfo .cpTel .hosiptal{padding-top:22px;font-size:23px;}
 .lnbInfo .cpTel .hosiptal dd{letter-spacing:-1px;font-weight:bold;}
 .lnbInfo .cpTel .beauty{font-size:15px;}
 
@@ -125,9 +125,10 @@ footer.footer p{margin-bottom:15px;}
 
 .mainCon .spec{}
 .mainCon .spec ul{padding:0 0 0 30px;}
-.mainCon .spec ul li{padding:5px 0 0 105px;margin-top:13px;height:50px;background-repeat:no-repeat;background-position:left top;}
-.mainCon .spec ul li a{color:#cf430f;font-size:15px;font-weight:bold;}
-.mainCon .spec ul li a:hover{text-decoration:underline;}
+.mainCon .spec ul li{margin-top:13px;background-repeat:no-repeat;background-position:left top;}
+.mainCon .spec ul li a{display:block;padding:5px 0 0 105px;height:50px;}
+.mainCon .spec ul li a h4{color:#cf430f;font-size:15px;font-weight:bold;}
+.mainCon .spec ul li a:hover h4{text-decoration:underline;}
 .mainCon .spec ul li .con{display:block;color:#505050;font-size:12px;}
 .mainCon .spec ul li.s1{background-image:url("images/img_spec1.png");}
 .mainCon .spec ul li.s2{background-image:url("images/img_spec2.png");}
@@ -144,6 +145,7 @@ footer.footer p{margin-bottom:15px;}
 .mainCon .info .cpTime .basic dt{float:left;font-weight:bold;margin-right:8px;}
 .mainCon .info .cpTime .meal{margin-top:12px;font-size:12px;color:#382c1c;}
 .mainCon .info .cpTime .meal dt{float:left;font-weight:normal;margin-right:8px;}
+.mainCon .info .cpTime .tip{margin-top:7px;font-size:11px;color:#382c1c;letter-spacing:-1px;}
 .mainCon .info .cpTel{margin:50px 0 0 25px;padding:0 0 0 120px;height:95px;background:url("images/img_info2.png") no-repeat 5px top;}
 .mainCon .info .cpTel dl{color:#8b4f00;}
 .mainCon .info .cpTel dl dt{float:left;margin-right:8px;}
