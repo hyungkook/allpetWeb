@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>(주)화영약품</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/media-queries.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.css">
+	<style>
+		html, body {
+			position: relative;
+		}
+		.swiper-container {
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-slide {
+			text-align: center;
+			
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+    </style>
+	
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="js/swiper.js"></script>
+	
+</head>
+
+<body>
+	<section id="main">
+		<div id ="main_visual">
+			<div class="visual_ov swiper-container">
+				<ul class="visual clear swiper-wrapper">
+					<li class="vi_0 swiper-slide">
+						<div>
+							<p class="m_logo"><img src="images/logo.png" alt="(주)화영약품"></p>
+							<p class="txt01">인류건강을 위한 글로벌 기업</p>
+						</div>
+					</li>
+					<li class="vi_1 swiper-slide">
+						<div>
+							<h2>회사소개</h2>
+							<p>인류건강을 위한 글로벌 기업</p>
+                            <p class="btn"><a href="company.html"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+						</div>
+					</li>
+					<li class="vi_2 swiper-slide">
+						<div>
+							<h2>약품주문</h2>
+							<p>인류건강을 위한 글로벌 기업</p>
+                            <p class="btn"><a href="http://wos.hypharm.co.kr/" target="_blank"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+						</div>
+					</li>
+					<li class="vi_3 swiper-slide">
+						<div>
+							<h2>배송안내</h2>
+							<p>인류건강을 위한 글로벌 기업</p>
+                            <p class="btn"><a href="deliver.html"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+						</div>
+					</li>
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div id="sub_visual">
+			<ul class="visual_sub clear">
+				<li class="s_vi_0">
+					<div class="s_hover"><a href="company.html"><img src="images/txt_s01.png" alt="회사소개"></a></div>
+				</li>
+				<li class="s_vi_1">
+					<div class="s_hover"><a href="http://wos.hypharm.co.kr/" target="_blank"><img src="images/txt_s02.png" alt="약품주문"></a></div>
+				</li>
+				<li class="s_vi_2">
+					<div class="s_hover"><a href="deliver.html"><img src="images/txt_s03.png" alt="배송안내"></a></div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	
+	<footer id="footer">
+    	<div class="f_pc">
+            <p class="add">주소:경기도 고양시 덕양구 토당동 855 능곡역프라자 B1&nbsp;&nbsp;&nbsp;Tel:031-938-0707&nbsp;&nbsp;&nbsp;Mail:<a href="mailto:bsbshj@hanmail.net">bsbshj@hanmail.net</a></p>
+            <p class="t01">COPYRIGHT 2015 BY(주)화영약품 ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="f_mo">
+            <p class="t01">COPYRIGHT 2015 BY(주)화영약품 ALL RIGHTS RESERVED.</p>
+        </div>
+	</footer>
+<form name="frmOnAir">
+<input type="hidden" id="sessionid" name="sessionid" value="" />
+</form>
+<script>
+		
+		var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			loop: true,
+			paginationClickable: true,
+			centeredSlides: true,
+			autoplay: 5000,
+			autoplayDisableOnInteraction: false
+		});
+		
+    </script>		
+</body>
+</html>

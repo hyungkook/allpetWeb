@@ -12,9 +12,18 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="app.module.js"></script>
 
+    <script>
+        angular.module('route',['ui.router', 'ui.bootstrap'])
+                .controller('routeCtrl', routeCtrl);
+
+        function routeCtrl($http, $scope, constant, $window) {
+            $window.location.href = constant.contextPath + 'index';
+        }
+    </script>
 </head>
-<body ng-app="app" ui-view>
+<body ng-app="app" ng-controller="routeCtrl" ui-view>
 
 </body>
 </html>
