@@ -77,12 +77,12 @@ header.header .gnb li a:hover{color:#382c1c;}
 
 .lnbInfo{}
 .lnbInfo .cpTime{margin-top:20px;padding:0 0 0 120px;height:115px;background:url("images/img_lnbinfo1.png") no-repeat left top;}
-.lnbInfo .cpTime .basic{padding-top:7px;font-size:14px;color: #ffd1a1;}
+.lnbInfo .cpTime .basic{padding-top:7px;font-size:14px;color: #ffffff;}
 .lnbInfo .cpTime .basic dt{float:left;font-weight:bold;margin-right:8px;}
-.lnbInfo .cpTime .meal{margin-top:12px;font-size:12px;color: #ffd1a1;}
+.lnbInfo .cpTime .meal{margin-top:12px;font-size:12px;color: #ffffff;}
 .lnbInfo .cpTime .meal dt{float:left;font-weight:normal;margin-right:8px;}
 .lnbInfo .cpTel{margin-top:20px;padding:0 0 0 120px;height:95px;background:url("images/img_lnbinfo2.png") no-repeat 5px top;}
-.lnbInfo .cpTel dl{color: #ffd1a1;}
+.lnbInfo .cpTel dl{color: #ffffff;}
 .lnbInfo .cpTel dl dt{float:left;margin-right:8px;}
 .lnbInfo .cpTel .hosiptal{padding-top:22px;font-size:23px;}
 .lnbInfo .cpTel .hosiptal dd{letter-spacing:-1px;font-weight:bold;}
@@ -280,7 +280,10 @@ footer.footer p{margin-bottom:15px;}
 .eqList .thumbs{float:left;width:240px;height:160px;margin-right:20px;border:1px solid #ccc;}
 .eqList .cont{float:left;width:440px;}
 .eqList .cont h3{padding-bottom:10px;border-bottom:2px solid #8b4f00;font-size:16px;color:#8b4f00;font-weight:bold;}
-.eqList .cont p{margin-top:20px;max-height:110px;font-size:13px;overflow-y:auto;}
+.eqList .cont .cnt{margin-top:20px;max-height:110px;font-size:13px;line-height:140%;overflow-y:auto;}
+.eqList .cont .cnt ul{display:inline;}
+.eqList .cont .cnt ul li{position:relative;font-size:13px;padding:2px 0 2px 12px;}
+.eqList .cont .cnt ul li:before{content:"*";position:absolute;top:0;left:0;display:block;}
 
 /*특화진료*/
 .mpHead h2.subTitle{color:#e565a4;background-image:url("images/bul_subtitle2.png");}
