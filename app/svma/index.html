@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>서울시수의사회</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/media-queries.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.css">
+	<style>
+		html, body {
+			position: relative;
+		}
+		.swiper-container {
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-slide {
+			text-align: center;
+			
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+    </style>
+	
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="js/swiper.js"></script>
+	
+</head>
+
+<body>
+	<section id="main">
+    	<p class="btn_login"><a href="sub/login.html"><img src="images/login.png"  alt="login"></a></p>
+		<div id ="main_visual">
+			<div class="visual_ov swiper-container">
+				<ul class="visual clear swiper-wrapper">
+					<li class="vi_0 swiper-slide">
+						<div>
+							<h2 style="padding-top:0; padding-bottom:0;">서울시수의사회</h2>
+							<p>화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+						</div>
+					</li>
+					<li class="vi_1 swiper-slide">
+						<div>
+							<h2>서울시수의사회</h2>
+							<p>화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+                            <p class="btn"><a href="sub/company01.html"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+						</div>
+					</li>
+					<li class="vi_2 swiper-slide">
+						<div>
+							<h2>회원공간</h2>
+							<p>화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+                            <p class="btn"><a href="sub/list01.html"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+						</div>
+					</li>
+					<li class="vi_3 swiper-slide">
+						<div>
+							<h2>교육예약</h2>
+							<p>화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+                            <p class="btn"><a href="sub/reserve.html"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+						</div>
+					</li>
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div id="sub_visual">
+			<ul class="visual_sub clear">
+				<li class="s_vi_0">
+					<div class="s_hover"><a href="sub/company01.html"><img src="images/txt_s01.png" alt="서울시수의사회 소개"></a></div>
+				</li>
+				<li class="s_vi_1">
+					<div class="s_hover"><a href="sub/list01.html"><img src="images/txt_s02.png" alt="세미나 안내"></a></div>
+				</li>
+				<li class="s_vi_2">
+					<div class="s_hover"><a href="sub/reserve.html"><img src="images/txt_s03.png" alt="게시판"></a></div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	
+	<footer id="footer">
+    	<div class="f_pc">
+            <p class="add">주소:서울시 성북구 안암동 5가 110-126&nbsp;&nbsp;&nbsp;Tel:02-953-4050~5&nbsp;&nbsp;&nbsp;Mail:<a href="mailto:svma@chol.com">svma@chol.com</a></p>
+            <p class="t01">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. <span>Hosting by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</span></p>
+        </div>
+        <div class="f_mo">
+            <p class="t01" style="padding-bottom:0;">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. </p>
+            <p class="t01" style="padding-top:2px; margin:0;"><a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</p>
+        </div>
+	</footer>
+<form name="frmOnAir">
+<input type="hidden" id="sessionid" name="sessionid" value="" />
+</form>
+<script>
+		
+		var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			loop: true,
+			paginationClickable: true,
+			centeredSlides: true,
+			autoplay: 5000,
+			autoplayDisableOnInteraction: false
+		});
+		
+    </script>		
+</body>
+</html>
