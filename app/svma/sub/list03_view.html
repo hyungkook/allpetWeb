@@ -8,7 +8,77 @@
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
-	
+    <link rel="stylesheet" href="../../bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../js/boardController.js"></script>
+    <script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        var boardSeq = location.search.split('boardSeq=')[1];
+        $(document).ready(function() {
+            jQuery.support.cors = true;
+            var url = targetUrl + 'board/getBoard?boardSeq='+boardSeq;
+            var object;
+            $.ajax({
+                url : url,
+                type : 'GET',
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+                    .success(function(datas){
+                        $('#title').text(datas.title);
+                        $('#username').text(datas.username);
+                        $('#rcount').text(datas.rcount);
+                        $('#regDate').text(datas.regDate);
+                        $('#content').html(datas.content);
+                    });
+
+        });
+        function deleteBoard(){
+            $('<div></div>').appendTo('body')
+                    .html('<div><h6>정말 삭제하시겠습니까?</h6></div>')
+                    .dialog({
+                        modal: true,
+                        title: 'Delete message',
+                        zIndex: 1000,
+                        maxWidth:600,
+                        maxHeight: 150,
+                        width: 600,
+                        height: 150,
+                        autoOpen: true,
+                        width: 'auto',
+                        buttons: {
+                            Yes: function () {
+                                var parent = this;
+                                var deleteUrl = targetUrl + 'board/deleteBoard?boardSeq='+boardSeq;
+                                $.ajax({
+                                    url : deleteUrl,
+                                    type : 'GET',
+                                    contentType: 'application/json',
+                                    dataType: 'json'
+                                })
+                                        .success(function(datas){
+                                            $(parent).dialog("close");
+                                            location.href = 'list03.html';
+                                        })
+                                        .error(function(datass){
+                                            $(parent).dialog("close");
+                                            location.href = 'list03.html';
+                                        });
+                            },
+                            No: function () {
+                                $(this).dialog("close");
+                            }
+                        },
+                        close: function (event, ui) {
+                            $(this).remove();
+                        }
+                    });
+        }
+        function editBoard(){
+            location.href = 'list03_edit.html?boardSeq='+boardSeq;
+        }
+    </script>
 </head>
 
 <body>
@@ -16,9 +86,10 @@
 
 	<!-- 탑 비주얼 부분 시작-->
 	<div class="sub_visual02">
-    	<h2>회원공간</h2>
+        <a href="../index.html"><h2>회원공간</h2></a>
         <p class="top_txt01">화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
-        <p class="btn_login"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginFalse"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginTrue"><a href="javascript:logout()"><img src="../images/logout.png" alt="logout"></a></p>
     </div>
     <!-- //탑 비주얼 부분 끝-->
     
@@ -69,83 +140,25 @@
             </div>
         </div>
         <!-- // 모바일 컨텐츠 끝-->
-        
+
         <div class="list">
             <div class="view_top">
-            	<p class="tt01">2015년 서울수의 임상컨퍼런스 안내문</p>
+                <p class="tt01"><span id="title"></span></p>
                 <p class="info">
-                	<span><label>작성자:</label> 관리자</span>
-                    <span style="padding-left:10px"><label>작성일:</label> 2015.07.01 </span>
-                    <span class="hit"><label>조회:</label> 457</span>
+                    <span><label>작성자:</label> <span id="username"></span></span>
+                    <span style="padding-left:10px"><label>작성일:</label> <span id="regDate"></span> </span>
+                    <span class="hit"><label>조회:</label> <span id="rcount"></span></span>
                 </p>
             </div>
             <div class="view_cont">
-            	<img src="../images/sample01.jpg" alt="#">
-                <br/><br/><br/>
-                테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다.
-                테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다.
-                테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. <br />테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다.
-            </div>
-            <div class="view_prev">
-            	<dl>
-                	<dt><img src="../images/bu_arrow_t.png" alt="#"> 이전글</dt>
-                    <dd><a href="#">2015년 임상컨퍼런스 자원봉사 참여 안내</a></dd>
-                </dl>
-                <dl>
-                	<dt><img src="../images/bu_arrow_b.png" alt="#"> 이전글</dt>
-                    <dd><a href="#">2015년 임상컨퍼런스 자원봉사 참여 안내</a></dd>
-                </dl>
+                <div class="tbCon" id="content"></div>
             </div>
             <div class="btn_area_r">
-            	<a href="#" class="btn_black">수정</a>
-            	<a href="#" class="btn_gray">삭제</a>
-                <a href="#" class="btn_blue">목록</a>
+                <a href="javascript:editBoard();" class="btn_black">수정</a>
+                <a href="javascript:deleteBoard();" class="btn_gray">삭제</a>
+                <a href="list03.html" class="btn_blue">목록</a>
             </div>
-            <div class="view_comment">
-            	<p class="vc01">
-                	<span><label>이름</label><input id="" type="text" value="" class="input01"/></span>
-                    <span><label>비밀번호</label><input id="" type="text" value="" class="input01"/></span>
-                </p>
-                <p class="vc02">
-                	<textarea class="textarea01" value="" style="width:100%; height:103px;"></textarea>
-                    <span class="btn_comment"><a href="#">뎃글입력</a></span>
-                </p>
-            </div>
-            <p class="comment_list_tt">뎃글(5)</p>
-            <div class="comment_list">
-            	<ul>
-                	<li>
-                    	<p class="t01"><span>홍길동</span>(2015.07.21)</p>
-                        <p class="tt">좋은 결과 있기를 바랍니다. 또한 미국에서 수의간호학위 공부하실 분도 찾습니다</p>
-                        <a href="#" class="btn_delet"><img src="../images/btn_delet.png" alt="삭제"></a>
-                    </li>
-                    <li>
-                    	<p class="t01"><span>홍길동</span>(2015.07.21)</p>
-                        <p class="tt">좋은 결과 있기를 바랍니다. 또한 미국에서 수의간호학위 공부하실 분도 찾습니다</p>
-                        <a href="#" class="btn_delet"><img src="../images/btn_delet.png" alt="삭제"></a>
-                    </li>
-                    <li>
-                    	<p class="t01"><span>홍길동</span>(2015.07.21)</p>
-                        <p class="tt">좋은 결과 있기를 바랍니다. 또한 미국에서 수의간호학위 공부하실 분도 찾습니다</p>
-                        <a href="#" class="btn_delet"><img src="../images/btn_delet.png" alt="삭제"></a>
-                    </li>
-                    <li>
-                    	<p class="t01"><span>홍길동</span>(2015.07.21)</p>
-                        <p class="tt">좋은 결과 있기를 바랍니다. 또한 미국에서 수의간호학위 공부하실 분도 찾습니다</p>
-                        <a href="#" class="btn_delet"><img src="../images/btn_delet.png" alt="삭제"></a>
-                    </li>
-                    <li>
-                    	<p class="t01"><span>홍길동</span>(2015.07.21)</p>
-                        <p class="tt">좋은 결과 있기를 바랍니다. 또한 미국에서 수의간호학위 공부하실 분도 찾습니다</p>
-                        <a href="#" class="btn_delet"><img src="../images/btn_delet.png" alt="삭제"></a>
-                    </li>
-                    <li>
-                    	<p class="t01"><span>홍길동</span>(2015.07.21)</p>
-                        <p class="tt">좋은 결과 있기를 바랍니다. 또한 미국에서 수의간호학위 공부하실 분도 찾습니다</p>
-                        <a href="#" class="btn_delet"><img src="../images/btn_delet.png" alt="삭제"></a>
-                    </li>
-                </ul>
-            </div>
+        </div>
 
         </div>
         <!--<p class="btn_top_go"><a href="#">--&nbsp;&nbsp;TOP&nbsp;&nbsp;--</a></p>-->

@@ -8,7 +8,69 @@
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
-	
+    <link rel="stylesheet" href="../../bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../js/boardController.js"></script>
+    <script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../components/smarteditor/js/HuskyEZCreator.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        var boardSeq = location.search.split('boardSeq=')[1];
+        $(document).ready(function() {
+            if( boardSeq != null && boardSeq > 0 ){
+                $('#create').hide();
+                $('#edit').show();
+                var url = targetUrl + 'board/getBoard?boardSeq='+boardSeq;
+                $.ajax({
+                    url : url,
+                    type : 'GET',
+                    contentType: 'application/json',
+                    dataType: 'json'
+                })
+                        .success(function(datas){
+                            $('#title').val(datas.title);
+                            $('#username').val(datas.username);
+                            $('#email').val(datas.email);
+                            $('#rcount').val(datas.rcount);
+                            $('#smarteditor').html(datas.content);
+                        });
+            }else{
+                $('#create').show();
+                $('#edit').hide();
+            }
+        });
+        function saveBoard(boardType, viewType){
+            if( !boardSeq ){
+                boardSeq = 0;
+            }
+            var url = targetUrl + 'board/saveBoard?viewType='+viewType+ '&boardSeq=' + boardSeq;
+
+            editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+
+            var data = {
+                boardType : boardType,
+                email : $('#email').val(),
+                title : $('#title').val(),
+                username : $('#username').val(),
+                content : $('#smarteditor').val(),
+                ssid : ssid
+            };
+            $.ajax({
+                url : url,
+                type : 'POST',
+                data : JSON.stringify(data),
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+                    .success(function(datas){
+                        location.href = 'list04.html';
+                    })
+                    .error(function(datass){
+                        location.href = 'list04.html';
+                    });
+
+        }
+    </script>
 </head>
 
 <body>
@@ -16,9 +78,10 @@
 
 	<!-- 탑 비주얼 부분 시작-->
 	<div class="sub_visual02">
-    	<h2>회원공간</h2>
+        <a href="../index.html"><h2>회원공간</h2></a>
         <p class="top_txt01">화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
-        <p class="btn_login"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginFalse"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginTrue"><a href="javascript:logout()"><img src="../images/logout.png" alt="logout"></a></p>
     </div>
     <!-- //탑 비주얼 부분 끝-->
     
@@ -69,43 +132,45 @@
             </div>
         </div>
         <!-- // 모바일 컨텐츠 끝-->
-        
         <div class="list">
             <table cellpadding="0" border="0" cellspacing="0" class="table_edit">
                 <colgroup>
-                <col width="20%" /><col width="*" />
+                    <col width="20%" /><col width="*" />
                 </colgroup>
                 <tr>
                     <th>제목</th>
-                    <td><input id="" type="text" value="" class="input01"/></td>
+                    <td><input id="title" name="title" type="text" value="" class="input01"/></td>
                 </tr>
                 <tr>
-                    <th>이름</th>
-                    <td class="t01"><input id="" type="text" value="" class="input01"/></td>
-                </tr>
-                <tr>
-                    <th>이메일</th>
-                    <td class="t01"><input id="" type="text" value="" class="input01"/></td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="pa01">에딕터를 넣어주세요</td>
-                </tr>
-                <tr>
-                    <th>이메일</th>
-                    <td class="t01"><input id="" type="text" value="" class="input01"/></td>
-                </tr>
-                <tr>
-                    <th>첨부파일</th>
-                    <td class="t01"><input type="file" value="" /></td>
+                    <td colspan="2" class="pa01"><textarea name="smarteditor" id="smarteditor" rows="10" cols="96" style="width:100%; height:412px;"></textarea></td>
                 </tr>
             </table>
             <div class="btn_area_c">
-            	<a href="#" class="btn_gray">취소</a>
-                <a href="#" class="btn_blue">등록</a>
+                <a href="list02.html" class="btn_gray">취소</a>
+                <a href="javascript:saveBoard('04', 'create')" class="btn_blue" id="create">등록</a>
+                <a href="javascript:saveBoard('04', 'edit')" class="btn_blue" id="edit">수정</a>
             </div>
 
         </div>
         <!--<p class="btn_top_go"><a href="#">--&nbsp;&nbsp;TOP&nbsp;&nbsp;--</a></p>-->
+        <script type="text/javascript">
+            var editor_object = [];
+            $(function(){
+                nhn.husky.EZCreator.createInIFrame({
+                    oAppRef: editor_object,
+                    elPlaceHolder: "smarteditor",
+                    sSkinURI: "../../components/smarteditor/SmartEditor2Skin.html",
+                    htParams : {
+                        // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                        bUseToolbar : true,
+                        // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                        bUseVerticalResizer : true,
+                        // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                        bUseModeChanger : true
+                    }
+                });
+            });
+        </script>
         
         
         

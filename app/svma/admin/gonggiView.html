@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>서울시수의사회</title>
+    <link rel="stylesheet" href="css/admin.css" type="text/css"/>
+    <link rel="stylesheet" href="../../bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../js/boardController.js"></script>
+    <script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        var boardSeq = location.search.split('boardSeq=')[1];
+        $(document).ready(function() {
+            jQuery.support.cors = true;
+            var url = targetUrl + 'board/getBoard?boardSeq='+boardSeq;
+            $.ajax({
+                url : url,
+                type : 'GET',
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+            .success(function(datas){
+                $('#title').text(datas.title);
+                $('#username').text(datas.username);
+                $('#rcount').text(datas.rcount);
+                $('#regDate').text(datas.regDate);
+                $('#content').html(datas.content);
+            });
+
+        });
+        function deleteBoard(){
+            $('<div></div>').appendTo('body')
+                .html('<div><h6>정말 삭제하시겠습니까?</h6></div>')
+                .dialog({
+                    modal: true,
+                    title: 'Delete message',
+                    zIndex: 1000,
+                    maxWidth:600,
+                    maxHeight: 150,
+                    width: 600,
+                    height: 150,
+                    autoOpen: true,
+                    width: 'auto',
+                    buttons: {
+                        Yes: function () {
+                            var parent = this;
+                            var deleteUrl = targetUrl + 'board/deleteBoard?boardSeq='+boardSeq;
+                            $.ajax({
+                                url : deleteUrl,
+                                type : 'GET',
+                                contentType: 'application/json',
+                                dataType: 'json'
+                            })
+                            .success(function(datas){
+                                $(parent).dialog("close");
+                                location.href = 'list.html';
+                            })
+                            .error(function(datass){
+                                $(parent).dialog("close");
+                                location.href = 'list.html';
+                            });
+                        },
+                        No: function () {
+                            $(this).dialog("close");
+                        }
+                    },
+                    close: function (event, ui) {
+                        $(this).remove();
+                    }
+                });
+        }
+        function editBoard(){
+            location.href = 'gonggiEdit.html?boardSeq='+boardSeq;
+        }
+    </script>
+</head>
+
+<body>
+<div id="wrap">
+
+    <!------------------------------------------------- header start ------------------------------------------------->
+    <div id="header">
+        <h1><a href="../index.html"><img src="images/h1_logo.gif" /></a></h1>
+    </div>
+    <!------------------------------------------------- //header end  ------------------------------------------------->
+
+    <!------------------------------------------------- container start ------------------------------------------------->
+    <div id="container">
+
+        <!----------------------- lnbwrap start ----------------------->
+        <div id="lnbwrap">
+            <h2>관리자화면</h2>
+            <div class="lnb">
+                <ul>
+                    <li><a href="list.html" class="on">공지사항 올리기</a></li>
+                    <li><a href="list01.html">교육 예약관리</a></li>
+                    <li><a href="list02.html">회원관리</a></li>
+                </ul>
+            </div>
+        </div>
+        <!----------------------- //lnbwrap end ----------------------->
+
+        <!----------------------- contents start ----------------------->
+        <div id="contents">
+
+            <!-- cont_top start -->
+            <div class="cont_top">
+                <h3>공지사항</h3>
+            </div>
+            <!-- cont_top end -->
+            <div class="section">
+
+
+                <!-- table_list start -->
+                <table cellpadding="0" border="0" cellspacing="0" class="table_edit" >
+                    <colgroup>
+                        <col width="150px" /><col width="*" />
+                    </colgroup>
+                    <tr>
+                        <th>작성자</th>
+                        <td><span id="username"></span></td>
+                    </tr>
+                    <tr>
+                        <th>작성일</th>
+                        <td><span id="regDate"></span></td>
+                    </tr>
+                    <tr>
+                        <th>조회</th>
+                        <td><span id="rcount"></span></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><div class="tbCon" id="content"></div></td>
+                    </tr>
+                </table>
+                <div class="btn_area_r">
+                    <a href="javascript:editBoard();" class="btn_orange_b" style="width:185px;">수정</a>
+                    <a href="javascript:deleteBoard();" class="btn_gray_b" style="width:185px;">삭제</a>
+                    <a href="list.html" class="btn_blue_b" style="width:185px;">목록</a>
+                </div>
+            </div>
+            <!-- //section 여기부터 내용 end ---------------------------------------------------------------------->
+
+
+        </div>
+        <!----------------------- //contents end ----------------------->
+
+    </div>
+    <!------------------------------------------------- //container end  ------------------------------------------------->
+
+    <!------------------------------------------------- footer start ------------------------------------------------->
+    <div id="footer">Copyright © AD VENTURES Inc. All Rights Reserved.</div>
+    <!------------------------------------------------- //footer end  ------------------------------------------------->
+
+
+
+
+</div>
+</body>
+</html>

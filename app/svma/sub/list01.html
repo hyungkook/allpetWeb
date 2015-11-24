@@ -8,7 +8,38 @@
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
-	
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../js/boardController.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            jQuery.support.cors = true;
+            var url = targetUrl + 'board/boardList?ssid='+ssid+ '&boardType=01&pageNum=' + 1;
+            $.ajax({
+                url : url,
+                type : 'GET',
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+                    .success(function(datas){
+                        $.each(datas.list, function(idx, val) {
+                            var no = idx + 1;
+                            var listItem = '<tr class="listTr" onclick="viewDetail(\''+this.boardSeq+'\')">';
+                            listItem += '<td class="num">'+no+'</td>';
+                            listItem += '<td class="name">'+this.username+'</td>';
+                            listItem += '<td class="title" align="center">'+this.title+'</td>';
+                            listItem += '<td class="data">'+this.regDate+'</td>';
+                            listItem += '<td class="hit">'+this.rcount+'</td>';
+                            listItem += '</tr>';
+                            $('#listData').append(listItem);
+                        });
+                    });
+        });
+
+        var viewDetail = function(boardSeq){
+            location.href = 'list01_view.html?boardSeq='+boardSeq;
+        }
+    </script>
 </head>
 
 <body>
@@ -16,9 +47,10 @@
 
 	<!-- 탑 비주얼 부분 시작-->
 	<div class="sub_visual02">
-    	<h2>회원공간</h2>
+        <a href="../index.html"><h2>회원공간</h2></a>
         <p class="top_txt01">화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
-        <p class="btn_login"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginFalse"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginTrue"><a href="javascript:logout()"><img src="../images/logout.png" alt="logout"></a></p>
     </div>
     <!-- //탑 비주얼 부분 끝-->
     
@@ -71,7 +103,7 @@
         <!-- // 모바일 컨텐츠 끝-->
         
         <div class="list">
-            <table cellpadding="0" border="0" cellspacing="0" class="table_list">
+            <table cellpadding="0" border="0" cellspacing="0" class="table_list" id="listData">
                 <colgroup>
                 <col width="8%" /><col width="15%" /><col width="*" /><col width="12%" /><col width="12%" />
                 </colgroup>
@@ -82,7 +114,7 @@
                     <th class="data">등록일</th>
                     <th class="hit">조회수</th>
                 </tr>
-                <!-- 상단 공지( css - info01) 시작-->
+                <!-- 상단 공지( css - info01) 시작
                 <tr>
                     <td class="num"><span>공지</span></td>
                     <td class="name">관리자</td>
@@ -90,105 +122,7 @@
                     <td class="data">2015.07.01</td>
                     <td class="hit">89</td>
                 </tr>
-                <tr>
-                    <td class="num"><span>공지</span></td>
-                    <td class="name">관리자</td>
-                    <td class="title info01"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">2015.07.01</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num"><span>공지</span></td>
-                    <td class="name">관리자</td>
-                    <td class="title info01"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">2015.07.01</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num"><span>공지</span></td>
-                    <td class="name">관리자</td>
-                    <td class="title info01"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">2015.07.01</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num"><span>공지</span></td>
-                    <td class="name">관리자</td>
-                    <td class="title info01"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">2015.07.01</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <!-- //상단 공지( css - info01) 끝-->
-                <tr>
-                    <td class="num">10</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">9</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">8</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">7</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">6</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">5</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">4</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">3</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">2</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
-                <tr>
-                    <td class="num">1</td>
-                    <td class="name">관리자</td>
-                    <td class="title"><a href="#">서수 회원 및 가족을 위한 강남서울밝은안과 제휴 사업<span class="data02">[2015.07.01]</span></a></td>
-                    <td class="data">2015.07.01</td>
-                    <td class="hit">89</td>
-                </tr>
+                -->
             </table>
             
             <div class="paging">

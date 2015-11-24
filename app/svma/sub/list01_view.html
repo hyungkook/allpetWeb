@@ -8,7 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
-	
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../js/boardController.js"></script>
 </head>
 
 <body>
@@ -16,9 +18,10 @@
 
 	<!-- 탑 비주얼 부분 시작-->
 	<div class="sub_visual02">
-    	<h2>회원공간</h2>
+        <a href="../index.html"><h2>회원공간</h2></a>
         <p class="top_txt01">화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
-        <p class="btn_login"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginFalse"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginTrue"><a href="javascript:logout()"><img src="../images/logout.png" alt="logout"></a></p>
     </div>
     <!-- //탑 비주얼 부분 끝-->
     
