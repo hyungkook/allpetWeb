@@ -23,9 +23,8 @@
             })
                     .success(function(datas){
                         $.each(datas.list, function(idx, val) {
-                            var no = idx + 1;
                             var listItem = '<tr class="listTr" onclick="viewDetail(\''+this.boardSeq+'\')">';
-                            listItem += '<td class="num">'+no+'</td>';
+                            listItem += '<td class="num"><span>공지</span></td>';
                             listItem += '<td class="name">'+this.username+'</td>';
                             listItem += '<td class="title" align="center">'+this.title+'</td>';
                             listItem += '<td class="data">'+this.regDate+'</td>';
@@ -75,7 +74,7 @@
                         <li><a href="../sub/list01.html" class="first on">공지사항</a></li>
                         <li><a href="../sub/list04.html">공동구매</a></li>
                         <li><a href="../sub/list02.html">회원 게시판</a></li>
-                        <li><a href="../sub/list03.html">자료실</a></li>
+                        <!--<li><a href="../sub/list03.html">자료실</a></li>-->
                     </ul>
                 </div>
             </li>
@@ -124,15 +123,12 @@
                 </tr>
                 -->
             </table>
-            
+
             <div class="paging">
                 <!-- pc 버전 -->
                 <ul class="num_pc">
                 	<li><a href="#"><img src="../images/bu_left.png" alt="#"></a></li>
                 	<li class="on"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
                     <li><a href="#"><img src="../images/bu_right.png" alt="#"></a></li>
                 </ul>
                 
@@ -142,7 +138,7 @@
                     <li><a href="#"><img src="../images/bu_right.png" alt="#"></a></li>
                 </ul>
             </div>
-            
+            <!--
             <div class="search_area">
             	<select id="" name="" class="select01" style="width:30%;">
 					<option value="">제목</option>
@@ -153,6 +149,7 @@
                 <a href="#" class="btn_search">검색</a>
             	
             </div>
+            -->
         </div>
         <!--<p class="btn_top_go"><a href="#">--&nbsp;&nbsp;TOP&nbsp;&nbsp;--</a></p>-->
         

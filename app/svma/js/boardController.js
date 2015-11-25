@@ -3,11 +3,11 @@
  */
 
 var ssid = 'svma';
-//var targetUrl = 'http://14.63.174.249:8280/allpetapi/v1/';
-//var resourceUrl = 'http://14.63.174.249:8280/allpetapi/resource/';
+var targetUrl = 'http://14.63.174.249:8280/allpetapi/v1/';
+var resourceUrl = 'http://14.63.174.249:8280/allpetapi/resource/';
 
-var targetUrl = 'http://localhost:8280/allpetapi/v1/';
-var resourceUrl = 'http://localhost:8280/allpetapi/resource/';
+//var targetUrl = 'http://localhost:8280/allpetapi/v1/';
+//var resourceUrl = 'http://localhost:8280/allpetapi/resource/';
 
 $(document).ready(function() {
     jQuery.support.cors = true;

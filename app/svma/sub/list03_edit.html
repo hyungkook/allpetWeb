@@ -16,6 +16,7 @@
     <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script type="text/javascript">
         var boardSeq = location.search.split('boardSeq=')[1];
+        var editor_object03 = [];
         $(document).ready(function() {
             if( boardSeq != null && boardSeq > 0 ){
                 $('#create').hide();
@@ -29,14 +30,44 @@
                 })
                         .success(function(datas){
                             $('#title').val(datas.title);
-                            $('#username').val(datas.username);
-                            $('#email').val(datas.email);
                             $('#rcount').val(datas.rcount);
                             $('#smarteditor').html(datas.content);
+
+                            $(function(){
+                                nhn.husky.EZCreator.createInIFrame({
+                                    oAppRef: editor_object03,
+                                    elPlaceHolder: "smarteditor",
+                                    sSkinURI: "../../components/smarteditor/SmartEditor2Skin.html",
+                                    htParams : {
+                                        // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                                        bUseToolbar : true,
+                                        // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                                        bUseVerticalResizer : true,
+                                        // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                                        bUseModeChanger : true
+                                    }
+                                });
+                            });
                         });
             }else{
                 $('#create').show();
                 $('#edit').hide();
+
+                $(function(){
+                    nhn.husky.EZCreator.createInIFrame({
+                        oAppRef: editor_object03,
+                        elPlaceHolder: "smarteditor",
+                        sSkinURI: "../../components/smarteditor/SmartEditor2Skin.html",
+                        htParams : {
+                            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                            bUseToolbar : true,
+                            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                            bUseVerticalResizer : true,
+                            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                            bUseModeChanger : true
+                        }
+                    });
+                });
             }
         });
         function saveBoard(boardType, viewType){
@@ -44,17 +75,52 @@
                 boardSeq = 0;
             }
             var url = targetUrl + 'board/saveBoard?viewType='+viewType+ '&boardSeq=' + boardSeq;
+            var userName = $.cookie('cookie_svma_name');
+            var userId = $.cookie('userCreditId');
+            if( !userName ){
+                alert('로그인 정보가 없습니다.\n로그인 페이지로 이동합니다.');
+                location.href = "login.html";
+            }
+            editor_object03.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+            var file = $("input[name=file]")[0].files[0];
+            if( file ){
+                var formData = new FormData();
+                formData.append("file", file);
+                var fileUploadUrl = targetUrl + 'upload';
+                $.ajax({
+                    url: fileUploadUrl,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function(files){
+                        var data = {
+                            boardType : boardType,
+                            title : $('#title').val(),
+                            username : userName,
+                            passwd : userId,
+                            file : files,
+                            content : $('#smarteditor').val(),
+                            ssid : ssid
+                        };
+                        toServer(url, data);
+                    }
+                });
+            }else{
+                var data = {
+                    boardType : boardType,
+                    title : $('#title').val(),
+                    username : userName,
+                    passwd : userId,
+                    content : $('#smarteditor').val(),
+                    ssid : ssid
+                };
+                toServer(url, data);
+            }
 
-            editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+        }
 
-            var data = {
-                boardType : boardType,
-                email : $('#email').val(),
-                title : $('#title').val(),
-                username : $('#username').val(),
-                content : $('#smarteditor').val(),
-                ssid : ssid
-            };
+        function toServer(url, data){
             $.ajax({
                 url : url,
                 type : 'POST',
@@ -62,13 +128,12 @@
                 contentType: 'application/json',
                 dataType: 'json'
             })
-                    .success(function(datas){
-                        location.href = 'list03.html';
-                    })
-                    .error(function(datass){
-                        location.href = 'list03.html';
-                    });
-
+            .success(function(datas){
+                location.href = 'list03.html';
+            })
+            .error(function(datass){
+                location.href = 'list03.html';
+            });
         }
     </script>
 </head>
@@ -150,34 +215,13 @@
                 </tr>
             </table>
             <div class="btn_area_c">
-                <a href="list02.html" class="btn_gray">취소</a>
+                <a href="list03.html" class="btn_gray">취소</a>
                 <a href="javascript:saveBoard('03', 'create')" class="btn_blue" id="create">등록</a>
                 <a href="javascript:saveBoard('03', 'edit')" class="btn_blue" id="edit">수정</a>
             </div>
 
         </div>
-        <!--<p class="btn_top_go"><a href="#">--&nbsp;&nbsp;TOP&nbsp;&nbsp;--</a></p>-->
-        <script type="text/javascript">
-            var editor_object = [];
-            $(function(){
-                nhn.husky.EZCreator.createInIFrame({
-                    oAppRef: editor_object,
-                    elPlaceHolder: "smarteditor",
-                    sSkinURI: "../../components/smarteditor/SmartEditor2Skin.html",
-                    htParams : {
-                        // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-                        bUseToolbar : true,
-                        // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-                        bUseVerticalResizer : true,
-                        // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-                        bUseModeChanger : true
-                    }
-                });
-            });
-        </script>
-        
-        
-        
+
     </div>
     
     <footer id="footer">

@@ -31,6 +31,12 @@
                         $('#rcount').text(datas.rcount);
                         $('#regDate').text(datas.regDate);
                         $('#content').html(datas.content);
+
+                        if( datas.username == $.cookie('cookie_svma_name') && datas.passwd == $.cookie('cookie_svma_id') ){
+                            $('.isLoginClass').show();
+                        }else{
+                            $('.isLoginClass').hide();
+                        }
                     });
 
         });
@@ -114,7 +120,7 @@
                         <li><a href="../sub/list01.html" class="first">공지사항</a></li>
                         <li><a href="../sub/list04.html" class="on">공동구매</a></li>
                         <li><a href="../sub/list02.html">회원 게시판</a></li>
-                        <li><a href="../sub/list03.html">자료실</a></li>
+                        <!--<li><a href="../sub/list03.html">자료실</a></li>-->
                     </ul>
                 </div>
             </li>

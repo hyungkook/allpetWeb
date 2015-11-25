@@ -9,8 +9,31 @@
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
     <script src="../../bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script src="../js/boardController.js"></script>
+    <script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        var boardSeq = location.search.split('boardSeq=')[1];
+        $(document).ready(function() {
+            jQuery.support.cors = true;
+            var url = targetUrl + 'board/getBoard?boardSeq='+boardSeq;
+            var object;
+            $.ajax({
+                url : url,
+                type : 'GET',
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+                    .success(function(datas){
+                        $('#title').text(datas.title);
+                        $('#username').text(datas.username);
+                        $('#rcount').text(datas.rcount);
+                        $('#regDate').text(datas.regDate);
+                        $('#content').html(datas.content);
+                    });
+
+        });
+    </script>
 </head>
 
 <body>
@@ -46,7 +69,7 @@
                         <li><a href="../sub/list01.html" class="first on">공지사항</a></li>
                         <li><a href="../sub/list04.html">공동구매</a></li>
                         <li><a href="../sub/list02.html">회원 게시판</a></li>
-                        <li><a href="../sub/list03.html">자료실</a></li>
+                        <!--<li><a href="../sub/list03.html">자료실</a></li>-->
                     </ul>
                 </div>
             </li>
@@ -72,36 +95,22 @@
             </div>
         </div>
         <!-- // 모바일 컨텐츠 끝-->
-        
+
         <div class="list">
             <div class="view_top">
-            	<p class="tt01">2015년 서울수의 임상컨퍼런스 안내문</p>
+                <p class="tt01"><span id="title"></span></p>
                 <p class="info">
-                	<span><label>작성자:</label> 관리자</span>
-                    <span style="padding-left:10px"><label>작성일:</label> 2015.07.01 </span>
-                    <span class="hit"><label>조회:</label> 457</span>
+                    <span><label>작성자:</label> <span id="username"></span></span>
+                    <span style="padding-left:10px"><label>작성일:</label> <span id="regDate"></span> </span>
+                    <span class="hit"><label>조회:</label> <span id="rcount"></span></span>
                 </p>
             </div>
             <div class="view_cont">
-            	<img src="../images/sample01.jpg" alt="#">
-                <br/><br/><br/>
-                테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다.
-                테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다.
-                테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. <br />테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다. 테스트 글입니다.
+                <div class="tbCon" id="content"></div>
             </div>
-            <div class="view_prev">
-            	<dl>
-                	<dt><img src="../images/bu_arrow_t.png" alt="#"> 이전글</dt>
-                    <dd><a href="#">2015년 임상컨퍼런스 자원봉사 참여 안내</a></dd>
-                </dl>
-                <dl>
-                	<dt><img src="../images/bu_arrow_b.png" alt="#"> 이전글</dt>
-                    <dd><a href="#">2015년 임상컨퍼런스 자원봉사 참여 안내</a></dd>
-                </dl>
+            <div class="btn_area_r">
+                <a href="list01.html" class="btn_blue">목록</a>
             </div>
-            <div class="btn_area_r"><a href="#" class="btn_blue">목록</a></div>
-            
-
         </div>
         <!--<p class="btn_top_go"><a href="#">--&nbsp;&nbsp;TOP&nbsp;&nbsp;--</a></p>-->
         

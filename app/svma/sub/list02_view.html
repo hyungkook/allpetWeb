@@ -31,6 +31,11 @@
                 $('#rcount').text(datas.rcount);
                 $('#regDate').text(datas.regDate);
                 $('#content').html(datas.content);
+                if( datas.username == $.cookie('cookie_svma_name') && datas.passwd == $.cookie('cookie_svma_id') ){
+                    $('.isLoginClass').show();
+                }else{
+                    $('.isLoginClass').hide();
+                }
             });
 
         });
@@ -114,7 +119,7 @@
                         <li><a href="../sub/list01.html" class="first">공지사항</a></li>
                         <li><a href="../sub/list04.html">공동구매</a></li>
                         <li><a href="../sub/list02.html" class="on">회원 게시판</a></li>
-                        <li><a href="../sub/list03.html">자료실</a></li>
+                        <!--<li><a href="../sub/list03.html">자료실</a></li>-->
                     </ul>
                 </div>
             </li>
@@ -154,8 +159,8 @@
                 <div class="tbCon" id="content"></div>
             </div>
             <div class="btn_area_r">
-            	<a href="javascript:editBoard();" class="btn_black">수정</a>
-            	<a href="javascript:deleteBoard();" class="btn_gray">삭제</a>
+            	<a href="javascript:editBoard();" class="btn_black isLoginClass">수정</a>
+            	<a href="javascript:deleteBoard();" class="btn_gray isLoginClass">삭제</a>
                 <a href="list02.html" class="btn_blue">목록</a>
             </div>
         </div>
