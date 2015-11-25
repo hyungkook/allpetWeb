@@ -30,7 +30,11 @@
                     $.cookie('cookie_svma_id', $('#userCreditId').val());
                     $.cookie('cookie_svma_name', $('#userCreditId').val());
                     $.cookie('cookie_svma_login', true);
-                    location.href = '../index.html';
+                    if( $('#userCreditId').val() == 'admin'){
+                        location.href = '../admin/list.html';
+                    }else{
+                        location.href = '../index.html';
+                    }
                 }else{
                     alert('로그인에 실패하셨습니다. \n관리자에게 문의하여 주세요');
                 }
@@ -113,8 +117,8 @@
                     <p class="t01">서울특별시수의사회 로그인</p>
                     <p class="t02">회원아이디와 비밀번호를 입력하시고 로그인을 클릭해주세요</p>
                     <div class="login_box">
-                        <p class="t03"><span>수의사 아이디</span><input id="userCreditId" type="text" value="" class="input02" onKeyDown="onKeyDown();"/></p>
-                        <p class="t03"><span>한글 이름</span><input id="userNameKo" type="text" value="" class="input02"  onKeyDown="onKeyDown();"/></p>
+                        <p class="t03"><span>면허번호</span><input id="userCreditId" type="text" value="" class="input02" onKeyDown="onKeyDown();"/></p>
+                        <p class="t03"><span>이름</span><input id="userNameKo" type="text" value="" class="input02"  onKeyDown="onKeyDown();"/></p>
                         <p class="btn"><a href="javascript:login()">로그인</a></p>
                     </div>
                 </div>

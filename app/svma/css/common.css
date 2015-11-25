@@ -153,7 +153,7 @@
 .login .login_a01 .t02{ font-size:14px; color:#969696; line-height:120%; padding-top:5px;}
 .login .login_a01 .login_box{ margin:20px 0 0 0; padding:0 106px 0 0; position:relative; font-size:0; line-height:0;}
 .login .login_a01 .login_box .t03{ font-size:16px; line-height:46px; margin-bottom:5px;}
-.login .login_a01 .login_box .t03 span{ display:inline-block; width:34%;}
+.login .login_a01 .login_box .t03 span{ display:inline-block; width:64px;}
 .login .login_a01 .login_box .t03 input{width:65%;}
 .login .login_a01 .login_box .btn{ position:absolute; top:0; right:0;}
 .login .login_a01 .login_box .btn a{ display:block; background:#0a669e; font-size:24px; width:101px; height:101px; color:#fff; font-weight:bold; text-align:center; line-height:101px;}

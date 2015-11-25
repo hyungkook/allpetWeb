@@ -176,6 +176,7 @@ a.ellipsis { display:block; }
 
 .btn_area_c{ text-align:center; margin-top:15px;}
 .btn_area_r{ text-align:right; margin-bottom:10px;}
+.btn_area_l{ text-align:left; margin-bottom:10px;}
 
 .btn_login{ width:109px; height:63px; font-size:14px; line-height:21px; color:#ffffff; background:#53c9d7; text-align:center; border-bottom:solid 1px #49b0bc; display:inline-block; font-weight:bold; padding-top:22px;}
 .btn_login:hover{ background:#49b0bc; color:#ffffff;}
