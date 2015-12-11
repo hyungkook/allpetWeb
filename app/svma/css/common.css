@@ -240,3 +240,17 @@
 
 #footer .f_mo{ display:none;}
 #footer .f_mo .t01{ font-size:11px; color:#c9c9c9; text-align:center; padding-top:7px;}
+
+.ngPaging{text-align:center;}
+
+.idpw_find{ padding:0 0 100px 0; max-width:1080px; margin:50px auto 0 auto; overflow:hidden; position:relative;}
+.find_area01{padding:25px 3%; width:50%; border-top:solid 2px #0a669e; border-left:solid 1px #b5b5b5; border-right:solid 1px #b5b5b5; border-bottom:solid 1px #b5b5b5; font-size:0; line-height:0; float:left;}
+.find_area02{padding:25px 3%; width:50%; border-top:solid 2px #0a669e; border-left:solid 1px #b5b5b5; border-right:solid 1px #b5b5b5; border-bottom:solid 1px #b5b5b5; font-size:0; line-height:0; float:right;}
+.idpw_find .t01{ font-size:16px; font-weight:bold; color:#0c73b1; line-height:120%;}
+.idpw_find .t02{ font-size:14px; color:#969696; line-height:120%; padding-top:5px;}
+.idpw_find .t03{ font-size:16px; line-height:46px; margin-bottom:5px;}
+.idpw_find .t03 span{ display:inline-block; width:34%;}
+.idpw_find .t03 input{width:65%;}
+.idpw_find .input_area{margin:15px 0 0 0; padding:0; position:relative; font-size:0; line-height:0;}
+.idpw_find .btn { margin:10px 0 0 0; padding:0; position:relative;}
+.idpw_find .btn a{ display:block;}

@@ -1,0 +1,61 @@
+<section id="main">
+	<div id ="main_visual">
+		<div class="visual_ov swiper-container">
+			<ul class="visual clear swiper-wrapper">
+				<li class="vi_0 swiper-slide">
+					<div>
+						<a href="index.html"><h2 style="padding-top:0; padding-bottom:0;">서울시수의사회</h2></a>
+						<p>화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+					</div>
+				</li>
+				<li class="vi_1 swiper-slide">
+					<div>
+						<a href="index.html"><h2>서울시수의사회</h2></a>
+						<p>화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+						<p class="btn"><a href="sub/company01.html"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+					</div>
+				</li>
+				<li class="vi_2 swiper-slide">
+					<div>
+						<a href="index.html"><h2>회원공간</h2></a>
+						<p>화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+						<p class="btn"><a href="sub/list01.html"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+					</div>
+				</li>
+				<li class="vi_3 swiper-slide">
+					<div>
+						<a href="index.html"><h2>교육예약</h2></a>
+						<p>화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+						<p class="btn"><a href="sub/reserve.html"><img src="images/btn_go01.png" alt="바로가기"></a></p>
+					</div>
+				</li>
+			</ul>
+			<div class="swiper-pagination"></div>
+		</div>
+		<script>
+			var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+				loop: true,
+				paginationClickable: true,
+				centeredSlides: true,
+				autoplay: 5000,
+				autoplayDisableOnInteraction: false
+			});
+		</script>
+	</div>
+	<div id="sub_visual">
+		<ul class="visual_sub clear">
+			<li class="s_vi_0">
+				<div class="s_hover"><a role="button" ui-sref="companyInfo.company01"><img src="images/txt_s01.png" alt="서울시수의사회 소개"></a></div>
+			</li>
+			<li class="s_vi_1">
+				<div class="s_hover"><a role="button" ui-sref="boardInfo.list01"><img src="images/txt_s02.png" alt="세미나 안내"></a></div>
+			</li>
+			<li class="s_vi_2">
+				<div class="s_hover"><a role="button" ui-sref="reserveInfo.list01"><img src="images/txt_s03.png" alt="게시판"></a></div>
+			</li>
+		</ul>
+	</div>
+</section>

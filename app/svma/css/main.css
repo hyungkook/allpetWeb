@@ -29,41 +29,41 @@
 	width: 100%;
 }
 #main #main_visual .visual_ov .visual li.vi_0{
-	background:url(../images/m01.jpg) no-repeat center center;
+	background:url(images/m01.jpg) no-repeat center center;
 	background-size: cover;
  }
 #main #main_visual .visual_ov .visual li.vi_1{
-	background:url(../images/m02.jpg) no-repeat center center;
+	background:url(images/m02.jpg) no-repeat center center;
 	background-size: cover;
  }
 #main #main_visual .visual_ov .visual li.vi_2{
-	background:url(../images/m03.jpg) no-repeat center center;
+	background:url(images/m03.jpg) no-repeat center center;
 	background-size: cover;
  }
 #main #main_visual .visual_ov .visual li.vi_3{
-	background:url(../images/m04.jpg) no-repeat center center;
+	background:url(images/m04.jpg) no-repeat center center;
 	background-size: cover;
  }
 #main #main_visual .visual_ov .visual li.vi_4{
-	background:url(../images/m05.jpg) no-repeat center center;
+	background:url(images/m05.jpg) no-repeat center center;
 	background-size: cover;
  }
 
 
 #main #sub_visual .visual_sub li.s_vi_0{
-	background:url(../images/s01.jpg) no-repeat center center;
+	background:url(/images/s01.jpg) no-repeat center center;
 	background-size: cover;
 }
 #main #sub_visual .visual_sub li.s_vi_1{
-	background:url(../images/s02.jpg) no-repeat center center;
+	background:url(/images/s02.jpg) no-repeat center center;
 	background-size: cover;
 }
 #main #sub_visual .visual_sub li.s_vi_2{
-	background:url(../images/s03.jpg) no-repeat center center;
+	background:url(/images/s03.jpg) no-repeat center center;
 	background-size: cover;
 }
 #main #sub_visual .visual_sub li.s_vi_3{
-	background:url(../images/s04.jpg) no-repeat center center;
+	background:url(/images/s04.jpg) no-repeat center center;
 	background-size: cover;
 }
 #main #main_visual .play{
@@ -847,3 +847,4 @@
 	float: right;
 	
 }
+

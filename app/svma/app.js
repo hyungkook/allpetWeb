@@ -1,6 +1,11 @@
-angular.module('svma.home',['ui.router'])
+angular.module('svma.home',['ui.router' ,'ui.bootstrap'])
+    .controller('MainController', MainController)
     .controller('HomeController', HomeController)
-    .controller('loginCtrl', loginCtrl);
+    .controller('LoginController', LoginController);
+
+function MainController($http, $scope, constant, $modal, store) {
+
+};
 
 function HomeController($http, $scope, constant, $modal, store) {
 
@@ -40,35 +45,12 @@ function HomeController($http, $scope, constant, $modal, store) {
 
     };
     $scope.init = function(){
-        var url_temp = constant.contextPath + 'mainData';
-        var response = $http.get(url_temp);
-        response.success(function (data, status, headers, config) {
-            if( data && data.baseInfo ){
-                $scope.fax = data.baseInfo.s_fax;
-                $scope.corpRegNumber = data.baseInfo.s_corp_reg_number;
-                $scope.email = data.baseInfo.s_email;
-                $scope.hospitalName = data.baseInfo.s_hospital_name;
-                $scope.representStaffName = data.baseInfo.s_represent_staff_name;
-            }
-        })
-        response.error(function (data, status, headers, config) {
-        });
+
     }
 
     $scope.init();
 };
 
-function loginCtrl($http, $scope, constant, $modalInstance) {
-    $scope.cancel = function(){
-        $modalInstance.dismiss('cancel');
-    };
-    $scope.login = function(){
-        console.log($scope.id);
-        console.log($scope.pw);
-        if('ezamc' == $scope.id && 'ezamc' == $scope.id){
-            $modalInstance.close('true');
-        }else{
-            $modalInstance.close('false');
-        }
-    };
+function LoginController($http, $scope, constant, $modal, store) {
+
 };
