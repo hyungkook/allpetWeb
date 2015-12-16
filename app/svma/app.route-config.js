@@ -13,7 +13,7 @@
             .state('svma', {
                 url: '/svma',
                 controller: HomeController,
-                templateUrl: 'indexHome.html'
+                templateUrl: 'index.html'
             })
             .state('companyInfo.login', {
                 url: '/login',
