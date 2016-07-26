@@ -3,8 +3,7 @@ angular.module('svma.home',['ui.router' ,'ui.bootstrap'])
     .controller('HomeController', HomeController)
     .controller('LoginController', LoginController);
 
-function MainController($http, $scope, constant, $modal, store) {
-
+function MainController($http, $state, $scope, constant, $modal, store) {
 };
 
 function HomeController($http, $scope, constant, $modal, store) {

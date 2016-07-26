@@ -192,6 +192,7 @@
 .btn_black { display:inline-block; padding:0 20px; font-size:18px; line-height:40px; height:40px; font-weight:bold; text-align:center; color:#fff; background:#323232;}
 .btn_black02 { display:inline-block; padding:0 15px; font-size:14px; line-height:30px; height:30px; font-weight:bold; text-align:center; color:#fff; background:#323232;}
 
+
 /* 공통 */
 .select01{ border:solid 1px #d5d5d5; background:#fff; height:30px; line-height:30px; color:#646464; vertical-align:top; margin-right:1%;}
 .input01{ border:solid 1px #d5d5d5; background:#fff; height:28px; line-height:28px; color:#646464; vertical-align:top;}
