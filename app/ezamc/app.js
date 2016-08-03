@@ -39,6 +39,20 @@ function HomeController($http, $scope, constant, $modal, store) {
         });
 
     };
+
+    $scope.setCookie = function( name, value, expiredays ) {
+        var todayDate = new Date();
+        todayDate.setDate( todayDate.getDate() + expiredays );
+        document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+    }
+    $scope.closePop = function () {
+        if ( document.pop_form.chkbox.checked ){
+            $scope.setCookie( "maindiv", "done" , 1 );
+        }
+        document.all['pop'].style.visibility = "hidden";
+    }
+
+
     $scope.init = function(){
         var url_temp = constant.contextPath + 'mainData';
         var response = $http.get(url_temp);
@@ -53,6 +67,15 @@ function HomeController($http, $scope, constant, $modal, store) {
         })
         response.error(function (data, status, headers, config) {
         });
+
+        cookiedata = document.cookie;
+        if ( cookiedata.indexOf("maindiv=done") < 0 ){
+            document.all['pop'].style.visibility = "visible";
+        }
+        else {
+            document.all['pop'].style.visibility = "hidden";
+        }
+        $( "#pop" ).draggable();
     }
 
     $scope.init();
