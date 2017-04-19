@@ -285,5 +285,15 @@ footer.footer p{margin-bottom:15px;}
 .eqList .cont .cnt ul li{position:relative;font-size:13px;padding:2px 0 2px 12px;}
 .eqList .cont .cnt ul li:before{content:"*";position:absolute;top:0;left:0;display:block;}
 
+/* 재활한방 클리닉 소개 */
+.clinic{padding:30px 0;border-bottom:1px dotted #ccc;}
+.clinic:after{content:"";display:block;clear:both;}
+.clinic .cont{float:left;width:240px;}
+.clinic .cont h3{padding-bottom:10px;border-bottom:2px solid #8b4f00;font-size:16px;color:#8b4f00;font-weight:bold;}
+.clinic .cont .cnt{margin-top:20px;max-height:110px;font-size:13px;line-height:140%;overflow-y:auto;}
+.clinic .cont .cnt ul{display:inline;}
+.clinic .cont .cnt ul li{position:relative;font-size:13px;padding:2px 0 2px 12px;}
+.clinic .cont .cnt ul li:before{content:"*";position:absolute;top:0;left:0;display:block;}
+
 /*특화진료*/
 .mpHead h2.subTitle{color:#e565a4;background-image:url("images/bul_subtitle2.png");}
