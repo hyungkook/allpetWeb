@@ -114,7 +114,7 @@
             .state('homeMedicalParts2.parts8',{
                 templateUrl: 'view/medicalParts2/medicalParts2_8.html'
             })
-            .state('homeMedicalParts2.parts9',{
+            .state('homeMedicalParts1.parts9',{
                 templateUrl: 'view/medicalParts2/medicalParts2_9.html'
             })
             .state('homeMap',{
