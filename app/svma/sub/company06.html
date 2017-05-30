@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>서울시수의사회</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../js/boardController.js"></script>
+</head>
+
+<body>
+<div id="wrap">
+
+	<!-- 탑 비주얼 부분 시작-->
+	<div class="sub_visual01">
+        <a href="../index.html"><h2>서울시수의사회 소개</h2></a>
+        <p class="top_txt01">화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+        <p class="btn_login loginFalse"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginTrue"><a href="javascript:logout()"><img src="../images/logout.png" alt="logout"></a></p>
+    </div>
+    <!-- //탑 비주얼 부분 끝-->
+    
+    <!-- 메뉴 부분 시작-->
+    <div id="menu">
+    	<ul>
+        	<li class="first on" style="width:34%;"><a href="../sub/company01.html">서울시수의사회소개</a>
+            	<div class="s_menu01">
+                    <ul>
+                        <li><a href="../sub/company01.html">인사말</a></li>
+                        <li><a href="../sub/company02.html">연혁</a></li>
+                        <li><a href="../sub/company03.html">정관</a></li>
+                        <li><a href="../sub/company04.html">윤리강령</a></li>
+                        <li><a href="../sub/company05.html">기구/직제표</a></li>
+                        <li><a href="../sub/company06.html" class="on">분회장</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li style="width:33%;"><a href="../sub/list01.html">회원공간</a>
+            	<div class="s_menu02">
+                    <ul>
+                        <li><a href="../sub/list01.html" class="first">공지사항</a></li>
+                        <li><a href="../sub/list04.html">공동구매</a></li>
+                        <li><a href="../sub/list02.html">회원 게시판</a></li>
+                        <!--<li><a href="../sub/list03.html">자료실</a></li>-->
+                    </ul>
+                </div>
+            </li>
+            <li style="width:33%;"><a href="../sub/reserve.html">교육예약</a></li>
+        </ul>
+    </div>
+    <!--// 메뉴 부분 끝-->
+    
+    <div id="contents">
+    	
+        <!-- pc 컨텐츠 시작-->
+        <div id="sub_pc">
+        	<p class="top_area"><img src="../images/sub0106_tt.jpg" alt="#"></p>
+            <p class="cont_area"><img src="../images/sub0106_cont01.jpg" alt="#"></p>
+            <div style="margin-top:30px;">
+            <table cellpadding="0" border="0" cellspacing="0" class="table_type01">
+            	<colgroup>
+                <col width="15%" /><col width="15%" /><col width="20%" /><col width="15%" /><col width="15%" /><col width="20%" />
+                </colgroup>
+            	<tr>
+                	<th>구</th>
+                    <th>성명</th>
+                    <th>상호</th>
+                    <th>구</th>
+                    <th>성명</th>
+                    <th>상호</th>
+                </tr>
+                <tr>
+                    <td class="tt">강남구</td>
+                    <td>한성희</td>
+                    <td>포이동물병원</td>
+                    <td class="tt">서대문구</td>
+                    <td>이기철</td>
+                    <td>신영동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">강동구</td>
+                    <td>표효명</td>
+                    <td>박형우동물병원</td>
+                    <td class="tt">서초구</td>
+                    <td>김연중</td>
+                    <td>내방동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">강북구</td>
+                    <td>김승길</td>
+                    <td>사랑의동물병원</td>
+                    <td class="tt">성동구</td>
+                    <td>전일광</td>
+                    <td>한빛동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">강서구</td>
+                    <td>강석재</td>
+                    <td>염창제일동물병원</td>
+                    <td class="tt">성북구</td>
+                    <td>선우도식</td>
+                    <td>다나동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">관악구</td>
+                    <td>김애진</td>
+                    <td>관악동물병원</td>
+                    <td class="tt">송파구</td>
+                    <td>방인준</td>
+                    <td>더 동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">광진구</td>
+                    <td>황재웅</td>
+                    <td>기린동물병원</td>
+                    <td class="tt">양천구</td>
+                    <td>고광현</td>
+                    <td>대현동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">구로구</td>
+                    <td>박철민</td>
+                    <td>금강동물병원</td>
+                    <td class="tt">영등포구</td>
+                    <td>주병구</td>
+                    <td>대림동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">금천구</td>
+                    <td>정창우</td>
+                    <td>우리동물병원</td>
+                    <td class="tt">용산구</td>
+                    <td>주성일</td>
+                    <td>남산동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">노원구</td>
+                    <td>오상혁</td>
+                    <td>25시동물병원</td>
+                    <td class="tt">은평구</td>
+                    <td>박한얼</td>
+                    <td>한얼동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">도봉구</td>
+                    <td>장권식</td>
+                    <td>도담동동물병원</td>
+                    <td class="tt">종로구</td>
+                    <td>윤홍준</td>
+                    <td>월드펫동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">동대문구</td>
+                    <td>장승철</td>
+                    <td>푸른종합동물병원</td>
+                    <td class="tt">중구</td>
+                    <td>장운기</td>
+                    <td>미래지동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">동작구</td>
+                    <td>윤락훈</td>
+                    <td>모범동물병원</td>
+                    <td class="tt">중랑구</td>
+                    <td>임창규</td>
+                    <td>신내동물병원</td>
+                </tr>
+                <tr>
+                    <td class="tt">마포구</td>
+                    <td>김성용</td>
+                    <td>연남동물병원</td>
+                    <td class="tt">　</td>
+                    <td>　</td>
+                    <td>　</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        <!-- // pc 컨텐츠 끝-->
+        
+        <!-- 모바일 컨텐츠 시작-->
+        <div id="sub_mo" style="margin-top:210px; padding-bottom:30px;">
+        	<div class="m_top_area">
+                <h4>분회장</h4>
+                <p class="m_tt01">22대 각 구별 분회장 공수의사 명단</p>
+                <p class="m_tt02">서울시수의사회 홈페이지가 수의사는 물론 동물을 사랑하는 모든 분들에게 유익한 정보를 제공하고 바람직한 반려동물 문화의 요람이 되고자 새롭게 개편되었습니다.</p>
+                
+                <p class="m_img01" style="margin:30px 15px 0 15px;"><img src="../images/m_sub0106_cont01.jpg" alt="#"></p>
+                <div style="margin-top:20px;">
+                <table cellpadding="0" border="0" cellspacing="0" class="table_type01">
+                    <colgroup>
+                    <col width="30%" /><col width="30%" /><col width="40%" />
+                    </colgroup>
+                    <tr>
+                        <th>구</th>
+                        <th>성명</th>
+                        <th>상호</th>
+                    </tr>
+                    <tr>
+                        <td class="tt">강남구</td>
+                        <td>한성희</td>
+                        <td>포이동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">강동구</td>
+                        <td>표효명</td>
+                        <td>박형우동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">강북구</td>
+                        <td>김승길</td>
+                        <td>사랑의동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">강서구</td>
+                        <td>강석재</td>
+                        <td>염창제일동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">관악구</td>
+                        <td>김애진</td>
+                        <td>관악동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">광진구</td>
+                        <td>황재웅</td>
+                        <td>기린동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">구로구</td>
+                        <td>박철민</td>
+                        <td>금강동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">금천구</td>
+                        <td>정창우</td>
+                        <td>우리동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">노원구</td>
+                        <td>오상혁</td>
+                        <td>25시동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">도봉구</td>
+                        <td>장권식</td>
+                        <td>도담동동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">동대문구</td>
+                        <td>장승철</td>
+                        <td>푸른종합동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">동작구</td>
+                        <td>윤락훈</td>
+                        <td>모범동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">마포구</td>
+                        <td>김성용</td>
+                        <td>연남동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">서대문구</td>
+                        <td>이기철</td>
+                        <td>신영동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">서초구</td>
+                        <td>김연중</td>
+                        <td>내방동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">성동구</td>
+                        <td>전일광</td>
+                        <td>한빛동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">성북구</td>
+                        <td>선우도식</td>
+                        <td>다나동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">송파구</td>
+                        <td>방인준</td>
+                        <td>더 동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">양천구</td>
+                        <td>고광현</td>
+                        <td>대현동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">영등포구</td>
+                        <td>주병구</td>
+                        <td>대림동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">용산구</td>
+                        <td>주성일</td>
+                        <td>남산동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">은평구</td>
+                        <td>박한얼</td>
+                        <td>한얼동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">종로구</td>
+                        <td>윤홍준</td>
+                        <td>월드펫동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">중구</td>
+                        <td>장운기</td>
+                        <td>미래지동물병원</td>
+                    </tr>
+                    <tr>
+                        <td class="tt">중랑구</td>
+                        <td>임창규</td>
+                        <td>신내동물병원</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            
+            
+            <p class="btn_top_go"><a href="#">--&nbsp;&nbsp;TOP&nbsp;&nbsp;--</a></p>
+        </div>
+        <!-- // 모바일 컨텐츠 끝-->
+        
+        
+        
+    </div>
+    
+    <footer id="footer">
+    	<div class="f_pc">
+            <p class="add">주소:서울시 성북구 안암동 5가 110-126&nbsp;&nbsp;&nbsp;Tel:02-953-4050~5&nbsp;&nbsp;&nbsp;Mail:<a href="mailto:svma@chol.com">svma@chol.com</a></p>
+            <p class="t01">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. <span>Hosting by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</span></p>
+        </div>
+        <div class="f_mo">
+            <p class="t01" style="padding-bottom:0;">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. </p>
+            <p class="t01" style="padding-top:2px; margin:0;"><a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</p>
+        </div>
+	</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>서울시수의사회</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../js/boardController.js"></script>
+</head>
+
+<body>
+<div id="wrap">
+
+	<!-- 탑 비주얼 부분 시작-->
+	<div class="sub_visual01">
+        <a href="../index.html"><h2>서울시수의사회 소개</h2></a>
+        <p class="top_txt01">화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+        <p class="btn_login loginFalse"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginTrue"><a href="javascript:logout()"><img src="../images/logout.png" alt="logout"></a></p>
+    </div>
+    <!-- //탑 비주얼 부분 끝-->
+    
+    <!-- 메뉴 부분 시작-->
+    <div id="menu">
+    	<ul>
+        	<li class="first on" style="width:34%;"><a href="../sub/company01.html">서울시수의사회소개</a>
+            	<div class="s_menu01">
+                    <ul>
+                        <li><a href="../sub/company01.html">인사말</a></li>
+                        <li><a href="../sub/company02.html">연혁</a></li>
+                        <li><a href="../sub/company03.html">정관</a></li>
+                        <li><a href="../sub/company04.html">윤리강령</a></li>
+                        <li><a href="../sub/company05.html" class="on">기구/직제표</a></li>
+                        <li><a href="../sub/company06.html">분회장</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li style="width:33%;"><a href="../sub/list01.html">회원공간</a>
+            	<div class="s_menu02">
+                    <ul>
+                        <li><a href="../sub/list01.html" class="first">공지사항</a></li>
+                        <li><a href="../sub/list04.html">공동구매</a></li>
+                        <li><a href="../sub/list02.html">회원 게시판</a></li>
+                        <!--<li><a href="../sub/list03.html">자료실</a></li>-->
+                    </ul>
+                </div>
+            </li>
+            <li style="width:33%;"><a href="../sub/reserve.html">교육예약</a></li>
+        </ul>
+    </div>
+    <!--// 메뉴 부분 끝-->
+    
+    <div id="contents">
+    	
+        <!-- pc 컨텐츠 시작-->
+        <div id="sub_pc">
+        	<p class="top_area"><img src="../images/sub0105_tt.jpg" alt="#"></p>
+            <p class="cont_area">
+            	<img src="../images/sub0105_cont01.jpg" alt="#">
+                <img src="../images/sub0105_cont02.jpg" style="margin-top:85px" alt="#">
+            </p>
+            <div style="margin-top:20px;">
+            <table cellpadding="0" border="0" cellspacing="0" class="table_type01">
+            	<colgroup>
+                <col width="20%" /><col width="15%" /><col width="25%" /><col width="20%" /><col width="20%" />
+                </colgroup>
+                <tr>
+                    <th>직책</th>
+                    <th>성명</th>
+                    <th>동물병원명</th>
+                    <th>전화</th>
+                    <th>비고</th>
+                </tr>
+                <tr>
+                    <td class="tt">회장</td>
+                    <td>손은필</td>
+                    <td>제일종합동물병원</td>
+                    <td>894-3030</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="tt">감사</td>
+                    <td>강명대</td>
+                    <td>강현림종합동물병원</td>
+                    <td>2642-9159</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>이영국</td>
+                    <td>영국동물병원</td>
+                    <td>402-5746</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>임창규</td>
+                    <td>신내동물병원</td>
+                    <td>3422-0001</td>
+                    <td>중랑구&nbsp; 분회장</td>
+                </tr>
+                <tr>
+                    <td rowspan="5" class="tt">부회장</td>
+                    <td>주병구</td>
+                    <td>대림종합동물병원</td>
+                    <td>845-3368</td>
+                    <td>영등포구분회장</td>
+                </tr>
+                <tr>
+                    <td>정인호</td>
+                    <td>쥬라기동물병원</td>
+                    <td>455-7570</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>황규택</td>
+                    <td>동물병원위드</td>
+                    <td>907-1565</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>육진엽</td>
+                    <td>개명동물종합병원</td>
+                    <td>2619-0888</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>김민주</td>
+                    <td>잠실25시동물병원</td>
+                    <td>419-1351</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">상무이사(총무)</td>
+                    <td>이상민</td>
+                    <td>방학동물병원</td>
+                    <td>3494-0075</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">학술이사</td>
+                    <td>윤병국</td>
+                    <td>24시청담우리동물병원</td>
+                    <td>541-7515</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">홍보이사</td>
+                    <td>김태환</td>
+                    <td>서울종합동물병원</td>
+                    <td>888-8807</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">수의무이사</td>
+                    <td>신창엽</td>
+                    <td>현대종합동물병원</td>
+                    <td>999-9110</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">윤리이사</td>
+                    <td>나응식</td>
+                    <td>그레이스동물병원</td>
+                    <td>3442-5554</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">대외협력이사</td>
+                    <td>서범석</td>
+                    <td>스타동물병원</td>
+                    <td>468-6612</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">문화복지이사</td>
+                    <td>방인준</td>
+                    <td>더&nbsp; 동물병원</td>
+                    <td>431-7575</td>
+                    <td>송파구분회장</td>
+                </tr>
+                <tr>
+                    <td class="tt">재무이사</td>
+                    <td>우이종</td>
+                    <td>메디포즈동물병원</td>
+                    <td>558-6354</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="32" class="tt">이사</td>
+                    <td>강석재</td>
+                    <td>염창제일동물병원</td>
+                    <td>3665-7582</td>
+                    <td>강서구분회장</td>
+                </tr>
+                <tr>
+                    <td>민병철</td>
+                    <td>민병철동물병원</td>
+                    <td>2695-1231</td>
+                    <td>양천구분회장</td>
+                </tr>
+                <tr>
+                    <td>박영욱</td>
+                    <td>망원동물병원</td>
+                    <td>332-0017</td>
+                    <td>마포구분회장</td>
+                </tr>
+                <tr>
+                    <td>박준원</td>
+                    <td>강북동물병원</td>
+                    <td>985-7525</td>
+                    <td>강북구분회장</td>
+                </tr>
+                <tr>
+                    <td>김애진</td>
+                    <td>관악동물병원</td>
+                    <td>883-2733</td>
+                    <td>관악구분회장</td>
+                </tr>
+                <tr>
+                    <td>한영민</td>
+                    <td>한동물병원</td>
+                    <td>577-3690</td>
+                    <td>서초구분회장</td>
+                </tr>
+                <tr>
+                    <td>이상범</td>
+                    <td>지구촌동물병원</td>
+                    <td>869-7582</td>
+                    <td>구로구분회장</td>
+                </tr>
+                <tr>
+                    <td>박한얼</td>
+                    <td>한얼동물병원</td>
+                    <td>304-5553</td>
+                    <td>은평구분회장</td>
+                </tr>
+                <tr>
+                    <td>김창용</td>
+                    <td>미소동물병원</td>
+                    <td>929-1212</td>
+                    <td>성북구분회장</td>
+                </tr>
+                <tr>
+                    <td>조재훈</td>
+                    <td>시마동물병원</td>
+                    <td>908-7585</td>
+                    <td>노원구분회장</td>
+                </tr>
+                <tr>
+                    <td>윤락훈</td>
+                    <td>모범동물병원</td>
+                    <td>532-1740</td>
+                    <td>동작구분회장</td>
+                </tr>
+                <tr>
+                    <td>윤홍준</td>
+                    <td>월드펫동물병원</td>
+                    <td>379-7575</td>
+                    <td>종로구분회장</td>
+                </tr>
+                <tr>
+                    <td>이기철</td>
+                    <td>신영동물병원</td>
+                    <td>3217-1081</td>
+                    <td>서대문구분회장</td>
+                </tr>
+                <tr>
+                    <td>김준기</td>
+                    <td>방학동물병원</td>
+                    <td>3494-0075</td>
+                    <td>도봉구분회장</td>
+                </tr>
+                <tr>
+                    <td>상래홍</td>
+                    <td>안암동물병원</td>
+                    <td>925-3686</td>
+                    <td>동대문구분회장</td>
+                </tr>
+                <tr>
+                    <td>장운기</td>
+                    <td>미래지동물병원</td>
+                    <td>2233-7574</td>
+                    <td>중구분회장</td>
+                </tr>
+                <tr>
+                    <td>전일광</td>
+                    <td>한빛동물병원</td>
+                    <td>2233-1848</td>
+                    <td>성동구분회장</td>
+                </tr>
+                <tr>
+                    <td>이건민</td>
+                    <td>쿨펫동물병원</td>
+                    <td>809-7583</td>
+                    <td>금천구분회장</td>
+                </tr>
+                <tr>
+                    <td>주성일</td>
+                    <td>남산동물병원</td>
+                    <td>778-7582</td>
+                    <td>용산구분회장</td>
+                </tr>
+                <tr>
+                    <td>표효명</td>
+                    <td>박형우동물병원</td>
+                    <td>488-8275</td>
+                    <td>강동구분회장</td>
+                </tr>
+                <tr>
+                    <td>한성희</td>
+                    <td>포이동물병원</td>
+                    <td>578-8400</td>
+                    <td>강남구분회장</td>
+                </tr>
+                <tr>
+                    <td>황재웅</td>
+                    <td>기린동물병원</td>
+                    <td>444-8111</td>
+                    <td>광진구분회장</td>
+                </tr>
+                <tr>
+                    <td>김기석</td>
+                    <td>검역검사본부</td>
+                    <td>2650-0621</td>
+                    <td>검역검사본부</td>
+                </tr>
+                <tr>
+                    <td>손홍락</td>
+                    <td>서울시청</td>
+                    <td>2133-4722</td>
+                    <td>공직수의사분회</td>
+                </tr>
+                <tr>
+                    <td>강명석</td>
+                    <td>광진동물종합병원</td>
+                    <td>457-4545</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>김관우</td>
+                    <td>여의도쿨펫동물병원</td>
+                    <td>785-7582</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>김광식</td>
+                    <td>위드펫종합병원</td>
+                    <td>2202-0075</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>박철</td>
+                    <td>다솔동물병원</td>
+                    <td>3142-7298</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>정우조</td>
+                    <td>래이동물의료센터</td>
+                    <td>556-7588</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>최인영</td>
+                    <td>러브펫동물병원</td>
+                    <td>972-6543</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>최형탁</td>
+                    <td>논현동물병원</td>
+                    <td>3442-3785</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>한은숙</td>
+                    <td>숲속동물병원</td>
+                    <td>492-9303</td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
+            <p class="btn_top_go" style="margin-top:40px;"><a href="#">--&nbsp;&nbsp;TOP&nbsp;&nbsp;--</a></p>
+            
+        </div>
+        <!-- // pc 컨텐츠 끝-->
+        
+        <!-- 모바일 컨텐츠 시작-->
+        <div id="sub_mo" style="margin-top:210px; padding-bottom:30px;">
+        	<div class="m_top_area">
+                <h4>기구/직제표</h4>
+                <p class="m_tt01">서울특별시 수의사회 기구/직제표입니다.</p>
+                <p class="m_tt02">서울시수의사회 홈페이지가 수의사는 물론 동물을 사랑하는 모든 분들에게 유익한 정보를 제공하고 바람직한 반려동물 문화의 요람이 되고자 새롭게 개편되었습니다.</p>
+            </div>
+            <p></p>
+            <p class="m_img01" style="margin:20px 15px 0 15px;"><img src="../images/m_sub0105_cont01.jpg" alt="#"></p>
+            <p class="m_img01" style="margin:30px 15px 0 15px;"><img src="../images/m_sub0105_cont02.jpg" alt="#"></p>
+            
+            <div style="margin:20px 15px 0 15px;">
+            <table cellpadding="0" border="0" cellspacing="0" class="table_type01">
+            	<colgroup>
+                <col width="20%" /><col width="15%" /><col width="25%" /><col width="20%" /><col width="20%" />
+                </colgroup>
+                <tr>
+                    <th>직책</th>
+                    <th>성명</th>
+                    <th>동물병원명</th>
+                    <th>전화</th>
+                    <th>비고</th>
+                </tr>
+                <tr>
+                    <td class="tt">회장</td>
+                    <td>손은필</td>
+                    <td>제일종합동물병원</td>
+                    <td>894-3030</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="tt">감사</td>
+                    <td>강명대</td>
+                    <td>강현림종합동물병원</td>
+                    <td>2642-9159</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>이영국</td>
+                    <td>영국동물병원</td>
+                    <td>402-5746</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>임창규</td>
+                    <td>신내동물병원</td>
+                    <td>3422-0001</td>
+                    <td>중랑구&nbsp; 분회장</td>
+                </tr>
+                <tr>
+                    <td rowspan="5" class="tt">부회장</td>
+                    <td>주병구</td>
+                    <td>대림종합동물병원</td>
+                    <td>845-3368</td>
+                    <td>영등포구분회장</td>
+                </tr>
+                <tr>
+                    <td>정인호</td>
+                    <td>쥬라기동물병원</td>
+                    <td>455-7570</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>황규택</td>
+                    <td>동물병원위드</td>
+                    <td>907-1565</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>육진엽</td>
+                    <td>개명동물종합병원</td>
+                    <td>2619-0888</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>김민주</td>
+                    <td>잠실25시동물병원</td>
+                    <td>419-1351</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">상무이사(총무)</td>
+                    <td>이상민</td>
+                    <td>방학동물병원</td>
+                    <td>3494-0075</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">학술이사</td>
+                    <td>윤병국</td>
+                    <td>24시청담우리동물병원</td>
+                    <td>541-7515</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">홍보이사</td>
+                    <td>김태환</td>
+                    <td>서울종합동물병원</td>
+                    <td>888-8807</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">수의무이사</td>
+                    <td>신창엽</td>
+                    <td>현대종합동물병원</td>
+                    <td>999-9110</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">윤리이사</td>
+                    <td>나응식</td>
+                    <td>그레이스동물병원</td>
+                    <td>3442-5554</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">대외협력이사</td>
+                    <td>서범석</td>
+                    <td>스타동물병원</td>
+                    <td>468-6612</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tt">문화복지이사</td>
+                    <td>방인준</td>
+                    <td>더&nbsp; 동물병원</td>
+                    <td>431-7575</td>
+                    <td>송파구분회장</td>
+                </tr>
+                <tr>
+                    <td class="tt">재무이사</td>
+                    <td>우이종</td>
+                    <td>메디포즈동물병원</td>
+                    <td>558-6354</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="32" class="tt">이사</td>
+                    <td>강석재</td>
+                    <td>염창제일동물병원</td>
+                    <td>3665-7582</td>
+                    <td>강서구분회장</td>
+                </tr>
+                <tr>
+                    <td>민병철</td>
+                    <td>민병철동물병원</td>
+                    <td>2695-1231</td>
+                    <td>양천구분회장</td>
+                </tr>
+                <tr>
+                    <td>박영욱</td>
+                    <td>망원동물병원</td>
+                    <td>332-0017</td>
+                    <td>마포구분회장</td>
+                </tr>
+                <tr>
+                    <td>박준원</td>
+                    <td>강북동물병원</td>
+                    <td>985-7525</td>
+                    <td>강북구분회장</td>
+                </tr>
+                <tr>
+                    <td>김애진</td>
+                    <td>관악동물병원</td>
+                    <td>883-2733</td>
+                    <td>관악구분회장</td>
+                </tr>
+                <tr>
+                    <td>한영민</td>
+                    <td>한동물병원</td>
+                    <td>577-3690</td>
+                    <td>서초구분회장</td>
+                </tr>
+                <tr>
+                    <td>이상범</td>
+                    <td>지구촌동물병원</td>
+                    <td>869-7582</td>
+                    <td>구로구분회장</td>
+                </tr>
+                <tr>
+                    <td>박한얼</td>
+                    <td>한얼동물병원</td>
+                    <td>304-5553</td>
+                    <td>은평구분회장</td>
+                </tr>
+                <tr>
+                    <td>김창용</td>
+                    <td>미소동물병원</td>
+                    <td>929-1212</td>
+                    <td>성북구분회장</td>
+                </tr>
+                <tr>
+                    <td>조재훈</td>
+                    <td>시마동물병원</td>
+                    <td>908-7585</td>
+                    <td>노원구분회장</td>
+                </tr>
+                <tr>
+                    <td>윤락훈</td>
+                    <td>모범동물병원</td>
+                    <td>532-1740</td>
+                    <td>동작구분회장</td>
+                </tr>
+                <tr>
+                    <td>윤홍준</td>
+                    <td>월드펫동물병원</td>
+                    <td>379-7575</td>
+                    <td>종로구분회장</td>
+                </tr>
+                <tr>
+                    <td>이기철</td>
+                    <td>신영동물병원</td>
+                    <td>3217-1081</td>
+                    <td>서대문구분회장</td>
+                </tr>
+                <tr>
+                    <td>김준기</td>
+                    <td>방학동물병원</td>
+                    <td>3494-0075</td>
+                    <td>도봉구분회장</td>
+                </tr>
+                <tr>
+                    <td>상래홍</td>
+                    <td>안암동물병원</td>
+                    <td>925-3686</td>
+                    <td>동대문구분회장</td>
+                </tr>
+                <tr>
+                    <td>장운기</td>
+                    <td>미래지동물병원</td>
+                    <td>2233-7574</td>
+                    <td>중구분회장</td>
+                </tr>
+                <tr>
+                    <td>전일광</td>
+                    <td>한빛동물병원</td>
+                    <td>2233-1848</td>
+                    <td>성동구분회장</td>
+                </tr>
+                <tr>
+                    <td>이건민</td>
+                    <td>쿨펫동물병원</td>
+                    <td>809-7583</td>
+                    <td>금천구분회장</td>
+                </tr>
+                <tr>
+                    <td>주성일</td>
+                    <td>남산동물병원</td>
+                    <td>778-7582</td>
+                    <td>용산구분회장</td>
+                </tr>
+                <tr>
+                    <td>표효명</td>
+                    <td>박형우동물병원</td>
+                    <td>488-8275</td>
+                    <td>강동구분회장</td>
+                </tr>
+                <tr>
+                    <td>한성희</td>
+                    <td>포이동물병원</td>
+                    <td>578-8400</td>
+                    <td>강남구분회장</td>
+                </tr>
+                <tr>
+                    <td>황재웅</td>
+                    <td>기린동물병원</td>
+                    <td>444-8111</td>
+                    <td>광진구분회장</td>
+                </tr>
+                <tr>
+                    <td>김기석</td>
+                    <td>검역검사본부</td>
+                    <td>2650-0621</td>
+                    <td>검역검사본부</td>
+                </tr>
+                <tr>
+                    <td>손홍락</td>
+                    <td>서울시청</td>
+                    <td>2133-4722</td>
+                    <td>공직수의사분회</td>
+                </tr>
+                <tr>
+                    <td>강명석</td>
+                    <td>광진동물종합병원</td>
+                    <td>457-4545</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>김관우</td>
+                    <td>여의도쿨펫동물병원</td>
+                    <td>785-7582</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>김광식</td>
+                    <td>위드펫종합병원</td>
+                    <td>2202-0075</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>박철</td>
+                    <td>다솔동물병원</td>
+                    <td>3142-7298</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>정우조</td>
+                    <td>래이동물의료센터</td>
+                    <td>556-7588</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>최인영</td>
+                    <td>러브펫동물병원</td>
+                    <td>972-6543</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>최형탁</td>
+                    <td>논현동물병원</td>
+                    <td>3442-3785</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>한은숙</td>
+                    <td>숲속동물병원</td>
+                    <td>492-9303</td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
+            
+            <p class="btn_top_go"><a href="#">--&nbsp;&nbsp;TOP&nbsp;&nbsp;--</a></p>
+        </div>
+        <!-- // 모바일 컨텐츠 끝-->
+        
+        
+        
+    </div>
+    
+    <footer id="footer">
+    	<div class="f_pc">
+            <p class="add">주소:서울시 성북구 안암동 5가 110-126&nbsp;&nbsp;&nbsp;Tel:02-953-4050~5&nbsp;&nbsp;&nbsp;Mail:<a href="mailto:svma@chol.com">svma@chol.com</a></p>
+            <p class="t01">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. <span>Hosting by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</span></p>
+        </div>
+        <div class="f_mo">
+            <p class="t01" style="padding-bottom:0;">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. </p>
+            <p class="t01" style="padding-top:2px; margin:0;"><a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</p>
+        </div>
+	</footer>
+</div>
+</body>
+</html>

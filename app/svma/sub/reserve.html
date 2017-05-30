@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>서울시수의사회</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
+    <link rel="stylesheet" href="../../bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bower_components/swiper/dist/css/swiper.min.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../../bower_components/a0-angular-storage/dist/angular-storage.js"></script>
+    <script src="../app.module.js"></script>
+    <script src="../app.route-config.js"></script>
+    <script src="../app.config.js"></script>
+    <script src="../app.js"></script>
+
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../js/boardController.js"></script>
+    <script src="../js/svmaHomeController.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="svmaHomeController">
+<div id="wrap">
+
+	<!-- 탑 비주얼 부분 시작-->
+	<div class="sub_visual03">
+        <a href="../index.html"><h2>교육예약</h2></a>
+        <p class="top_txt01">화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+        <p class="btn_login loginFalse"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginTrue"><a href="javascript:logout()"><img src="../images/logout.png" alt="logout"></a></p>
+    </div>
+    <!-- //탑 비주얼 부분 끝-->
+    
+    <!-- 메뉴 부분 시작-->
+    <div id="menu">
+    	<ul>
+        	<li class="first" style="width:34%;"><a href="../sub/company01.html">서울시수의사회소개</a>
+            	<div class="s_menu01">
+                    <ul>
+                        <li><a href="../sub/company01.html">인사말</a></li>
+                        <li><a href="../sub/company02.html">연혁</a></li>
+                        <li><a href="../sub/company03.html">정관</a></li>
+                        <li><a href="../sub/company04.html">윤리강령</a></li>
+                        <li><a href="../sub/company05.html">기구/직제표</a></li>
+                        <li><a href="../sub/company06.html">분회장</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li style="width:33%;"><a href="../sub/list01.html">회원공간</a>
+            	<div class="s_menu02">
+                    <ul>
+                        <li><a href="../sub/list01.html" class="first">공지사항</a></li>
+                        <li><a href="../sub/list04.html">공동구매</a></li>
+                        <li><a href="../sub/list02.html">회원 게시판</a></li>
+                        <!--<li><a href="../sub/list03.html">자료실</a></li>-->
+                    </ul>
+                </div>
+            </li>
+            <li style="width:33%;" class="on"><a href="../sub/reserve.html">교육예약</a></li>
+        </ul>
+    </div>
+    <!--// 메뉴 부분 끝-->
+    
+    <div id="contents">
+    	
+        <!-- pc / 모바일 컨텐츠 시작-->
+        <div id="sub_pc" style="padding-bottom:0;">
+        	<p class="top_area" style="margin-top:65px;"><img src="../images/sub0301_tt.jpg" alt="#"></p>
+        </div>
+        <!-- // pc 컨텐츠 끝-->
+        
+        <!-- 모바일 컨텐츠 시작-->
+        <div id="sub_mo" style="margin-top:30px;">
+        	<div class="m_top_area">
+                <h4>교육예약</h4>
+                <p class="m_tt01">서울수의 연수 교육 예약신청서</p>
+                <p class="m_tt02">저희 수의사회에서는 컨퍼런스 참가신청을 받고 있습니다.<br />아래 양식대로 입력하여 보내주세요</p>
+            </div>
+        </div>
+        <!-- // 모바일 컨텐츠 끝-->
+        
+        <div class="list" ng-show="eduView">
+            <table cellpadding="0" border="0" cellspacing="0" class="table_edit">
+                <colgroup>
+                <col width="20%" /><col width="*" />
+                </colgroup>
+                <tr>
+                    <th>행사명</th>
+                    <td>
+                        <select name="repeatSelect" id="repeatSelect" ng-model="list" ng-options="list.title for list in listData" ng-change="changeView()" class="input01">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>참가일자</th>
+                    <td class="t01"><input id="eduDate" type="text" ng-model="eduDate" class="input01" disabled/></td>
+                </tr>
+                <tr>
+                    <th>회원구분</th>
+                    <td class="t01">
+                    <select id="userType" name="" class="select01" style="width:30%;" ng-model="userType" >
+                        <option value="1">회원</option>
+                        <option value="2">비회원</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td class="t01"><input id="userNameKo" type="text" value="" class="input01" ng-model="userNameKo"/></td>
+                </tr>
+                <tr>
+                    <th>영문이름</th>
+                    <td class="t01"><input id="userNameEn" type="text" value="" class="input01" ng-model="userNameEn"/></td>
+                </tr>
+                <tr>
+                    <th>면허번호</th>
+                    <td><input id="userCreditId" type="text" value="" class="input01" ng-model="userCreditId"/></td>
+                </tr>
+                <tr>
+                    <th>동물병원명</th>
+                    <td><input id="hospitalName" type="text" value="" class="input01" ng-model="hospitalName"/></td>
+                </tr>
+                <tr>
+                    <th>주소(동물병원)</th>
+                    <td><input id="hospitalAddr" type="text" value="" class="input01" ng-model="hospitalAddr"/></td>
+                </tr>
+                <tr>
+                    <th>휴대폰</th>
+                    <td class="t01"><input id="phoneNo" type="text" value="" class="input01" ng-model="phoneNo"/></td>
+                </tr>
+                <!--
+                <tr>
+                    <th>직급</th>
+                    <td class="t01"><input id="" type="text" value="" class="input01"/></td>
+                </tr>
+                <tr>
+                    <th>전화번호</th>
+                    <td class="t01"><input id="" type="text" value="" class="input01"/></td>
+                </tr>
+                <tr>
+                    <th>성별</th>
+                    <td>
+                    	<label style="padding-right:20px;">남자 <input type="radio" value="" class="radio01" style="width:14px;" /></label>
+                        <label>여자 <input type="radio" value="" class="radio01" style="width:14px;" /></label>
+                    </td>
+                </tr>
+                                <tr>
+                    <th>이메일</th>
+                    <td><input id="" type="text" value="" class="input01"/></td>
+                </tr>
+                <tr>
+                    <th>신청인</th>
+                    <td>
+                    	신청일 <input id="" type="text" value="" class="input01" style="width:15%; vertical-align:middle;"/>년&nbsp;&nbsp;
+                        <input id="" type="text" value="" class="input01" style="width:15%; vertical-align:middle;"/>월&nbsp;&nbsp;
+                        <input id="" type="text" value="" class="input01" style="width:15%; vertical-align:middle;"/>일
+                        <label style="display:block; margin-top:5px;">신청인 <input id="" type="text" value="" class="input01 ab" style="vertical-align:middle;"/></label>
+                    </td>
+                </tr>
+                -->
+                <tr>
+                    <th>납부방법</th>
+                    <td class="t02">사전입금-하나은행 : 288-910002-23404(예금주 : 서울특별시수의사회)<span class="info_red">*본인명의로 입금부탁드립니다.</span></td>
+                </tr>
+            </table>
+            <div class="btn_area_c">
+            	<a href="#" class="btn_gray" ng-click="cancle()">취소</a>
+                <a href="#" class="btn_blue" ng-click="save()">등록</a>
+            </div>
+
+        </div>
+        <div class="list" ng-hide="eduView">
+            현재 등록되어있는 교육이 없습니다.
+        </div>
+        
+        
+    </div>
+    
+    <footer id="footer">
+    	<div class="f_pc">
+            <p class="add">주소:서울시 성북구 안암동 5가 110-126&nbsp;&nbsp;&nbsp;Tel:02-953-4050~5&nbsp;&nbsp;&nbsp;Mail:<a href="mailto:svma@chol.com">svma@chol.com</a></p>
+            <p class="t01">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. <span>Hosting by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</span></p>
+        </div>
+        <div class="f_mo">
+            <p class="t01" style="padding-bottom:0;">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. </p>
+            <p class="t01" style="padding-top:2px; margin:0;"><a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</p>
+        </div>
+	</footer>
+</div>
+</body>
+</html>

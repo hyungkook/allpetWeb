@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>서울시 수의사회</title>
+	<link rel="stylesheet" href="css/admin.css" type="text/css"/>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../../bower_components/jquery.bootgrid/dist/jquery.bootgrid.css" type="text/css"/>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../bower_components/jquery.bootgrid/dist/jquery.bootgrid.js"></script>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../js/boardController.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            jQuery.support.cors = true;
+            var url = targetUrl + 'svma/admin/userList';
+
+
+            var grid = $("#grid-keep-selection").bootgrid({
+                ajax: true,
+                ajaxSettings: {
+                    method: "GET",
+                    cache: false
+                },
+                post: function ()
+                {
+                    return {
+                    };
+                },
+                url: url,
+                selection: true,
+                multiSelect: false,
+                rowSelect: true,
+                keepSelection: true,
+                formatters: {
+                    "commands": function(column, row)
+                    {
+                        return "<button type=\"button\" class=\"glyphicon glyphicon-trash command-delete\" data-row-id=\"" + row.userCreditId + "\"><span class=\"fa fa-trash-o\"></span></button>";
+                    }
+                }
+            })
+            .on("loaded.rs.jquery.bootgrid", function()
+            {
+                grid.find(".command-edit").on("click", function(e){
+                }).end().find(".command-delete").on("click", function(e){
+                    if ( confirm('정말 삭제하시겠습니까?') ){
+                        var url = targetUrl + 'svma/admin/userDel?userCreditId=' + $(this).data("row-id") ;
+                        $.ajax({
+                            url : url,
+                            type : 'get',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json'
+                        })
+                        .success(function(datas){
+                            $('#grid-keep-selection').bootgrid('reload');
+                        });
+                    }
+                });
+            })
+            .on("selected.rs.jquery.bootgrid", function(e, rows)
+            {
+                var rowIds = [];
+                for (var i = 0; i < rows.length; i++)
+                {
+                    rowIds.push(rows[i].id);
+                }
+            }).on("deselected.rs.jquery.bootgrid", function(e, rows)
+            {
+                var rowIds = [];
+                for (var i = 0; i < rows.length; i++)
+                {
+                    rowIds.push(rows[i].id);
+                }
+            });
+
+
+
+        });
+
+        function addUser(){
+            $('#modal').modal({
+                keyboard: false
+            })
+        }
+        function saveUser(){
+            var userCreditId = $('#userCreditId').val();
+            var userNameKo = $('#userNameKo').val();
+            var url = targetUrl + 'svma/admin/userAdd?userCreditId='+userCreditId + '&userNameKo='+userNameKo;
+            $.ajax({
+                url : url,
+                type : 'GET',
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+            .success(function(datas){
+                alert('등록에 성공하였습니다');
+                $('#modal').modal('hide');
+            })
+            .error(function(datas){
+                alert('등록에 실패하였습니다');
+                $('#modal').modal('hide');
+            });
+        }
+    </script>
+</head>
+
+<body>
+<div id="wrap">
+    
+    <!------------------------------------------------- header start ------------------------------------------------->
+    <div id="header">
+        <h1><a href="../index.html"><img src="images/h1_logo.gif" /></a></h1>
+    </div>
+    <!------------------------------------------------- //header end  ------------------------------------------------->
+    
+    <!------------------------------------------------- container start ------------------------------------------------->
+    <div id="container">
+    
+    	<!----------------------- lnbwrap start ----------------------->
+    	<div id="lnbwrap">
+        	<h2>관리자화면</h2>
+            <div class="lnb">
+            	<ul>
+                    <li><a href="list.html">공지사항 올리기</a></li>
+                    <li><a href="list01.html">교육 예약관리</a></li>
+                    <li><a href="list02.html" class="on">회원관리</a></li>
+                </ul>
+            </div>
+        </div>
+        <!----------------------- //lnbwrap end ----------------------->
+        
+        <!----------------------- contents start ----------------------->
+        <div id="contents">
+        
+        	<!-- cont_top start -->
+        	<div class="cont_top">
+            	<h3>회원관리</h3>
+            </div>
+            <!-- cont_top end -->
+
+            
+            <!-- section 여기부터 내용 start ---------------------------------------------------------------------->
+            <div class="section">
+                <p class="btn_area_l"><a href="javascript:addUser()" class="btn_blue">회원 등록하기</a></p>
+                <table id="grid-keep-selection" class="table table-condensed table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th data-column-id="userCreditId" data-type="string" data-identifier="true">수의사아이디</th>
+                        <th data-column-id="userNameKo">수의사 이름</th>
+                        <th data-column-id="userTypeDesc">회원타입</th>
+                        <th data-column-id="commands" data-formatter="commands" data-sortable="false">회원삭제</th>
+                    </tr>
+                    </thead>
+                </table>
+
+            </div>
+            <!-- //section 여기부터 내용 end ---------------------------------------------------------------------->
+            
+            
+            
+            
+            
+        </div>
+        <!----------------------- //contents end ----------------------->
+        
+    </div>
+    <!------------------------------------------------- //container end  ------------------------------------------------->
+    
+    <!------------------------------------------------- footer start ------------------------------------------------->
+    <div id="footer">Copyright © ALLPET Inc. All Rights Reserved.</div>
+    <!------------------------------------------------- //footer end  ------------------------------------------------->
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">회원 등록하기</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" id="userCreditId" class="form-control" placeholder="회원아이디" aria-describedby="basic-addon1" style="width: 200px">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="userNameKo" class="form-control" placeholder="회원이름" aria-describedby="basic-addon1" style="width: 200px">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-primary" onclick="saveUser()">등록하기</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+   
+</div>
+</body>
+</html>

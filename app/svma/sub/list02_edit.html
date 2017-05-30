@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>서울시수의사회</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/media-queries_sub.css">
+    <link rel="stylesheet" href="../../bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../js/boardController.js"></script>
+    <script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../components/smarteditor/js/HuskyEZCreator.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        var boardSeq = location.search.split('boardSeq=')[1];
+        var editor_object02 = [];
+        $(document).ready(function() {
+            if( boardSeq != null && boardSeq > 0 ){
+                $('#create').hide();
+                $('#edit').show();
+                var url = targetUrl + 'board/getBoard?boardSeq='+boardSeq;
+                $.ajax({
+                    url : url,
+                    type : 'GET',
+                    contentType: 'application/json',
+                    dataType: 'json'
+                })
+                        .success(function(datas){
+                            $('#title').val(datas.title);
+                            $('#rcount').val(datas.rcount);
+                            $('#smarteditor').html(datas.content);
+                            $(function(){
+                                nhn.husky.EZCreator.createInIFrame({
+                                    oAppRef: editor_object02,
+                                    elPlaceHolder: "smarteditor",
+                                    sSkinURI: "../../components/smarteditor/SmartEditor2Skin.html",
+                                    htParams : {
+                                        // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                                        bUseToolbar : true,
+                                        // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                                        bUseVerticalResizer : true,
+                                        // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                                        bUseModeChanger : true
+                                    }
+                                });
+                            });
+                        });
+            }else{
+                $('#create').show();
+                $('#edit').hide();
+                $(function(){
+                    nhn.husky.EZCreator.createInIFrame({
+                        oAppRef: editor_object02,
+                        elPlaceHolder: "smarteditor",
+                        sSkinURI: "../../components/smarteditor/SmartEditor2Skin.html",
+                        htParams : {
+                            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                            bUseToolbar : true,
+                            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                            bUseVerticalResizer : true,
+                            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                            bUseModeChanger : true
+                        }
+                    });
+                });
+            }
+        });
+        function saveBoard(boardType, viewType){
+            if( !boardSeq ){
+                boardSeq = 0;
+            }
+            var url = targetUrl + 'board/saveBoard?viewType='+viewType+ '&boardSeq=' + boardSeq;
+            var userName = $.cookie('cookie_svma_name');
+            var userId = $.cookie('userCreditId');
+            if( !userName ){
+                alert('로그인 정보가 없습니다.\n로그인 페이지로 이동합니다.');
+                location.href = "login.html";
+            }
+            editor_object02.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+
+            var data = {
+                boardType : boardType,
+                title : $('#title').val(),
+                username : userName,
+                passwd : userId,
+                content : $('#smarteditor').val(),
+                ssid : ssid
+            };
+            $.ajax({
+                url : url,
+                type : 'POST',
+                data : JSON.stringify(data),
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+                    .success(function(datas){
+                        location.href = 'list02.html';
+                    })
+                    .error(function(datass){
+                        location.href = 'list02.html';
+                    });
+
+        }
+    </script>
+</head>
+
+<body>
+<div id="wrap">
+
+	<!-- 탑 비주얼 부분 시작-->
+	<div class="sub_visual02">
+    	<h2>회원공간</h2>
+        <p class="top_txt01">화합과 소통을 통한 회원 중심의 건실한 수의사회</p>
+        <p class="btn_login loginFalse"><a href="../sub/login.html"><img src="../images/login.png" alt="login"></a></p>
+        <p class="btn_login loginTrue"><a href="javascript:logout()"><img src="../images/logout.png" alt="logout"></a></p>
+    </div>
+    <!-- //탑 비주얼 부분 끝-->
+    
+    <!-- 메뉴 부분 시작-->
+    <div id="menu">
+    	<ul>
+        	<li class="first" style="width:34%;"><a href="../sub/company01.html">서울시수의사회소개</a>
+            	<div class="s_menu01">
+                    <ul>
+                        <li><a href="../sub/company01.html">인사말</a></li>
+                        <li><a href="../sub/company02.html">연혁</a></li>
+                        <li><a href="../sub/company03.html">정관</a></li>
+                        <li><a href="../sub/company04.html">윤리강령</a></li>
+                        <li><a href="../sub/company05.html">기구/직제표</a></li>
+                        <li><a href="../sub/company06.html">분회장</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li style="width:33%;" class="on"><a href="../sub/list01.html">회원공간</a>
+            	<div class="s_menu02">
+                    <ul>
+                        <li><a href="../sub/list01.html" class="first">공지사항</a></li>
+                        <li><a href="../sub/list04.html">공동구매</a></li>
+                        <li><a href="../sub/list02.html" class="on">회원 게시판</a></li>
+                        <!--<li><a href="../sub/list03.html">자료실</a></li>-->
+                    </ul>
+                </div>
+            </li>
+            <li style="width:33%;"><a href="../sub/reserve.html">교육예약</a></li>
+        </ul>
+    </div>
+    <!--// 메뉴 부분 끝-->
+    
+    <div id="contents">
+    	
+        <!-- pc / 모바일 컨텐츠 시작-->
+        <div id="sub_pc" style="padding-bottom:0;">
+        	<p class="top_area"><img src="../images/sub0202_tt.jpg" alt="#"></p>
+        </div>
+        <!-- // pc 컨텐츠 끝-->
+        
+        <!-- 모바일 컨텐츠 시작-->
+        <div id="sub_mo" style="margin-top:147px;">
+        	<div class="m_top_area">
+                <a href="../index.html"><h4>회원게시판</h4></a>
+                <p class="m_tt01">서울특별시 수의사회 회원게시판 입니다.</p>
+                <p class="m_tt02">서울시수의사회 홈페이지가 수의사는 물론 동물을 사랑하는 모든 분들에게 유익한 정보를 제공하고 바람직한 반려동물 문화의 요람이 되고자 새롭게 개편되었습니다.</p>
+            </div>
+        </div>
+        <!-- // 모바일 컨텐츠 끝-->
+        <div class="list">
+            <table cellpadding="0" border="0" cellspacing="0" class="table_edit">
+                <colgroup>
+                <col width="20%" /><col width="*" />
+                </colgroup>
+                <tr>
+                    <th>제목</th>
+                    <td><input id="title" name="title" type="text" value="" class="input01"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="pa01"><textarea name="smarteditor" id="smarteditor" rows="10" cols="96" style="width:100%; height:412px;"></textarea></td>
+                </tr>
+            </table>
+            <div class="btn_area_c">
+            	<a href="list02.html" class="btn_gray">취소</a>
+                <a href="javascript:saveBoard('02', 'create')" class="btn_blue" id="create">등록</a>
+                <a href="javascript:saveBoard('02', 'edit')" class="btn_blue" id="edit">수정</a>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <footer id="footer">
+    	<div class="f_pc">
+            <p class="add">주소:서울시 성북구 안암동 5가 110-126&nbsp;&nbsp;&nbsp;Tel:02-953-4050~5&nbsp;&nbsp;&nbsp;Mail:<a href="mailto:svma@chol.com">svma@chol.com</a></p>
+            <p class="t01">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. <span>Hosting by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</span></p>
+        </div>
+        <div class="f_mo">
+            <p class="t01" style="padding-bottom:0;">COPYRIGHT 2015 BY(사)서울특별시 수의사회 ALL RIGHTS RESERVED. </p>
+            <p class="t01" style="padding-top:2px; margin:0;"><a href="http://www.allpethome.com" target="_blank">ALLPET</a>. Designed by <a href="http://www.allpethome.com" target="_blank">ALLPET</a>.</p>
+        </div>
+	</footer>
+</div>
+</body>
+</html>
