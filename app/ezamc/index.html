@@ -49,7 +49,7 @@
             <nav class="gnb">
                 <ul>
                     <li><a role="button" ui-sref="homeInfo">병원소개</a></li>
-                    <li><a role="button" ui-sref="homeMedicalParts1">특화진료</a></li>
+                    <li><a role="button" ui-sref="homeMedicalParts1.parts3">특화진료</a></li>
                     <li><a role="button" ui-sref="homeMedicalParts2">진료과목</a></li>
                     <li><a role="button" ui-sref="homeBeauty">미용안내</a></li>
                     <li><a role="button" ui-sref="homeBoard" ui-sref-opts="{reload: true}">알림마당</a> </li>
@@ -75,6 +75,13 @@
         }
         .popupLay img{max-width:none;}
 
+        .popupLay1{
+            width:466px; height:350px;
+            position:absolute; top:100px; left:60%;
+            border:1px solid #000; z-index:9999; background-color: #fff;
+            display: none;
+        }
+
         .closePop{float:right;padding-right:10px;}
         .closePop label{float:left; font-size:12px; color:#000 !important; margin:4px 10px 0 0;}
         .closePop label input{position:relative;top:-3px;left:-3px;}
@@ -93,6 +100,17 @@
             </form>
         </div>
 
+    </div>
+    <div id="pop1" class="popupLay1">
+        <div>
+            <img src="images/popimg1.jpg"/>
+        </div>
+        <div class="closePop">
+            <form name="pop_form1">
+            <label><input type="checkbox" name="chkbox1" value="checkbox">오늘 하루동안 보지 않기</label>
+            <a href="#" ng-click="closePop1()">CLOSE</a>
+            </form>
+        </div>
     </div>
 
     <footer class="footer">

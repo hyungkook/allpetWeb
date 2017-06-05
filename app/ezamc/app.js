@@ -51,6 +51,12 @@ function HomeController($http, $scope, constant, $modal, store) {
         }
         document.all['pop'].style.visibility = "hidden";
     }
+    $scope.closePop1 = function () {
+        if ( document.pop_form1.chkbox1.checked ){
+            $scope.setCookie( "maindiv1", "done" , 1 );
+        }
+        document.all['pop1'].style.visibility = "hidden";
+    }
 
 
     $scope.init = function(){
@@ -76,6 +82,14 @@ function HomeController($http, $scope, constant, $modal, store) {
             document.all['pop'].style.visibility = "hidden";
         }
         $( "#pop" ).draggable();
+
+        if ( cookiedata.indexOf("maindiv1=done") < 0 ){
+            document.all['pop1'].style.visibility = "visible";
+        }
+        else {
+            document.all['pop1'].style.visibility = "hidden";
+        }
+        $( "#pop1" ).draggable();
     }
 
     $scope.init();
